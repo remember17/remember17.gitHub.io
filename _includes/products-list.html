@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/customcss/products.css">
+
+{% for section in site.data.products %}
+<div class="product-section">
+  <!-- <h2>{{ section[1].title }}</h2> -->
+  
+  {% for product in section[1].items %}
+  <div class="product-card {{ product.theme }}" onclick="window.location.href='https://apps.apple.com/cn/app/id{{ product.id }}'">
+    <div class="product-content">
+      <a href="https://apps.apple.com/cn/app/id{{ product.id }}" class="product-icon">
+        <img src="../assets/projects/{{ product.image }}" alt="{{ product.name }} - {{ product.subtitle }}">
+      </a>
+      <div class="product-info">
+        <h3>
+          <a href="https://apps.apple.com/cn/app/id{{ product.id }}">
+            {{ product.icon }} {{ product.name }} - {{ product.subtitle }}
+          </a>
+        </h3>
+        <p>{{ product.description }}</p>
+        <a href="https://apps.apple.com/cn/app/id{{ product.id }}" class="app-store-button">在 App Store 查看</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
