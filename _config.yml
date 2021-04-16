@@ -1,0 +1,40 @@
+# Configurations
+title:            Wuhao's Blog
+longtitle:
+author:           Wuhao
+email:            wuhao.code@gmail.com
+description: >
+  天气不错.
+
+version:          1.0
+gitbook_version:  3.2.3
+
+url:              'www.fivehow.com'
+baseurl:          ''
+rss:              RSS
+
+# markdown render engine.
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+markdown_ext:     markdown,mkdown,mkdn,mkd,md
+
+# Permalinks
+permalink:        /:categories/:title.html
+
+exclude:
+  - _drafts
+
+destination:      ./_site
+incremental:      false
+regenerate:       true
+
+plugins:
+  - jemoji
+
+# 固定White主题
+theme_color: white
+disable_theme_settings: true
