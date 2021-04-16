@@ -1,0 +1,114 @@
+:root {
+  /* 颜色变量 */
+  --primary-color: #5B9EFF;
+  --text-primary: #2c3e50;
+  --text-secondary: #666;
+  --border-color: #B4C5D3;
+  --button-text: #8BB4F7;
+  --button-border: #f3dcd5;
+  --button-hover-bg: #F5F9FF;
+  --button-hover-text: #f3dcd5;
+  --button-hover-border: #d69581;
+  
+  /* 尺寸变量 */
+  --card-padding: 20px;
+  --border-radius: 15px;
+  --icon-size: 100px;
+  --gap: 20px;
+}
+
+/* 布局组件 */
+.product-section {
+  margin-bottom: 50px;
+}
+
+.product-section h2 {
+  font-size: 1.8em;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+/* 卡片组件 */
+.product-card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  padding: var(--card-padding);
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 内容布局 */
+.product-content {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+/* 图标样式 */
+.product-icon {
+  flex-shrink: 0;
+}
+
+.product-icon img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: 22px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 产品信息 */
+.product-info h3 a {
+  text-decoration: none;
+}
+
+/* 移除 hover 时的颜色变化 */
+.product-info h3 a:hover {
+  color: none;
+}
+
+.product-info p {
+  margin: 10px 0;
+  color: var(--text-secondary);
+}
+
+/* 按钮样式 */
+.app-store-button {
+  display: inline-block;
+  padding: 8px 20px;
+  color: var(--button-text);
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9em;
+  border: 1.5px solid var(--button-border);
+  transition: all 0.3s ease;
+}
+
+.app-store-button:hover {
+  background: var(--button-hover-bg);
+  color: var(--button-hover-text);
+  transform: translateY(-2px);
+  border-color: var(--button-hover-border);
+  box-shadow: 0 2px 8px rgba(139, 180, 247, 0.15);
+}
+
+/* 主题样式 */
+.recordbox-theme {
+  background: linear-gradient(135deg, #FFE4E1, #FFF);
+}
+
+.hab-theme {
+  background: linear-gradient(135deg, #E1F5FE, #FFF);
+}
+
+.dini-theme {
+  background: linear-gradient(135deg, #E8F5E9, #FFF);
+}
