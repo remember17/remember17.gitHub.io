@@ -1,0 +1,9 @@
+---
+layout: post
+title: Products
+date: 2024-10-09
+categories: [products]
+tags: [products]
+---
+
+{% include products-list.html %}
