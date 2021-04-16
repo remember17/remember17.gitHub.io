@@ -1,0 +1,38 @@
+.articleTitle { /* 文章标题 */
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.timeContainer {
+    /* 时间容器 */
+    display: inline;
+}
+
+.timeImg {
+    /* 时间图标 */
+    width: 16px;
+    vertical-align: middle;
+}
+
+.timeLabel {
+    /* 时间label */
+    color: #666699;
+    font-size: 12px;
+}
+
+.articleDesc {
+    /* 文章描述 */
+    font-size: 14px;
+}
+
+.record {
+    height: 40px;
+    line-height: 40px;
+}
+
+.topHeader {
+    height: 60px; 
+    line-height: 60px; 
+    font-size: 2em; 
+    font-weight: 700;
+}
