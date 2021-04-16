@@ -1,0 +1,23 @@
+---
+layout: post
+title: tech articles
+date:   2024-10-09
+categories: [articles]
+tags: [articles]
+---
+
+#### [关于](https://fivehow.com/about/2017-06-06-about.html)
+
+#### [什么是KMM](https://www.fivehow.com/tech/2023-08-10-kmm-basic)
+
+#### [iOS ProtocolBuffer的使用](https://www.fivehow.com/tech/2021-09-26-protocolbuffer)
+
+#### [有限状态机FSM](https://www.fivehow.com/tech/2021-04-26-有限状态机FSM.html)
+
+#### [设计原则SOLID](https://www.fivehow.com/tech/2020-01-16-设计原则SOLID.html)
+
+#### [iOS蓝牙开发数据处理](https://www.fivehow.com/ios/2017-08-17-iOS蓝牙开发数据处理.html)
+
+#### [iOS蓝牙开发基](https://www.fivehow.com/ios/2017-07-18-iOS蓝牙开发.html)
+
+#### [Moments - 2024](https://www.fivehow.com/moments/2024-10-09-moments-2024.html)

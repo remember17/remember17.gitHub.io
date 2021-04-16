@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      height: 100vh !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+      font-family: 'Roboto', sans-serif !important;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .articleTitle {
+      /* 文章标题 */
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #df5c36 !important;
+      text-decoration: none;
+    }
+
+    .articleTitle a {
+      color: #df5c36 !important;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .articleTitle a:hover {
+      color: #df5c36 !important;
+      text-decoration: none;
+    }
+
+    .articleDesc {
+      /* 文章描述 */
+      font-size: 14px;
+      color: #666 !important;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      text-decoration: none;
+    }
+
+    .icon-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 20px;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      position: relative;
+    }
+
+    .icon-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .icon-twitter img {
+      width: 41px; /* 原来是 35px */
+      height: 41px; /* 原来是 35px */
+    }
+
+    .icon-weibo img {
+      width: 39px; /* 原来是 35px */
+      height: 39px; /* 原来是 35px */
+    }
+
+    .icon-github img {
+      width: 30px; /* 原来是 25px */
+      height: 30px; /* 原来是 25px */
+    }
+
+    .icon-appstore img {
+      width: 35px; /* 原来是 30px */
+      height: 35px; /* 原来是 30px */
+    }
+
+    .icon-email img {
+      width: 44px; /* 原来是 37px */
+      height: 44px; /* 原来是 37px */
+    }
+
+    .text-links {
+      display: flex;
+      font-size: 20px;
+      color: #df5c36;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 10px;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      text-decoration: none;
+    }
+
+    .text-links a {
+      text-decoration: none;
+      color: #df5c36;
+      font-size: 20px;
+      font-weight: bold;
+      /* 设置字体为粗体 */
+      font-family: 'Roboto', sans-serif;
+      /* 设置字体 */
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .articles {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      margin-top: 20px;
+      /* 增加顶部间距 */
+      text-decoration: none;
+    }
+
+    .show-articles .articles {
+      max-height: 100vh;
+      margin-top: 40px;
+      /* 增加顶部间距 */
+    }
+
+    .show-articles .icon-links,
+    .show-articles .text-links {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    .show-articles .icon-links.show,
+    .show-articles .text-links.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toggle-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 引入Google字体 -->
+</head>
+
+<body>
+  <div class="container">
+    <div class="icon-links">
+      <a href="https://x.com/areahao" target="_blank" class="icon-twitter">
+        <img src="icons/twitter.png" alt="Twitter">
+      </a>
+      <a href="https://weibo.com/u/1877098637" target="_blank" class="icon-weibo">
+        <img src="icons/weibo.png" alt="微博">
+      </a>
+      <a href="https://github.com/remember17" target="_blank" class="icon-github">
+        <img src="icons/github.png" alt="Github">
+      </a>
+      <a href="mailto:wuhao.code@gmail.com" class="icon-email">
+        <img src="icons/email.png" alt="wuhao.code@gmail.com">
+      </a>
+      <a href="https://fivehow.com/products/2024-10-09-products.html" class="icon-appstore">
+        <img src="icons/appstore.png" alt="Products">
+      </a>
+    </div>
+
+    <!-- <div class="text-links">
+      <a class="blog" onclick="toggleArticles()">Wuhao's Blog</a>
+    </div> -->
+
+    <div class="text-links">
+      <a href="https://www.fivehow.com/articles/2024-10-09-articles.html" class="blog">Posts</a>
+      <a href="https://fivehow.com/products/2024-10-09-products.html" class="blog">Products</a>
+    </div>
+
+    <div class="articles">
+      <div class="article">
+        <a class="articleTitle" href="https://www.fivehow.com/recordbox/2021-08-03-recordbox.html">记录Box</a>
+        <p class="articleDesc">‘记录Box’是我个人开发的一款iOS APP...</p>
+      </div>
+
+      <br>
+
+      <div class="article">
+        <a class="articleTitle" href="https://www.fivehow.com/tech/2023-08-10-kmm-basic">KMM初探</a>
+        <p class="articleDesc">
+          Kotlin Multiplatform允许Kotlin代码在多平台上运行...
+        </p>
+      </div>
+
+      <br>
+
+      <div class="article">
+        <a class="articleTitle" href="https://www.fivehow.com/tech/2021-09-26-protocolbuffer">iOS
+          ProtocolBuffer环境配置与使用</a>
+        <p class="articleDesc">
+          Protocol Buffer是Google出品的一种轻量高效的结构化数据存储格式...
+        </p>
+      </div>
+
+      <br>
+
+      <div class="article">
+        <a class="articleTitle" href="https://www.fivehow.com/tech/2021-04-26-有限状态机FSM.html">有限状态机FSM</a>
+        <p class="articleDesc">
+          有限状态机简写为FSM（Finite State Machine），它有4个要素，即现态、条件、动作、次态。“现态”和“条件”是因，“动作”和“次态”是果...
+        </p>
+      </div>
+
+      <br>
+
+      <div class="article">
+        <a class="articleTitle" href="https://www.fivehow.com/tech/2020-01-16-设计原则SOLID.html">设计原则SOLID</a>
+        <p class="articleDesc">
+          开闭原则 OCP - Open Close Principle，可扩展(extension)，不可修改(modification)。把容易改变或增减的功能抽象成接口或方法...
+        </p>
+      </div>
+
+      <br>
+
+      <div class="article">
+        <a class="articleTitle" href="https://www.fivehow.com/ios/2017-08-17-iOS蓝牙开发数据处理.html">iOS蓝牙开发数据处理</a>
+        <p class="articleDesc">
+          在蓝牙项目的开发过程中，会遇到了一些与数据处理有关的问题...
+        </p>
+      </div>
+
+      <br>
+
+      <div class="article">
+        <a class="articleTitle" href="https://www.fivehow.com/ios/2017-07-18-iOS蓝牙开发.html">iOS蓝牙开发基础</a>
+        <p class="articleDesc">
+          iOS的蓝牙开发是围绕着CoreBluetooth框架来实现的...
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    wuhao.code@gmail.com
+  </div>
+
+  <script>
+    function toggleArticles() {
+      document.body.classList.toggle('show-articles');
+      setTimeout(() => {
+        document.querySelector('.icon-links').classList.toggle('show');
+        document.querySelector('.text-links').classList.toggle('show');
+      }, 500); // 延迟时间与 CSS 过渡时间相同
+    }
+  </script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "36e06f565edc4860bd653724824b08fd"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>
