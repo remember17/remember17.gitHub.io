@@ -1,0 +1,17 @@
+---
+layout: post
+title: WebMark
+date: 2022-07-15
+categories: [webmark]
+tags: [webmark]
+---
+
+# WebMark
+
+`WebMark`是我个人开发的一款iOS APP
+
+- 主要是为了搜索的时候可以随意选择知名搜索引擎
+- 使用iPhone系统Safari浏览器，安全可靠
+- 后面会加入更多功能，例如：网址收藏，桌面小组件等
+
+***[Privacy Policy](https://www.fivehow.com/webmark/2022-07-15-WebMarkPrivacyPolicy.html)***

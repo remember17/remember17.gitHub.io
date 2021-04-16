@@ -1,0 +1,29 @@
+---
+layout: post
+title: Tech
+date:   2017-06-06
+categories: [about]
+tags: [about]
+---
+
+# About
+
+👉　吴浩
+
+🍎　iOS开发 
+
+🌱　[个人开发的iOS APP: 记录Box](https://apps.apple.com/cn/app/id1579304692)
+
+🚀　[GitHub](https://github.com/remember17)
+
+🔨　Swift / SwiftUI / OC
+
+💻　了解：Flutter / HTML / CSS / JS
+
+🧭　当前位置：上海
+
+📮　[wuhao.code@gmail.com](mailto:wuhao.code@gmail.com)
+
+🔥　喜欢写代码，看电影，打篮球，打游戏
+
+<!-- 🍿　[日常](https://www.fivehow.com/navigation/2017-06-06-records-navigation) -->
