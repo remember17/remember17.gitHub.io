@@ -18,6 +18,18 @@ tags: [recordbox]
 
 <img src="../recordbox/api/recordbox.png" width="200" height="200" alt="下载记录Box二维码"/>
 
+<div style="overflow-x: auto; white-space: nowrap;">
+  <img src="../assets/recordbox/1.jpg" width="150" height="325" alt="记录Box截图1"/>
+  <img src="../assets/recordbox/2.jpg" width="150" height="325" alt="记录Box截图2"/>
+  <img src="../assets/recordbox/3.jpg" width="150" height="325" alt="记录Box截图3"/>
+  <img src="../assets/recordbox/4.jpg" width="150" height="325" alt="记录Box截图4"/>
+  <img src="../assets/recordbox/5.jpg" width="150" height="325" alt="记录Box截图5"/>
+  <img src="../assets/recordbox/6.jpg" width="150" height="325" alt="记录Box截图6"/>
+  <img src="../assets/recordbox/7.jpg" width="150" height="325" alt="记录Box截图7"/>
+  <img src="../assets/recordbox/8.jpg" width="150" height="325" alt="记录Box截图8"/>
+  <img src="../assets/recordbox/9.jpg" width="150" height="325" alt="记录Box截图9"/>
+</div>
+
 生活中总有这些烦恼：
 
 💸 花钱没计划，预算总超支？
