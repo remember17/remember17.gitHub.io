@@ -18,12 +18,6 @@ tags: [recordbox]
 
 <img src="../recordbox/api/recordbox.png" width="200" height="200" alt="下载记录Box二维码"/>
 
-
-<video width="1080" height=" × 1920" controls>
-  <source src="../recordbox/api/record_box_video.mp4" type="video/mp4">
-</video>
-
-
 生活中总有这些烦恼：
 
 💸 花钱没计划，预算总超支？
@@ -74,4 +68,4 @@ tags: [recordbox]
 
 - 多种主题风格，满足你的审美需求，界面不单调！
 
-📱 立即下载 **[记录Box](https://apps.apple.com/cn/app/id1579304692)**，体验记录之美，轻松掌控每一天！ 🌟
+## 📱 立即下载 **[记录Box](https://apps.apple.com/cn/app/id1579304692)**，体验记录之美，轻松掌控每一天！ 🌟
