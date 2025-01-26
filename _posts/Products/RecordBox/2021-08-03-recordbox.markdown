@@ -18,6 +18,12 @@ tags: [recordbox]
 
 <img src="../recordbox/api/recordbox.png" width="200" height="200" alt="下载记录Box二维码"/>
 
+
+<video width="1080" height=" × 1920" controls>
+  <source src="../recordbox/api/record_box_video.mp4" type="video/mp4">
+</video>
+
+
 生活中总有这些烦恼：
 
 💸 花钱没计划，预算总超支？
