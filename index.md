@@ -1,5 +1,6 @@
 ---
 layout: home
+title: Home
 ---
 
 # [About >]({% link _posts/2017-06-06-about.markdown %})
