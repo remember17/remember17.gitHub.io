@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 关于
+title: About
 date:   2017-06-06
 categories: [about]
 tags: [about]
@@ -8,20 +8,19 @@ tags: [about]
 
 # About
 
-👉　Wuhao
+### 👉　Wuhao
+### 📮　[wuhao.code@gmail.com](mailto:wuhao.code@gmail.com)
 
-🍎　iOS Dev
+--- 
 
 🧭　Location: Shanghai
 
 🔥　Coding, Movies, Basketball, Games
 
-📱　[Products]({% link _posts/Products/2024-10-09-products.markdown %})
+**📱　[Products]({% link _posts/Products/2024-10-09-products.markdown %})**
 
-🚀　[GitHub](https://github.com/remember17)
+**🚀　[GitHub](https://github.com/remember17)**
 
-🤙　[Twitter](https://twitter.com/areahao)
+**🤙　[Twitter](https://twitter.com/areahao)**
 
-🧣　[Weibo](https://weibo.com/u/1877098637)
-
-📮　[wuhao.code@gmail.com](mailto:wuhao.code@gmail.com)
+**🧣　[Weibo](https://weibo.com/u/1877098637)**
