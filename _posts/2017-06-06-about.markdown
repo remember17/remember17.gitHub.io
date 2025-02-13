@@ -6,8 +6,6 @@ categories: [about]
 tags: [about]
 ---
 
-# About
-
 ### 👉　Wuhao
 ### 📮　[wuhao.code@gmail.com](mailto:wuhao.code@gmail.com)
 
