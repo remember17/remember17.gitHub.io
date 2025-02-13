@@ -21,7 +21,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
             'icon': 'fa fa-envelope',
             'onClick': function(e) {
                 e.preventDefault();
-                window.location.href = "https://fivehow.com/about/2017-06-06-about.html";
+                window.location.href = "https://fivehow.com/about/2017-06-06-about";
             }
         },
         'github': {
