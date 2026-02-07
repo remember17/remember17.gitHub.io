@@ -1,0 +1,16 @@
+{
+  "en": {
+    "title": "My Indie App",
+    "today_name": "Today",
+    "today_desc": "Today is an app focused on building good habits with a clean interface.",
+    "recordbox_name": "RecordBox",
+    "recordbox_desc": "A multifunctional recording app for managing life's details: bookkeeping, moments, password manager, notes (Markdown), all in one box. Designed for simplicity, privacy, and efficiency."
+  },
+  "zh": {
+    "title": "我的Apps",
+    "today_name": "Today",
+    "today_desc": "Today 是一款帮助用户建立良好习惯的应用，界面简洁直观，规划今日习惯。",
+    "recordbox_name": "记录Box",
+    "recordbox_desc": "多功能记录App，笔记(支持Markdown)、记账、记时光、密码备忘四大场景，极简设计蕴含强大功能。"
+  }
+}
