@@ -1,0 +1,1 @@
+import{u as o}from"./session-store.Dd2HyGIM.js";async function i(e="/applications/auth"){return await o().restoreSession()?!0:(typeof window<"u"&&(window.location.href=e),!1)}async function r(e="/applications"){return await o().restoreSession()&&typeof window<"u"?(window.location.href=e,!0):!1}export{i as a,r};

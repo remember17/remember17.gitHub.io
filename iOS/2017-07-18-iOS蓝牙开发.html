@@ -1,0 +1,92 @@
+<!DOCTYPE html><html> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>iOS蓝牙开发 - FiveHow</title><link rel="stylesheet" href="/gitbook/style.css"><link rel="stylesheet" href="/gitbook/rouge-highlight-colorful.css"></head> <body> <div class="book"> <div class="book-body"> <div class="body-inner"> <div class="page-wrapper" tabindex="-1" role="main"> <div class="page-inner"> <section class="normal markdown-section"> <h1 id="ios蓝牙开发">iOS蓝牙开发</h1>
+<blockquote>
+<ul>
+<li>1、iOS蓝牙开发的关键词</li>
+<li>2、蓝牙的简单介绍</li>
+<li>3、CoreBluetooth框架</li>
+<li>4、实现iOS蓝牙外设（<strong><a href="https://github.com/remember17/WHBLEDemo">Demo</a></strong>）</li>
+<li>5、实现iOS蓝牙中心设备（<strong><a href="https://github.com/remember17/WHBLEDemo">Demo</a></strong>）</li>
+</ul>
+</blockquote>
+<p>Demo的运行gif图如下，中心设备可以从外设读取数据，也可以向外设写入数据。外设也可以向中心设备发送数据。
+PS：需要使用真机测试。</p>
+<p><img src="/assets/bluetooth/bluetooth-1.gif" alt=""></p>
+<p>iOS的蓝牙开发是围绕着CoreBluetooth框架来实现的。
+下面先从iOS蓝牙开发的基本概念说起。</p>
+<h1 id="一ios蓝牙开发的关键词">一、iOS蓝牙开发的关键词</h1>
+<blockquote>
+<p>中心设备：就是用来扫描周围蓝牙硬件的设备，比如通过你手机的蓝牙来扫描并连接智能手环，这时候你的手机就是中心设备。</p>
+</blockquote>
+<blockquote>
+<p>外设：被扫描的设备。比如当你用手机的蓝牙扫描连接智能手环的时候，智能手环就是外设。</p>
+</blockquote>
+<blockquote>
+<p>服务（service）：外设对外提供的服务，比如智能手环可以提供一个心率监测的服务，一个计步的服务。一个外设可以有一个或多个服务。</p>
+</blockquote>
+<blockquote>
+<p>特征（characteristic）：每个服务包含的特征，比如心率服务下有一个心率测量的特征，记录手环测量的心率数据。一个服务可以有一个或多个特征。</p>
+</blockquote>
+<blockquote>
+<p>UUID：区分不同的服务和特征。每一个服务、特征都有一个唯一的UUID来标识。</p>
+</blockquote>
+<h1 id="二蓝牙的简单介绍">二、蓝牙的简单介绍</h1>
+<p>蓝牙技术是一种短距离、低成本的无线技术，它是一种无线数据和语音通讯开放的全球规范。</p>
+<p>蓝牙技术的应用范围：</p>
+<ul>
+<li>数据和声音的无线传输</li>
+<li>个人设备的互联互通</li>
+<li>物联网设备</li>
+</ul>
+<p>蓝牙的版本：</p>
+<ul>
+<li>经典蓝牙：功耗较高，传输速率较快，主要用于声音的传输</li>
+<li>低功耗蓝牙BLE（Bluetooth Low Energy）：功耗低，传输速率较慢，主要用于实时性要求不高的数据传输</li>
+</ul>
+<p>iOS开发中，主要使用的是BLE。</p>
+<h1 id="三corebluetooth框架">三、CoreBluetooth框架</h1>
+<p>CoreBluetooth框架是iOS中用于操作蓝牙的核心框架。</p>
+<p><img src="/assets/bluetooth/bluetooth-5.png" alt=""></p>
+<p><img src="/assets/bluetooth/bluetooth-2.png" alt=""></p>
+<p><img src="/assets/bluetooth/bluetooth-3.png" alt=""></p>
+<p><img src="/assets/bluetooth/bluetooth-4.png" alt=""></p>
+<p>主要的类：</p>
+<ul>
+<li>CBCentralManager：中心管理者，用于管理中心设备</li>
+<li>CBPeripheral：外设</li>
+<li>CBService：服务</li>
+<li>CBCharacteristic：特征</li>
+<li>CBPeripheralManager：外设管理者，用于管理外设</li>
+</ul>
+<p>主要的协议：</p>
+<ul>
+<li>CBCentralManagerDelegate：中心管理者的代理</li>
+<li>CBPeripheralDelegate：外设的代理</li>
+<li>CBPeripheralManagerDelegate：外设管理者的代理</li>
+</ul>
+<p><img src="/assets/bluetooth/bluetooth-6.png" alt=""></p>
+<p><img src="/assets/bluetooth/bluetooth-7.png" alt=""></p>
+<h1 id="四实现ios蓝牙外设">四、实现iOS蓝牙外设</h1>
+<p>实现步骤：</p>
+<ol>
+<li>创建外设管理者CBPeripheralManager</li>
+<li>设置外设管理者的代理</li>
+<li>创建服务和特征</li>
+<li>添加服务到外设管理者</li>
+<li>开始广播</li>
+</ol>
+<p><img src="/assets/bluetooth/bluetooth-8.png" alt=""></p>
+<p>详细代码请查看：<a href="https://github.com/remember17/WHBLEDemo">Demo</a></p>
+<h1 id="五实现ios蓝牙中心设备">五、实现iOS蓝牙中心设备</h1>
+<p>实现步骤：</p>
+<ol>
+<li>创建中心管理者CBCentralManager</li>
+<li>设置中心管理者的代理</li>
+<li>扫描外设</li>
+<li>连接外设</li>
+<li>发现服务</li>
+<li>发现特征</li>
+<li>读取特征的值</li>
+<li>订阅特征的值</li>
+</ol>
+<p><img src="/assets/bluetooth/bluetooth-9.png" alt=""></p>
+<p>详细代码请查看：<a href="https://github.com/remember17/WHBLEDemo">Demo</a></p> </section> </div> </div> </div> </div> </div> </body></html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>KMM初探 - FiveHow</title><link rel="stylesheet" href="/gitbook/style.css"><link rel="stylesheet" href="/gitbook/rouge-highlight-colorful.css"></head> <body> <div class="book"> <div class="book-body"> <div class="body-inner"> <div class="page-wrapper" tabindex="-1" role="main"> <div class="page-inner"> <section class="normal markdown-section"> <h1 id="kmm初探">KMM初探</h1>
+<p><img src="/assets/kmm/0.png" alt=""></p>
+<h2 id="kotlin是什么">Kotlin是什么？</h2>
+<p><img src="/assets/kmm/1.svg" alt=""></p>
+<p><code>Kotlin</code>是一种由<code>JetBrains</code>创造的类型强安全的编程语言，主要设计运行在Java虚拟机<code>（JVM）</code>上。</p>
+<p><code>Google</code>已经宣布<code>Kotlin</code>作为<code>Android</code>开发的首选语言。</p>
+<p><code>Kotlin</code>是开源的，拥有超过400名活跃的贡献者。</p>
+<p>简单来说，<code>Kotlin</code>是一种广受欢迎的编程语言。</p>
+<br>
+<h2 id="kotlin-multiplatform是什么">Kotlin Multiplatform是什么？</h2>
+<p><img src="/assets/kmm/2.svg" alt=""></p>
+<p><code>Kotlin Multiplatform</code>允许<code>Kotlin</code>代码在多平台上运行，包括<code>JVM</code>、<code>Android</code>、<code>iOS</code>、<code>macOS</code>、<code>Windows</code>、<code>Linux</code>和<code>Web</code>等。</p>
+<p>虽然<code>Kotlin Multiplatform</code>仍处于<code>Beta</code>阶段，但它已经成为<code>Kotlin</code>团队的重点项目，预期将在今年（2023）发布稳定版本。</p>
+<br>
+<h2 id="缩写释义kmp-和-kmm">缩写释义：KMP 和 KMM</h2>
+<p>KMM：<code>Kotlin Multiplatform Mobile</code></p>
+<p>KMP：<code>Kotlin Multiplatform Project</code></p>
+<p>当我们只谈论移动设备开发时，则是KMM。只有iOS和Android。</p>
+<p>如果我们说的是所有平台，包括Web、服务端等，那就是KMP。</p>
+<br>
+<h2 id="什么样的项目适合使用kmm">什么样的项目适合使用KMM？</h2>
+<p><img src="/assets/kmm/3.svg" alt=""></p>
+<p>跨平台功能相似的项目最适合使用KMM。</p>
+<p>典型的例子就是<code>iOS</code>和<code>Android</code>项目，它们的业务逻辑、网络、数据库和日志记录等都可以进行代码复用。这些公共部分非常适合进行代码共享。</p>
+<p>更棒的是，KMM允许iOS和Android各自实现其<code>Native UI</code>。</p>
+<br>
+<h2 id="kmm项目结构">KMM项目结构</h2>
+<p><img src="/assets/kmm/4.png" alt=""></p>
+<p>我们用<code>Android Studio</code>创建一个KMM项目，生成的<code>Gradle</code>项目包含三个模块：<code>shared</code>、<code>androidApp</code>和<code>iosApp</code>。</p>
+<p>对于后端开发，可以使用IntelliJ来创建KMP项目。</p>
+<p>首先看图片中间的<code>shared</code>模块，它包含三个部分：<code>commonMain</code>用于存放通用的Kotlin代码，<code>androidMain</code>和<code>iosMain</code>分别用于存放Android和iOS专用代码。所有在<code>shared</code>模块中的代码都可以在iOS和Android上使用。</p>
+<p>右侧的<code>iosApp</code>模块是一个iOS Xcode项目，可以打包并上传到App Store，并且会集成<code>shared</code>模块的代码。</p>
+<p>最左侧的部分则是一个Android项目，其工作方式与iosApp模块相同。</p>
+<br>
+<h2 id="连接到特定平台的api">连接到特定平台的API</h2>
+<p><img src="/assets/kmm/7.png" alt=""></p>
+<p>虽然KMM允许我们编写大量的共享代码，但有时候，我们仍需要访问特定平台的API。
+KMM提供了<code>Expect</code>和<code>Actual</code>两个关键字，用于实现这一目标。左图展示了这两个关键字的声明。</p>
+<p>让我们一起看看右图中的例子。假设我们需要实现一个<code>randomUUID()</code>方法，但iOS和Android有各自不同的UUID获取API。</p>
+<p>iOS需要导入<code>Foundation</code>并使用<code>NSUUID().UUIDString()</code>，而Android则需要导入<code>java.util</code>并使用<code>UUID.randomUUID().toString()</code>。在这种情况下，我们可以使用<code>Expect</code>和<code>Actual</code>。</p>
+<p>首先，在图的顶部，我们使用<code>Expect</code>来声明一个<code>randomUUID()</code>函数，接着在<code>iosMain</code>和<code>androidMain</code>中使用<code>Actual</code>来实现该方法。</p>
+<p>这样，我们就可以在任何地方使用这个方法，而无需关心每个平台的具体实现方式，因为KMM会自动找到相应平台的具体实现。</p>
+<p><code>Expect</code>和<code>Actual</code>关键字可适用于函数、类、接口、枚举、属性等。</p>
+<br>
+<h2 id="kotlin-multiplatform是如何工作的">Kotlin Multiplatform是如何工作的?</h2>
+<p><img src="/assets/kmm/8-0.png" alt=""></p>
+<p>关键是<code>Kotlin为不同平台提供了特定的编译器</code>, 可以根据目标平台转换代码。</p>
+<p>这些编译器包括<code>Kotlin/JVM</code>、<code>Kotlin/JavaScript</code>和<code>Kotlin/Native</code>。编译器会将Kotlin代码转换成相应平台的可执行代码,从而使普通的Kotlin代码能够在不同平台上运行。</p>
+<p>这个过程实际上比较复杂,涉及<code>LLVM</code>、中间产物、前端编译器、后端编译器等。但现在我们只需要知道,KMP的工作原理是依赖不同的编译器就可以了。</p>
+<br>
+<h2 id="在新项目或已有项目中使用">在新项目或已有项目中使用</h2>
+<p><img src="/assets/kmm/9.svg" alt=""></p>
+<p>我们可以自由选择在项目中应用Kotlin Multiplatform的范围。</p>
+<p>可以启动一个全新的项目,将数据层和业务层全部使用KMM来编写。</p>
+<p>也可以仅选择某个逻辑使其跨平台,将其作为微库连接到现有项目中。</p>
+<p>重点是,使用KMM非常灵活,你可以将其理解为仅是一个集成到主项目中的共享SDK,由你决定SDK的内容。</p>
+<br>
+<h2 id="原生性能">原生性能</h2>
+<p><img src="/assets/kmm/10.png" alt=""></p>
+<p>KMP直接将共享代码编译成各平台的可执行代码,因此性能与原生一致。</p>
+<br>
+<h2 id="良好的社区支持">良好的社区支持</h2>
+<p><img src="/assets/kmm/13.svg" alt=""></p>
+<p>许多知名库已经支持<code>Kotlin Multiplatform</code>, 如<code>Ktor</code>、<code>SQLDelight</code>、<code>Arrow</code>和<code>Realm</code>等。</p>
+<p>而且正如之前提到的, <code>JetBrains</code>和<code>Google</code>也在大力支持它。</p> </section> </div> </div> </div> </div> </div> </body></html>
