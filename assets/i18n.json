@@ -1,0 +1,20 @@
+{
+  "en": {
+    "title": "My Products",
+    "now_name": "Now",
+    "now_desc": "Write things down by sending messages. Organize your thoughts into conversations, collaborate with others, and sync across devices with iCloud.",
+    "today_name": "Today",
+    "today_desc": "Today is an app focused on building good habits with a clean interface.",
+    "recordbox_name": "RecordBox",
+    "recordbox_desc": "A multifunctional recording app for managing life's details: bookkeeping, moments, password manager, notes (Markdown), all in one box. Designed for simplicity, privacy, and efficiency."
+  },
+  "zh": {
+    "title": "我的产品",
+    "now_name": "Now",
+    "now_desc": "Now 可以把事情用发送消息的方式写下来。创建多个会话组织内容，与他人协作，通过 iCloud 同步到所有设备。",
+    "today_name": "Today",
+    "today_desc": "Today 是一款帮助用户建立良好习惯的应用，界面简洁直观，规划今日习惯。",
+    "recordbox_name": "记录Box",
+    "recordbox_desc": "多功能记录App，笔记(支持Markdown)、记账、记时光、密码备忘四大场景，极简设计蕴含强大功能。"
+  }
+}

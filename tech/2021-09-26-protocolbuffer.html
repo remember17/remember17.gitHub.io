@@ -1,0 +1,216 @@
+<!DOCTYPE html><html> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ProtocolBuffer - FiveHow</title><link rel="stylesheet" href="/gitbook/style.css"><link rel="stylesheet" href="/gitbook/rouge-highlight-colorful.css"></head> <body> <div class="book"> <div class="book-body"> <div class="body-inner"> <div class="page-wrapper" tabindex="-1" role="main"> <div class="page-inner"> <section class="normal markdown-section"> <h1 id="ios-protocolbuffer环境配置与使用">iOS ProtocolBuffer环境配置与使用</h1>
+<p>Protocol Buffer是Google出品的一种轻量高效的结构化数据存储格式</p>
+<hr>
+<h1 id="swift">Swift</h1>
+<h2 id="一环境配置">一、环境配置</h2>
+<p>可以直接终端：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#E1E4E8">brew install swift</span><span style="color:#F97583">-</span><span style="color:#E1E4E8">protobuf</span></span>
+<span class="line"></span></code></pre>
+<p>也可以按如下步骤配置：</p>
+<h3 id="1clone-protobuf">1.Clone Protobuf</h3>
+<p><strong><a href="https://github.com/apple/swift-protobuf">https://github.com/apple/swift-protobuf</a></strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#E1E4E8">$ git clone https:</span><span style="color:#6A737D">//github.com/apple/swift-protobuf.git</span></span>
+<span class="line"><span style="color:#E1E4E8">$ cd swift</span><span style="color:#F97583">-</span><span style="color:#E1E4E8">protobuf</span></span>
+<span class="line"></span></code></pre>
+<h3 id="2选择tag并构建protoc插件">2.选择tag并构建protoc插件</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#6A737D">// 列出所有tag</span></span>
+<span class="line"><span style="color:#E1E4E8">$ git tag </span><span style="color:#F97583">-</span><span style="color:#E1E4E8">l</span></span>
+<span class="line"><span style="color:#6A737D">// 选择某个tag，我是选择最新的</span></span>
+<span class="line"><span style="color:#E1E4E8">$ git checkout tags</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">[tag_name]</span></span>
+<span class="line"><span style="color:#6A737D">// 构建</span></span>
+<span class="line"><span style="color:#E1E4E8">$ swift build </span><span style="color:#F97583">-</span><span style="color:#E1E4E8">c release</span></span>
+<span class="line"></span></code></pre>
+<p>构建完成后会在<code>swift-protobuf/.build/release</code>路径下生成<code>protoc-gen-swift</code></p>
+<p>然后复制<code>protoc-gen-swift</code>到环境变量路径中</p>
+<h2 id="二创建proto文件定义结构">二、创建<code>.proto</code>文件，定义结构</h2>
+<p><a href="https://colobu.com/2017/03/16/Protobuf3-language-guide/">Protobuf3 语法指南</a></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#6A737D">// 使用PB3的语法</span></span>
+<span class="line"><span style="color:#E1E4E8">syntax </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "proto3"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// message代表一个模型</span></span>
+<span class="line"><span style="color:#E1E4E8">message Test {</span></span>
+<span class="line"><span style="color:#E1E4E8">  string title </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  int32 tag </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  Request request </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  repeated string values </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 4</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// 数组</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">message Request {</span></span>
+<span class="line"><span style="color:#E1E4E8">  string url </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h2 id="三把proto文件转为swift模型">三、把<code>.proto</code>文件转为Swift模型</h2>
+<ol>
+<li>
+<p>创建两个文件夹<code>origin_path</code>和<code>target_path</code>，并放在同一路径<code>Test</code>下
+（注：文件夹名自定义）</p>
+</li>
+<li>
+<p>把上一步创建好的<code>.proto</code>放到<code>origin_path</code>路径下</p>
+</li>
+</ol>
+<p><img src="/assets/protobuf/1.png" alt=""></p>
+<p>cd到<code>Test</code>，终端执行：（注意对应路径和文件名）</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#E1E4E8">protoc </span><span style="color:#F97583">--</span><span style="color:#E1E4E8">proto_path</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">origin_path </span><span style="color:#F97583">--</span><span style="color:#E1E4E8">swift_out</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">target_path origin_path</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">Test.proto</span></span>
+<span class="line"></span></code></pre>
+<ol start="3">
+<li>在<code>target_path</code>中查看转好的文件</li>
+</ol>
+<p><img src="/assets/protobuf/3.png" alt=""></p>
+<h2 id="四在ios工程中使用">四、在iOS工程中使用</h2>
+<ol>
+<li>pod添加</li>
+</ol>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#E1E4E8">pod </span><span style="color:#9ECBFF">'SwiftProtobuf'</span></span>
+<span class="line"></span></code></pre>
+<ol start="2">
+<li>
+<p>把之前转好的模型文件加入工程</p>
+</li>
+<li>
+<p>Code</p>
+</li>
+</ol>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#6A737D">        /*</span></span>
+<span class="line"><span style="color:#6A737D">         {</span></span>
+<span class="line"><span style="color:#6A737D">         "title": "test",</span></span>
+<span class="line"><span style="color:#6A737D">         "tag": 1,</span></span>
+<span class="line"><span style="color:#6A737D">         "request": {</span></span>
+<span class="line"><span style="color:#6A737D">         "url": "www.fivehow.com"</span></span>
+<span class="line"><span style="color:#6A737D">         },</span></span>
+<span class="line"><span style="color:#6A737D">         "values": ["value1", "value2"]</span></span>
+<span class="line"><span style="color:#6A737D">         }</span></span>
+<span class="line"><span style="color:#6A737D">         */</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#E1E4E8">        let request </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Request.with { $</span><span style="color:#FDAEB7;font-style:italic">0.url</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "www.fivehow.com"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#E1E4E8">        let test </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Test.with {</span></span>
+<span class="line"><span style="color:#E1E4E8">            $</span><span style="color:#FDAEB7;font-style:italic">0.title</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "test"</span></span>
+<span class="line"><span style="color:#E1E4E8">            $</span><span style="color:#FDAEB7;font-style:italic">0.tag</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line"><span style="color:#E1E4E8">            $</span><span style="color:#FDAEB7;font-style:italic">0.request</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> request</span></span>
+<span class="line"><span style="color:#E1E4E8">            $</span><span style="color:#FDAEB7;font-style:italic">0.values</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"value1"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"value2"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#E1E4E8">        let binaryData </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> try</span><span style="color:#F97583">?</span><span style="color:#E1E4E8"> test.</span><span style="color:#B392F0">serializedData</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">        guard let binaryData </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> binaryData </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> { </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">        _ </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> try</span><span style="color:#F97583">?</span><span style="color:#B392F0"> Test</span><span style="color:#E1E4E8">(serializedData: binaryData)</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#E1E4E8">        let jsonStr </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "{</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">title</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">test</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">, </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">tag</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:1, </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">request</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:{</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">url</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">www.fivehow.com</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">},</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">values</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:[</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">value1</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">, </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">value2</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">]}"</span></span>
+<span class="line"><span style="color:#E1E4E8">        let jsonStrData </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> jsonStr.</span><span style="color:#B392F0">data</span><span style="color:#E1E4E8">(using: .utf8)</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#B392F0">        print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"binaryData: </span><span style="color:#FDAEB7;font-style:italic">\(</span><span style="color:#9ECBFF">binaryData.count)"</span><span style="color:#E1E4E8">)            </span><span style="color:#6A737D">// 43</span></span>
+<span class="line"><span style="color:#E1E4E8">        guard let jsonStrData </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> jsonStrData </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> { </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#B392F0">        print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"jsonStrData: </span><span style="color:#FDAEB7;font-style:italic">\(</span><span style="color:#9ECBFF">jsonStrData.count)"</span><span style="color:#E1E4E8">)          </span><span style="color:#6A737D">// 92</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h1 id="objective-c">Objective-C</h1>
+<h2 id="一环境配置-1">一、环境配置</h2>
+<h3 id="1下载protobuf并解压">1.下载Protobuf并解压</h3>
+<p><strong><a href="https://github.com/protocolbuffers/protobuf/releases">https://github.com/protocolbuffers/protobuf/releases</a></strong></p>
+<p>cd到解压好的路径下</p>
+<h3 id="2终端按顺序执行">2.终端按顺序执行</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#E1E4E8">brew install autoconf automake libtool curl</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">.</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">autogen.sh</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">.</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">configure</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">make</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">make check</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">make install</span></span>
+<span class="line"></span></code></pre>
+<h3 id="3检查是否安装成功">3.检查是否安装成功</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#E1E4E8">protoc </span><span style="color:#F97583">--</span><span style="color:#E1E4E8">version</span></span>
+<span class="line"></span></code></pre>
+<h2 id="二创建proto文件定义结构-1">二、创建<code>.proto</code>文件，定义结构</h2>
+<p><a href="https://colobu.com/2017/03/16/Protobuf3-language-guide/">Protobuf3 语法指南</a></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#6A737D">// 使用PB3的语法</span></span>
+<span class="line"><span style="color:#E1E4E8">syntax </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "proto3"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// 模型文件前缀</span></span>
+<span class="line"><span style="color:#E1E4E8">option objc_class_prefix </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "WH"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// message代表一个模型</span></span>
+<span class="line"><span style="color:#E1E4E8">message Test {</span></span>
+<span class="line"><span style="color:#E1E4E8">  string title </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  int32 tag </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  Request request </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  repeated string values </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 4</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// 数组</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">message Request {</span></span>
+<span class="line"><span style="color:#E1E4E8">  string url </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h2 id="三把proto文件转为oc模型">三、把<code>.proto</code>文件转为OC模型</h2>
+<ol>
+<li>
+<p>创建两个文件夹<code>origin_path</code>和<code>target_path</code>，并放在同一路径<code>Test</code>下
+（注：文件夹名自定义）</p>
+</li>
+<li>
+<p>把上一步创建好的<code>.proto</code>放到<code>origin_path</code>路径下</p>
+</li>
+</ol>
+<p><img src="/assets/protobuf/1.png" alt=""></p>
+<p>cd到<code>Test</code>，终端执行：（注意对应路径和文件名）</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#E1E4E8">protoc </span><span style="color:#F97583">--</span><span style="color:#E1E4E8">proto_path</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">origin_path </span><span style="color:#F97583">--</span><span style="color:#E1E4E8">objc_out</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">target_path origin_path</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">Test.proto</span></span>
+<span class="line"></span></code></pre>
+<ol start="3">
+<li>在<code>target_path</code>中查看转好的文件</li>
+</ol>
+<p><img src="/assets/protobuf/2.png" alt=""></p>
+<h2 id="四在ios工程中使用-1">四、在iOS工程中使用</h2>
+<ol>
+<li>pod添加</li>
+</ol>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#E1E4E8">pod </span><span style="color:#9ECBFF">'Protobuf'</span></span>
+<span class="line"></span></code></pre>
+<ol start="2">
+<li>
+<p>把之前转好的模型文件加入工程</p>
+</li>
+<li>
+<p>导入模型头文件</p>
+</li>
+</ol>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#F97583">#import</span><span style="color:#9ECBFF"> "Test.pbobjc.h"</span></span>
+<span class="line"></span></code></pre>
+<ol start="4">
+<li>Code</li>
+</ol>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#6A737D">    /*</span></span>
+<span class="line"><span style="color:#6A737D">     {</span></span>
+<span class="line"><span style="color:#6A737D">         "title": "test",</span></span>
+<span class="line"><span style="color:#6A737D">         "tag": 1,</span></span>
+<span class="line"><span style="color:#6A737D">         "request": {</span></span>
+<span class="line"><span style="color:#6A737D">             "url": "www.fivehow.com"</span></span>
+<span class="line"><span style="color:#6A737D">         },</span></span>
+<span class="line"><span style="color:#6A737D">         "values": ["value1", "value2"]</span></span>
+<span class="line"><span style="color:#6A737D">     }</span></span>
+<span class="line"><span style="color:#6A737D">     */</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // ProtoBuf data</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    WHTest </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">test </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [[WHTest </span><span style="color:#79B8FF">alloc</span><span style="color:#E1E4E8">] </span><span style="color:#79B8FF">init</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    test.title </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> @"test"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    test.tag </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    test.valuesArray </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">NSMutableArray</span></span>
+<span class="line"><span style="color:#E1E4E8">                        arrayWithObjects:</span><span style="color:#9ECBFF">@"value1"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">@"value2"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">nil</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    WHRequest </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">request </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [[WHRequest </span><span style="color:#79B8FF">alloc</span><span style="color:#E1E4E8">] </span><span style="color:#79B8FF">init</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    request.URL </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> @"www.fivehow.com"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    test.request </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> request;</span></span>
+<span class="line"><span style="color:#79B8FF">    NSData</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">protoBufData </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [test </span><span style="color:#79B8FF">data</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Json Data</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    NSString</span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> jsonStr </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> @"{</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">title</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">test</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">, </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">tag</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:1, </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">request</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:{</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">url</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">www.fivehow.com</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">},</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">values</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">:[</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">value1</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">, </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">value2</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">]}"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    NSData</span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> jsonData </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [jsonStr </span><span style="color:#79B8FF">dataUsingEncoding:</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">NSUTF8StringEncoding</span><span style="color:#E1E4E8">)];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // 对比 data length</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"protoBufData: </span><span style="color:#79B8FF">%ld</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, protoBufData.length);   </span><span style="color:#6A737D">// 43</span></span>
+<span class="line"><span style="color:#79B8FF">    NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"jsonData: </span><span style="color:#79B8FF">%ld</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, jsonData.length);           </span><span style="color:#6A737D">// 92</span></span>
+<span class="line"></span></code></pre> </section> </div> </div> </div> </div> </div> </body></html>
