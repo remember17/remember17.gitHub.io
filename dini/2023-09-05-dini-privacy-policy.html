@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Dini Privacy Policy · FiveHow</title><meta name="theme-color" content="#11100d"><script>(function(){
+  try {
+    var p = new URLSearchParams(location.search);
+    var at = p.get('appTheme');
+    var ht = p.get('theme');
+    var lt = p.get('lang');
+    var t = (at === 'light' || at === 'dark')
+      ? at
+      : ((ht === 'light' || ht === 'dark') ? ht : localStorage.getItem('fivehow-home-theme'));
+    if (t === 'light' || t === 'dark') {
+      if (at === 'light' || at === 'dark' || ht === 'light' || ht === 'dark') {
+        localStorage.setItem('fivehow-home-theme', t);
+      }
+    } else {
+      t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+    var l = (lt === 'zh' || lt === 'en') ? lt : localStorage.getItem('fivehow-home-lang');
+    if (l === 'zh' || l === 'en') {
+      if (lt === 'zh' || lt === 'en') {
+        localStorage.setItem('fivehow-home-lang', l);
+      }
+    } else {
+      l = 'zh';
+    }
+    document.documentElement.setAttribute('data-lang', l);
+    document.documentElement.setAttribute('lang', l === 'en' ? 'en' : 'zh-CN');
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-lang', 'zh');
+    document.documentElement.setAttribute('lang', 'zh-CN');
+  }
+})();</script><link rel="stylesheet" href="/styles/fh-home-theme.css"><link rel="stylesheet" href="/styles/fh-site-nav.css"><link rel="stylesheet" href="/styles/fh-prose.css"><script src="/scripts/fh-theme.js"></script><script src="/scripts/fh-i18n.js"></script><script defer src="/scripts/fh-site-nav.js"></script><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script></head> <body class="fh-prose-body"> <header class="fh-site-nav" data-fh-site-nav data-fh-lang-visibility="off"> <div class="fh-site-nav__inner"> <div class="fh-site-nav__left"> <button type="button" class="fh-site-nav__back" data-fh-back data-home-href="/" aria-label="返回" data-fh-aria-label="{&#34;zh&#34;:&#34;返回&#34;,&#34;en&#34;:&#34;Back&#34;}"> <iconify-icon icon="lucide:arrow-left" aria-hidden="true"></iconify-icon> </button> <a class="fh-site-mark" href="/" aria-label="FiveHow">FIVEHOW</a> </div> <nav class="fh-site-nav__links" aria-label="外部链接"> <a href="https://github.com/remember17" target="_blank" rel="noreferrer" aria-label="GitHub" data-fh-aria-label="{&#34;zh&#34;:&#34;GitHub&#34;,&#34;en&#34;:&#34;GitHub&#34;}" title="GitHub" data-fh-title="{&#34;zh&#34;:&#34;GitHub&#34;,&#34;en&#34;:&#34;GitHub&#34;}" data-fh-text="{&#34;zh&#34;:&#34;GitHub&#34;,&#34;en&#34;:&#34;GitHub&#34;}">GitHub</a><a href="https://x.com/areahao" target="_blank" rel="noreferrer" aria-label="X" data-fh-aria-label="{&#34;zh&#34;:&#34;X&#34;,&#34;en&#34;:&#34;X&#34;}" title="X" data-fh-title="{&#34;zh&#34;:&#34;X&#34;,&#34;en&#34;:&#34;X&#34;}" data-fh-text="{&#34;zh&#34;:&#34;X&#34;,&#34;en&#34;:&#34;X&#34;}">X</a><a href="mailto:wuhao.code@gmail.com" target="_blank" rel="noreferrer" aria-label="邮箱" data-fh-aria-label="{&#34;zh&#34;:&#34;邮箱&#34;,&#34;en&#34;:&#34;Email&#34;}" title="邮箱" data-fh-title="{&#34;zh&#34;:&#34;邮箱&#34;,&#34;en&#34;:&#34;Email&#34;}" data-fh-text="{&#34;zh&#34;:&#34;邮箱&#34;,&#34;en&#34;:&#34;Email&#34;}">邮箱</a><a href="https://weibo.com/u/1877098637" target="_blank" rel="noreferrer" aria-label="微博" data-fh-aria-label="{&#34;zh&#34;:&#34;微博&#34;,&#34;en&#34;:&#34;Weibo&#34;}" title="微博" data-fh-title="{&#34;zh&#34;:&#34;微博&#34;,&#34;en&#34;:&#34;Weibo&#34;}" data-fh-text="{&#34;zh&#34;:&#34;微博&#34;,&#34;en&#34;:&#34;Weibo&#34;}">微博</a> </nav> <div class="fh-site-nav__right"> <div class="fh-site-nav__actions"> <a class="fh-site-nav__btn" href="/" aria-label="回到 FiveHow 首页" data-fh-aria-label="{&#34;zh&#34;:&#34;回到 FiveHow 首页&#34;,&#34;en&#34;:&#34;Back to FiveHow&#34;}" data-fh-title="{&#34;zh&#34;:&#34;FiveHow 首页&#34;,&#34;en&#34;:&#34;FiveHow home&#34;}" title="FiveHow 首页"> <iconify-icon icon="lucide:home" aria-hidden="true"></iconify-icon> </a> <a class="fh-site-nav__btn" href="/notifications?product=web-blog&#38;sourceScene=site_nav" aria-label="通知中心" data-fh-aria-label="{&#34;zh&#34;:&#34;通知中心&#34;,&#34;en&#34;:&#34;Notifications&#34;}" data-fh-title="{&#34;zh&#34;:&#34;通知中心&#34;,&#34;en&#34;:&#34;Notifications&#34;}" title="通知中心"> <iconify-icon icon="lucide:bell" aria-hidden="true"></iconify-icon> </a> <a class="fh-site-nav__btn" href="/feedback?product=web-blog&#38;sourceScene=site_nav" aria-label="反馈" data-fh-aria-label="{&#34;zh&#34;:&#34;反馈&#34;,&#34;en&#34;:&#34;Feedback&#34;}" data-fh-title="{&#34;zh&#34;:&#34;反馈&#34;,&#34;en&#34;:&#34;Feedback&#34;}" title="反馈"> <iconify-icon icon="lucide:message-circle-warning" aria-hidden="true"></iconify-icon> </a> <a class="fh-site-nav__btn" href="/applications/profile" aria-label="个人中心" data-fh-aria-label="{&#34;zh&#34;:&#34;个人中心&#34;,&#34;en&#34;:&#34;Profile&#34;}" data-fh-title="{&#34;zh&#34;:&#34;个人中心&#34;,&#34;en&#34;:&#34;Profile&#34;}" title="个人中心"> <iconify-icon icon="lucide:circle-user-round" aria-hidden="true"></iconify-icon> </a> <span class="fh-site-nav__divider" aria-hidden="true"></span> <button type="button" class="fh-site-nav__btn" data-fh-theme-toggle aria-label="切换深浅色模式" data-fh-aria-label="{&#34;zh&#34;:&#34;切换深浅色模式&#34;,&#34;en&#34;:&#34;Toggle theme&#34;}" data-fh-title="{&#34;zh&#34;:&#34;切换深浅色模式&#34;,&#34;en&#34;:&#34;Toggle theme&#34;}" title="切换深浅色模式"> <iconify-icon class="fh-icon-sun" icon="lucide:sun" aria-hidden="true"></iconify-icon> <iconify-icon class="fh-icon-moon" icon="lucide:moon" aria-hidden="true"></iconify-icon> </button>  </div> </div> </div> </header> <main class="fh-prose-shell"> <article class="fh-prose"> <h1 class="fh-prose__title">Dini Privacy Policy</h1> <h3 id="dini隐私政策">Dini隐私政策</h3>
+<hr>
+<p><strong>最后更新日期：2023年9月1日</strong></p>
+<h4 id="一般条款">一般条款</h4>
+<p>使用 “Dini” 应用程序（以下简称 “本应用”）意味着您同意遵守以下隐私政策条款。</p>
+<h4 id="数据存储">数据存储</h4>
+<p>我们高度尊重您的数据隐私。在本应用中，您添加的所有数据仅会被存储在您手机的本地存储或您的 iCloud 账户中。我们不会在使用期间将任何记录数据上传到我们的服务器。</p>
+<h4 id="第三方服务">第三方服务</h4>
+<p>本应用使用 Bugly 来帮助开发者解决 Crash 和其他技术问题。此外，我们还使用个推（GeTui）来提供推送通知服务以及获取基础数据。</p>
+<h4 id="用户同意">用户同意</h4>
+<p>继续使用本应用将被视为您接受有关隐私和个人信息的上述做法。</p>
+<hr>
+<p>以上是 “Dini” 应用的隐私政策。我们建议您定期查看此隐私政策以了解任何更改。</p>
+<p>如果您有任何问题或疑虑，请随时与我们联系。</p>
+<hr>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>🧑🏻‍💻 产品：大川</span></span>
+<span class="line"><span>🌈 设计：Edi</span></span>
+<span class="line"><span>📱 开发：Wuhao</span></span>
+<span class="line"><span></span></span></code></pre> </article> </main> </body></html>

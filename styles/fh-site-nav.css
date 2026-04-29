@@ -1,0 +1,235 @@
+/* ══════════════════════════════════════════════════════════
+   FiveHow Site Nav — single source of truth
+   ──────────────────────────────────────────────────────────
+   Used by every fivehow.com page (home, apps, games, blog).
+   Depends on /styles/fh-home-theme.css for color tokens.
+   ══════════════════════════════════════════════════════════ */
+
+.fh-site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  width: 100%;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink-4) 38%, transparent);
+  background: color-mix(in srgb, var(--surface-0) 92%, transparent);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  padding-top: env(safe-area-inset-top);
+}
+
+.fh-site-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto;
+  min-height: 64px;
+  padding: 8px 0;
+}
+
+.fh-site-nav__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.fh-site-nav__back {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+}
+
+.fh-site-nav__back:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--ink-0) 6%, transparent);
+  color: var(--ink-0);
+}
+
+html[data-fh-hybrid='1'] .fh-site-nav__back {
+  display: inline-flex;
+}
+
+.fh-site-mark {
+  font-family: var(--font-display, 'General Sans', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-0);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.fh-site-nav__right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.fh-site-nav__links {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  color: var(--ink-2);
+  font-size: 0.92rem;
+  margin-left: 10px;
+}
+
+@media (min-width: 720px) {
+  .fh-site-nav__links {
+    display: flex;
+  }
+}
+
+/* Mobile: contact links on a second row below the title */
+@media (max-width: 719px) {
+  .fh-site-nav__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'left right'
+      'links links';
+    align-items: center;
+    row-gap: 2px;
+  }
+  .fh-site-nav__left {
+    grid-area: left;
+  }
+  .fh-site-nav__links {
+    display: flex;
+    grid-area: links;
+    margin-left: 0;
+    padding-top: 2px;
+    padding-bottom: 4px;
+  }
+  .fh-site-nav__right {
+    grid-area: right;
+  }
+}
+
+.fh-site-nav__links a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.fh-site-nav__links a:hover {
+  color: var(--ink-0);
+}
+
+.fh-site-nav__links a:focus-visible {
+  outline: none;
+  color: var(--ink-0);
+}
+
+/* Keep contact links as text-only highlight (no circular background). */
+.fh-site-nav__links a,
+.fh-site-nav__links a:hover,
+.fh-site-nav__links a:focus-visible {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  transform: none;
+}
+
+.fh-site-nav__divider {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  margin: 0 4px;
+  background: color-mix(in srgb, var(--ink-4) 60%, transparent);
+}
+
+.fh-site-nav__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fh-site-nav__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.fh-site-nav__btn iconify-icon {
+  font-size: 0.95rem;
+}
+
+.fh-site-nav__btn:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--ink-0) 6%, transparent);
+  color: var(--ink-0);
+  box-shadow: 0 10px 18px -16px rgba(28, 25, 23, 0.32);
+}
+
+.fh-site-nav__btn:focus-visible {
+  outline: none;
+  background: color-mix(in srgb, var(--ink-0) 8%, transparent);
+  color: var(--ink-0);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ink-0) 16%, transparent);
+}
+
+/* The dual-icon theme button reveals based on data-theme. */
+.fh-site-nav__btn .fh-icon-sun,
+.fh-site-nav__btn .fh-icon-moon {
+  display: none;
+}
+
+html[data-theme='dark'] .fh-site-nav__btn .fh-icon-sun {
+  display: inline-flex;
+}
+
+html[data-theme='light'] .fh-site-nav__btn .fh-icon-moon {
+  display: inline-flex;
+}
+
+/* Hide language toggle if page disables it */
+.fh-site-nav[data-fh-lang-visibility='off'] [data-fh-lang-toggle] {
+  display: none;
+}
+
+/* Hybrid native shell hides external links, divider, and lang toggle
+   to avoid leaving the WebView. */
+html[data-fh-hybrid='1'] .fh-site-nav__links,
+html[data-fh-hybrid='1'] .fh-site-nav__divider,
+html[data-fh-hybrid='1'] [data-fh-lang-toggle] {
+  display: none !important;
+}
+
+/* Spacing offset variable for content under the sticky nav. */
+:root {
+  --fh-site-nav-height: 72px;
+}

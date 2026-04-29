@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>有限状态机FSM · FiveHow</title><meta name="theme-color" content="#11100d"><script>(function(){
+  try {
+    var p = new URLSearchParams(location.search);
+    var at = p.get('appTheme');
+    var ht = p.get('theme');
+    var lt = p.get('lang');
+    var t = (at === 'light' || at === 'dark')
+      ? at
+      : ((ht === 'light' || ht === 'dark') ? ht : localStorage.getItem('fivehow-home-theme'));
+    if (t === 'light' || t === 'dark') {
+      if (at === 'light' || at === 'dark' || ht === 'light' || ht === 'dark') {
+        localStorage.setItem('fivehow-home-theme', t);
+      }
+    } else {
+      t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+    var l = (lt === 'zh' || lt === 'en') ? lt : localStorage.getItem('fivehow-home-lang');
+    if (l === 'zh' || l === 'en') {
+      if (lt === 'zh' || lt === 'en') {
+        localStorage.setItem('fivehow-home-lang', l);
+      }
+    } else {
+      l = 'zh';
+    }
+    document.documentElement.setAttribute('data-lang', l);
+    document.documentElement.setAttribute('lang', l === 'en' ? 'en' : 'zh-CN');
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-lang', 'zh');
+    document.documentElement.setAttribute('lang', 'zh-CN');
+  }
+})();</script><link rel="stylesheet" href="/styles/fh-home-theme.css"><link rel="stylesheet" href="/styles/fh-site-nav.css"><link rel="stylesheet" href="/styles/fh-prose.css"><script src="/scripts/fh-theme.js"></script><script src="/scripts/fh-i18n.js"></script><script defer src="/scripts/fh-site-nav.js"></script><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script></head> <body class="fh-prose-body"> <header class="fh-site-nav" data-fh-site-nav data-fh-lang-visibility="off"> <div class="fh-site-nav__inner"> <div class="fh-site-nav__left"> <button type="button" class="fh-site-nav__back" data-fh-back data-home-href="/" aria-label="返回" data-fh-aria-label="{&#34;zh&#34;:&#34;返回&#34;,&#34;en&#34;:&#34;Back&#34;}"> <iconify-icon icon="lucide:arrow-left" aria-hidden="true"></iconify-icon> </button> <a class="fh-site-mark" href="/" aria-label="FiveHow">FIVEHOW</a> </div> <nav class="fh-site-nav__links" aria-label="外部链接"> <a href="https://github.com/remember17" target="_blank" rel="noreferrer" aria-label="GitHub" data-fh-aria-label="{&#34;zh&#34;:&#34;GitHub&#34;,&#34;en&#34;:&#34;GitHub&#34;}" title="GitHub" data-fh-title="{&#34;zh&#34;:&#34;GitHub&#34;,&#34;en&#34;:&#34;GitHub&#34;}" data-fh-text="{&#34;zh&#34;:&#34;GitHub&#34;,&#34;en&#34;:&#34;GitHub&#34;}">GitHub</a><a href="https://x.com/areahao" target="_blank" rel="noreferrer" aria-label="X" data-fh-aria-label="{&#34;zh&#34;:&#34;X&#34;,&#34;en&#34;:&#34;X&#34;}" title="X" data-fh-title="{&#34;zh&#34;:&#34;X&#34;,&#34;en&#34;:&#34;X&#34;}" data-fh-text="{&#34;zh&#34;:&#34;X&#34;,&#34;en&#34;:&#34;X&#34;}">X</a><a href="mailto:wuhao.code@gmail.com" target="_blank" rel="noreferrer" aria-label="邮箱" data-fh-aria-label="{&#34;zh&#34;:&#34;邮箱&#34;,&#34;en&#34;:&#34;Email&#34;}" title="邮箱" data-fh-title="{&#34;zh&#34;:&#34;邮箱&#34;,&#34;en&#34;:&#34;Email&#34;}" data-fh-text="{&#34;zh&#34;:&#34;邮箱&#34;,&#34;en&#34;:&#34;Email&#34;}">邮箱</a><a href="https://weibo.com/u/1877098637" target="_blank" rel="noreferrer" aria-label="微博" data-fh-aria-label="{&#34;zh&#34;:&#34;微博&#34;,&#34;en&#34;:&#34;Weibo&#34;}" title="微博" data-fh-title="{&#34;zh&#34;:&#34;微博&#34;,&#34;en&#34;:&#34;Weibo&#34;}" data-fh-text="{&#34;zh&#34;:&#34;微博&#34;,&#34;en&#34;:&#34;Weibo&#34;}">微博</a> </nav> <div class="fh-site-nav__right"> <div class="fh-site-nav__actions"> <a class="fh-site-nav__btn" href="/" aria-label="回到 FiveHow 首页" data-fh-aria-label="{&#34;zh&#34;:&#34;回到 FiveHow 首页&#34;,&#34;en&#34;:&#34;Back to FiveHow&#34;}" data-fh-title="{&#34;zh&#34;:&#34;FiveHow 首页&#34;,&#34;en&#34;:&#34;FiveHow home&#34;}" title="FiveHow 首页"> <iconify-icon icon="lucide:home" aria-hidden="true"></iconify-icon> </a> <a class="fh-site-nav__btn" href="/notifications?product=web-blog&#38;sourceScene=site_nav" aria-label="通知中心" data-fh-aria-label="{&#34;zh&#34;:&#34;通知中心&#34;,&#34;en&#34;:&#34;Notifications&#34;}" data-fh-title="{&#34;zh&#34;:&#34;通知中心&#34;,&#34;en&#34;:&#34;Notifications&#34;}" title="通知中心"> <iconify-icon icon="lucide:bell" aria-hidden="true"></iconify-icon> </a> <a class="fh-site-nav__btn" href="/feedback?product=web-blog&#38;sourceScene=site_nav" aria-label="反馈" data-fh-aria-label="{&#34;zh&#34;:&#34;反馈&#34;,&#34;en&#34;:&#34;Feedback&#34;}" data-fh-title="{&#34;zh&#34;:&#34;反馈&#34;,&#34;en&#34;:&#34;Feedback&#34;}" title="反馈"> <iconify-icon icon="lucide:message-circle-warning" aria-hidden="true"></iconify-icon> </a> <a class="fh-site-nav__btn" href="/applications/profile" aria-label="个人中心" data-fh-aria-label="{&#34;zh&#34;:&#34;个人中心&#34;,&#34;en&#34;:&#34;Profile&#34;}" data-fh-title="{&#34;zh&#34;:&#34;个人中心&#34;,&#34;en&#34;:&#34;Profile&#34;}" title="个人中心"> <iconify-icon icon="lucide:circle-user-round" aria-hidden="true"></iconify-icon> </a> <span class="fh-site-nav__divider" aria-hidden="true"></span> <button type="button" class="fh-site-nav__btn" data-fh-theme-toggle aria-label="切换深浅色模式" data-fh-aria-label="{&#34;zh&#34;:&#34;切换深浅色模式&#34;,&#34;en&#34;:&#34;Toggle theme&#34;}" data-fh-title="{&#34;zh&#34;:&#34;切换深浅色模式&#34;,&#34;en&#34;:&#34;Toggle theme&#34;}" title="切换深浅色模式"> <iconify-icon class="fh-icon-sun" icon="lucide:sun" aria-hidden="true"></iconify-icon> <iconify-icon class="fh-icon-moon" icon="lucide:moon" aria-hidden="true"></iconify-icon> </button>  </div> </div> </div> </header> <main class="fh-prose-shell"> <article class="fh-prose"> <h1 class="fh-prose__title">有限状态机FSM</h1> <h1 id="有限状态机fsm">有限状态机FSM</h1>
+<h3 id="一什么是有限状态机">一、什么是有限状态机</h3>
+<p>有限状态机简写为FSM（Finite State Machine），它有4个要素，即现态、条件、动作、次态。“现态”和“条件”是因，“动作”和“次态”是果。</p>
+<ul>
+<li>现态：是指当前所处的状态。</li>
+<li>条件：又称为“事件”，当一个条件被满足，将会触发一个动作，或者执行一次状态的迁移。</li>
+<li>动作：条件满足后执行的动作。动作执行完毕后，可以迁移到新的状态，也可以仍旧保持原状态。动作不是必需的，当条件满足后，也可以不执行任何动作，直接迁移到新状态。</li>
+<li>次态：条件满足后要迁往的新状态。“次态”是相对于“现态”而言的，“次态”一旦被激活，就转变成新的“现态”了。</li>
+</ul>
+<h3 id="二flutter中的bloc">二、Flutter中的Bloc</h3>
+<p>触发事件 ---> bloc派发event ---> bloc中map根据不同的event执行不同逻辑 ---> 生成新的状态state --->  页面根据新的状态重新渲染</p>
+<h3 id="三redux">三、Redux</h3>
+<ul>
+<li>Store 就是保存数据的地方，你可以把它看成一个容器。整个应用只能有一个 Store。</li>
+<li>State 的变化，会导致 View 的变化。但是，用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。</li>
+<li>Action 就是 View 发出的通知，表示 State 应该要发生变化了。store.dispatch()是 View 发出 Action 的唯一方法。</li>
+<li>Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。</li>
+<li>Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。</li>
+<li>Reducer 函数最重要的特征是，它是一个纯函数。也就是说，只要是同样的输入，必定得到同样的输出。</li>
+</ul>
+<h3 id="四ios中实现一个fsm-transitionkit">四、iOS中实现一个FSM( <a href="https://github.com/blakewatters/TransitionKit">TransitionKit</a>)</h3>
+<h5 id="三方库transitionkit"><a href="https://github.com/blakewatters/TransitionKit">三方库：TransitionKit</a></h5>
+<h5 id="1state">1.State</h5>
+<p>每个状态有四个闭包，可以在创建State的时候传入action</p>
+<ul>
+<li>WillExit</li>
+<li>WillEnter</li>
+<li>DidExit</li>
+<li>DidEnter</li>
+</ul>
+<h5 id="2event">2.Event</h5>
+<p>每个Event代表从某个状态（sourceStates）变化到另一个状态（destinationState）</p>
+<ul>
+<li>sourceStates是一个数组，可以变到destinationState的State都可以放在数组中</li>
+<li>event有WillFire和DidFire闭包，以传入action</li>
+</ul>
+<h5 id="3transition">3.Transition</h5>
+<p>用来运输State变化过程中的各个对象，包括：</p>
+<ul>
+<li>event</li>
+<li>sourceState</li>
+<li>destinationState</li>
+<li>stateMachine</li>
+<li>userInfo （扩展参数，在Machine触发event的时候传入）</li>
+</ul>
+<h5 id="4machine">4.Machine</h5>
+<p>FSM控制中心</p>
+<ul>
+<li>
+<ol>
+<li>持有所有States</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>持有所有Event</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>需要赋予一个初始的state</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>调用activate启动Machine</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>调用fireEvent触发状态的切换，触发过程会分别调用state和event的闭包实现action，并且会发送一个通知</li>
+</ol>
+</li>
+</ul>
+<h5 id="5例子">5.例子</h5>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="objective-c"><code><span class="line"><span style="color:#6A737D"> 	// 1.核心machine</span></span>
+<span class="line"><span style="color:#E1E4E8">    TKStateMachine </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">machine </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [[TKStateMachine </span><span style="color:#79B8FF">alloc</span><span style="color:#E1E4E8">] </span><span style="color:#79B8FF">init</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // 2.定义未读状态</span></span>
+<span class="line"><span style="color:#E1E4E8">    TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">unread </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [TKState </span><span style="color:#79B8FF">stateWithName:</span><span style="color:#9ECBFF">@"unread"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [unread </span><span style="color:#79B8FF">setWillExitStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"unread WillExit: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [unread </span><span style="color:#79B8FF">setWillEnterStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"unread WillEnter: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [unread </span><span style="color:#79B8FF">setDidExitStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"unread DidExit: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [unread </span><span style="color:#79B8FF">setDidEnterStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"unread DidEnter: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // 3.定义已读状态</span></span>
+<span class="line"><span style="color:#E1E4E8">    TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">read </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [TKState </span><span style="color:#79B8FF">stateWithName:</span><span style="color:#9ECBFF">@"read"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [read </span><span style="color:#79B8FF">setWillExitStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"read WillExit: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [read </span><span style="color:#79B8FF">setWillEnterStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"read WillEnter: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [read </span><span style="color:#79B8FF">setDidExitStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"read DidExit: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [read </span><span style="color:#79B8FF">setDidEnterStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"read DidEnter: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // 4.定义删除状态</span></span>
+<span class="line"><span style="color:#E1E4E8">    TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">delete </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [TKState </span><span style="color:#79B8FF">stateWithName:</span><span style="color:#9ECBFF">@"delete"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [delete </span><span style="color:#79B8FF">setWillExitStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"delete WillExit: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [delete </span><span style="color:#79B8FF">setWillEnterStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"delete WillEnter: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [delete </span><span style="color:#79B8FF">setDidExitStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"delete DidExit: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [delete </span><span style="color:#79B8FF">setDidEnterStateBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKState </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">state, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"delete DidEnter: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    TKEvent </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">readEvent </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [TKEvent </span><span style="color:#79B8FF">eventWithName:</span><span style="color:#9ECBFF">@"read"</span><span style="color:#79B8FF"> transitioningFromStates:</span><span style="color:#E1E4E8">@[unread] </span><span style="color:#79B8FF">toState:</span><span style="color:#E1E4E8">read];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [readEvent </span><span style="color:#79B8FF">setWillFireEventBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKEvent </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">event, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"readEvent WillFire: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [readEvent </span><span style="color:#79B8FF">setDidFireEventBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKEvent </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">event, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"readEvent DidFire: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    TKEvent </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">deleteEvent </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [TKEvent </span><span style="color:#79B8FF">eventWithName:</span><span style="color:#9ECBFF">@"delete"</span><span style="color:#79B8FF"> transitioningFromStates:</span><span style="color:#E1E4E8">@[read, unread] </span><span style="color:#79B8FF">toState:</span><span style="color:#E1E4E8">delete];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [deleteEvent </span><span style="color:#79B8FF">setWillFireEventBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKEvent </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">event, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"deleteEvent WillFire: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [deleteEvent </span><span style="color:#79B8FF">setDidFireEventBlock:</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">(TKEvent </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">event, TKTransition </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">transition) {</span></span>
+<span class="line"><span style="color:#79B8FF">        NSString</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> transition.userInfo[</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">        NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"deleteEvent DidFire: </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, userInfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // 5.配置并启动machine</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"🔥1.初始化machine"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    [machine </span><span style="color:#79B8FF">addStates:</span><span style="color:#E1E4E8">@[read, unread, delete]];</span></span>
+<span class="line"><span style="color:#E1E4E8">    [machine </span><span style="color:#79B8FF">addEvents:</span><span style="color:#E1E4E8">@[readEvent, deleteEvent]];</span></span>
+<span class="line"><span style="color:#E1E4E8">    [machine </span><span style="color:#79B8FF">setInitialState:</span><span style="color:#E1E4E8">unread];</span></span>
+<span class="line"><span style="color:#E1E4E8">    [machine </span><span style="color:#79B8FF">activate</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // 6.触发event</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    NSError</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">error </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> nil</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"-------->1.当前状态---> </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, [machine </span><span style="color:#79B8FF">currentState</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">		// 触发从unread到read的event</span></span>
+<span class="line"><span style="color:#E1E4E8">    [machine </span><span style="color:#79B8FF">fireEvent:</span><span style="color:#E1E4E8">readEvent </span><span style="color:#79B8FF">userInfo:</span><span style="color:#E1E4E8">@{</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">@"unread to read"</span><span style="color:#E1E4E8">} </span><span style="color:#79B8FF">error:</span><span style="color:#F97583">&#x26;</span><span style="color:#E1E4E8">error];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"-------->2.当前状态---> </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, [machine </span><span style="color:#79B8FF">currentState</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">		// 触发从unread/delete</span></span>
+<span class="line"><span style="color:#E1E4E8">    [machine </span><span style="color:#79B8FF">fireEvent:</span><span style="color:#E1E4E8">deleteEvent </span><span style="color:#79B8FF">userInfo:</span><span style="color:#E1E4E8">@{</span><span style="color:#9ECBFF">@"key"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">@"unread/read to delete"</span><span style="color:#E1E4E8">} </span><span style="color:#79B8FF">error:</span><span style="color:#F97583">&#x26;</span><span style="color:#E1E4E8">error];</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    NSLog</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">@"-------->3.当前状态---> </span><span style="color:#79B8FF">%@</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, [machine </span><span style="color:#79B8FF">currentState</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<p>参考：</p>
+<ul>
+<li><a href="https://baike.baidu.com/item/%E7%8A%B6%E6%80%81%E6%9C%BA/6548513?fr=aladdin">https://baike.baidu.com/item/%E7%8A%B6%E6%80%81%E6%9C%BA/6548513?fr=aladdin</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html">http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html</a></li>
+</ul> </article> </main> </body></html>
