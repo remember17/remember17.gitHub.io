@@ -1,0 +1,1 @@
+import{A as a,f as o}from"./session-store.CdPRzsiZ.js";async function n(t){const e=await fetch(`${a}/v1/entitlements/me`,{credentials:o,headers:{Authorization:`Bearer ${t}`}});if(!e.ok)throw new Error("Failed to load feature access");return(await e.json()).data.features}export{n as g};
