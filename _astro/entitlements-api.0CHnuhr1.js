@@ -1,0 +1,1 @@
+import{A as t,a as o}from"./_plugin-vue_export-helper.MMih0Q64.js";async function n(a){const e=await fetch(`${t}/v1/entitlements/me`,{credentials:o,headers:{Authorization:`Bearer ${a}`}});if(!e.ok)throw new Error("Failed to load feature access");return(await e.json()).data.features}export{n as g};
