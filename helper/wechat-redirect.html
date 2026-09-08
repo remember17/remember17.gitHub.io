@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>在浏览器中打开 · FiveHow</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --wash-top: #e9f8fc;
+        --wash-bottom: #e7e7ff;
+        --ink: #202630;
+        --muted: #68707d;
+        --accent: #29313f;
+        --accent-ink: #ffffff;
+        --material: rgba(255, 255, 255, 0.68);
+        --material-strong: rgba(255, 255, 255, 0.84);
+        --line: rgba(35, 42, 54, 0.1);
+        --shadow: 0 24px 70px rgba(69, 78, 112, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+        background: var(--wash-bottom);
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        overflow-x: hidden;
+        padding: max(72px, calc(env(safe-area-inset-top) + 56px)) 20px max(24px, env(safe-area-inset-bottom));
+        background:
+          radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.9), transparent 34%),
+          linear-gradient(155deg, var(--wash-top), var(--wash-bottom));
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Noto Sans SC", sans-serif;
+        color: var(--ink);
+        transition: background 320ms ease;
+      }
+
+      body[data-product="recordbox"] {
+        --wash-top: #dff7f3;
+        --wash-bottom: #f7d5e5;
+        --accent: #a64669;
+        --shadow: 0 24px 70px rgba(151, 69, 104, 0.2);
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        width: 52vw;
+        height: 52vw;
+        border-radius: 999px;
+        filter: blur(36px);
+        opacity: 0.34;
+        pointer-events: none;
+      }
+
+      body::before {
+        top: -26vw;
+        right: -18vw;
+        background: #ffffff;
+      }
+
+      body::after {
+        bottom: -34vw;
+        left: -20vw;
+        background: color-mix(in srgb, var(--wash-bottom) 72%, #ffffff);
+      }
+
+      .menu-cue {
+        position: fixed;
+        z-index: 2;
+        top: max(12px, calc(env(safe-area-inset-top) + 8px));
+        right: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 9px 7px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.58);
+        box-shadow: 0 8px 24px rgba(50, 58, 85, 0.1);
+        backdrop-filter: blur(18px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+
+      .menu-cue__dots {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        background: rgba(32, 38, 48, 0.08);
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        line-height: 1;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        width: min(430px, 100%);
+        padding: 26px;
+        border: 1px solid rgba(255, 255, 255, 0.76);
+        border-radius: 30px;
+        background: var(--material);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(28px) saturate(135%);
+        -webkit-backdrop-filter: blur(28px) saturate(135%);
+      }
+
+      .app-identity {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 26px;
+      }
+
+      .app-icon {
+        width: 68px;
+        height: 68px;
+        flex: 0 0 auto;
+        border-radius: 16px;
+        box-shadow:
+          0 8px 22px rgba(38, 45, 67, 0.14),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.52);
+      }
+
+      .eyebrow {
+        margin: 0 0 4px;
+        color: var(--muted);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+      }
+
+      .product-name {
+        margin: 0;
+        font-size: 1.32rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+      }
+
+      .direction-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 18px;
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+        color: var(--accent);
+        font-size: 1.28rem;
+        font-weight: 600;
+      }
+
+      h2 {
+        margin: 0 0 10px;
+        max-width: 12em;
+        font-size: clamp(1.65rem, 7vw, 2.1rem);
+        line-height: 1.12;
+        letter-spacing: -0.045em;
+      }
+
+      .message {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+        line-height: 1.62;
+      }
+
+      .steps {
+        display: grid;
+        gap: 10px;
+        margin: 22px 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .steps li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .step-number {
+        display: grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+        color: var(--accent);
+        font-size: 0.74rem;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+      }
+
+      .btn {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        background: var(--material-strong);
+        color: var(--ink);
+        padding: 12px 16px;
+        border-radius: 15px;
+        text-decoration: none;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 650;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        transition: transform 120ms ease-out, opacity 120ms ease-out;
+      }
+
+      .btn.primary {
+        border-color: transparent;
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+
+      .btn:active {
+        transform: scale(0.97);
+      }
+
+      body[data-state="invalid"] .menu-cue,
+      body[data-state="invalid"] .steps,
+      body[data-state="invalid"] .direction-mark,
+      body[data-state="redirecting"] .menu-cue,
+      body[data-state="redirecting"] .steps {
+        display: none;
+      }
+
+      @media (max-width: 380px) {
+        .content {
+          padding: 22px;
+          border-radius: 26px;
+        }
+
+        .actions {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body,
+        .btn {
+          transition: none;
+        }
+      }
+
+      @media (prefers-reduced-transparency: reduce) {
+        .content,
+        .menu-cue {
+          background: #ffffff;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu-cue" aria-hidden="true">
+      <span>点这里</span>
+      <span class="menu-cue__dots">•••</span>
+    </div>
+
+    <main class="content">
+      <header class="app-identity">
+        <img class="app-icon" id="productIcon" alt="" width="68" height="68" />
+        <div>
+          <p class="eyebrow">FIVEHOW APP</p>
+          <h1 class="product-name" id="productName">FiveHow App</h1>
+        </div>
+      </header>
+
+      <div class="direction-mark" aria-hidden="true">↗</div>
+      <h2 id="pageTitle">请在系统浏览器中打开</h2>
+      <p class="message" id="pageMessage">微信会限制 App Store 跳转，换到系统浏览器即可继续下载。</p>
+
+      <ol class="steps">
+        <li><span class="step-number">1</span>点击右上角的 ···</li>
+        <li><span class="step-number">2</span>选择「在浏览器中打开」</li>
+      </ol>
+
+      <div class="actions">
+        <a class="btn primary" id="openLink" href="#">打开 App Store</a>
+        <button class="btn" id="copyLink" type="button">复制链接</button>
+      </div>
+    </main>
+
+    <script src="/scripts/fh-wechat-redirect.js"></script>
+  </body>
+</html>
