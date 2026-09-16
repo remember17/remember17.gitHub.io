@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "archives": [
+    {
+      "path": "/legal/aster/privacy/aster-registration-2026-09-04",
+      "digest": "sha256:e5f0987d50bbd628ce1d329eef58e7e36b89a8cd299ab361aad345da73b4f09d"
+    },
+    {
+      "path": "/legal/aster/terms/aster-registration-2026-09-04",
+      "digest": "sha256:e6491760b83c97e6c1ca94b3b037e14eb467d68ef9efb38d01eea5eb16ce75da"
+    }
+  ]
+}
