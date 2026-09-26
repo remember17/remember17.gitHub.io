@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "archives": [
+    {
+      "path": "/legal/aster/privacy/aster-paid-2026-09-26",
+      "digest": "sha256:79b95605ea51536fa53e500d0af3dc25f668b018911491b16b703e708cf82934"
+    },
+    {
+      "path": "/legal/aster/privacy/aster-registration-2026-09-04",
+      "digest": "sha256:e5f0987d50bbd628ce1d329eef58e7e36b89a8cd299ab361aad345da73b4f09d"
+    },
+    {
+      "path": "/legal/aster/terms/aster-paid-2026-09-26",
+      "digest": "sha256:1a923c1017a3dde262f1d06978bdb3ec9ad301102f2eb530a75f7d51cce24271"
+    },
+    {
+      "path": "/legal/aster/terms/aster-registration-2026-09-04",
+      "digest": "sha256:e6491760b83c97e6c1ca94b3b037e14eb467d68ef9efb38d01eea5eb16ce75da"
+    }
+  ]
+}
