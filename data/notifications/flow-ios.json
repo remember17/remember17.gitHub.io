@@ -1,0 +1,14 @@
+{
+	"product": "flow-ios",
+  "updatedAt": "2026-04-27T10:00:00Z",
+  "notifications": [
+    {
+      "id": "flow-ios-expired",
+      "title": "（已过期）春节限定皮肤",
+      "description": "此条 endAt 已过，不应显示。",
+      "startAt": "2026-01-20T00:00:00Z",
+      "endAt": "2026-02-10T23:59:59Z",
+      "showBadge": true
+    }
+	]
+}
