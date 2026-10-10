@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "archives": [
+    {
+      "path": "/legal/aster/privacy/aster-paid-2026-09-26",
+      "digest": "sha256:79b95605ea51536fa53e500d0af3dc25f668b018911491b16b703e708cf82934"
+    },
+    {
+      "path": "/legal/aster/privacy/aster-paid-2026-09-28",
+      "digest": "sha256:fdb88774f85450ecf2b9f98652c53b221f36a3107cd4aeccb1e618a544b1f393"
+    },
+    {
+      "path": "/legal/aster/privacy/aster-paid-2026-10-07",
+      "digest": "sha256:a4d434e325986ce0fbf6a52bfbf29781f6d0cdfbc5a44efd15940a693cb57d3f"
+    },
+    {
+      "path": "/legal/aster/privacy/aster-paid-2026-10-07-2",
+      "digest": "sha256:4c00acba2cc0b116887eed3c7bfa50f3056b6aab5b381d8a7ac211c4c7c70e3f"
+    },
+    {
+      "path": "/legal/aster/privacy/aster-paid-2026-10-08",
+      "digest": "sha256:97b502a2a9969752472260ec4209f4a0d6c42ae3997dffd1649b43ddc9125ec0"
+    },
+    {
+      "path": "/legal/aster/privacy/aster-paid-2026-10-09",
+      "digest": "sha256:88cfc39afd7713085bdddfad56a53461e0bcca701b67b9b1dc854ad3640672f9"
+    },
+    {
+      "path": "/legal/aster/privacy/aster-registration-2026-09-04",
+      "digest": "sha256:e5f0987d50bbd628ce1d329eef58e7e36b89a8cd299ab361aad345da73b4f09d"
+    },
+    {
+      "path": "/legal/aster/terms/aster-paid-2026-09-26",
+      "digest": "sha256:1a923c1017a3dde262f1d06978bdb3ec9ad301102f2eb530a75f7d51cce24271"
+    },
+    {
+      "path": "/legal/aster/terms/aster-paid-2026-09-28",
+      "digest": "sha256:3b672b278f3b6394a7e0d1d2c860c5bcf6e6dc83f98e8b931382413b113739f4"
+    },
+    {
+      "path": "/legal/aster/terms/aster-paid-2026-10-07",
+      "digest": "sha256:856c90a336b9d4f71d70bf905481477bc80cdef902feb2e71d4a8aaff2f08772"
+    },
+    {
+      "path": "/legal/aster/terms/aster-paid-2026-10-07-2",
+      "digest": "sha256:81c40746229eec73d13700ce846a7b925fc547f4a85d89b6d9e1c5026b8a3c62"
+    },
+    {
+      "path": "/legal/aster/terms/aster-paid-2026-10-08",
+      "digest": "sha256:5de7789fdaae2a7d0284f9f35a4fe42671c524f892cd4339cd5a8128fa9b4ae6"
+    },
+    {
+      "path": "/legal/aster/terms/aster-paid-2026-10-09",
+      "digest": "sha256:9bf548a74fea632a21f2fe7bc3cab986173ec23534cd9343d01c985b6ab5d7f6"
+    },
+    {
+      "path": "/legal/aster/terms/aster-registration-2026-09-04",
+      "digest": "sha256:e6491760b83c97e6c1ca94b3b037e14eb467d68ef9efb38d01eea5eb16ce75da"
+    }
+  ]
+}

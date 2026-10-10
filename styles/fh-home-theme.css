@@ -1,0 +1,100 @@
+/* ══════════════════════════════════════════════════════════
+   FiveHow Home Theme — Warm Light / Dark
+   ──────────────────────────────────────────────────────────
+   Single source of truth for color tokens.
+   Loaded by homepage and game pages.
+   Uses [data-theme] attribute on <html>.
+   ══════════════════════════════════════════════════════════ */
+
+/* ---------- Light ---------- */
+:root {
+  color-scheme: light dark;
+
+  /* Surface (background hierarchy) */
+  --surface-0: #ffffff;
+  --surface-1: #f7f7f7;
+  --surface-2: #efefef;
+  --surface-3: #e0e0e0;
+
+  /* Ink (text hierarchy) */
+  --ink-0: #181511;
+  --ink-1: #3d3730;
+  --ink-2: #5f574d;
+  --ink-3: #8b8175;
+  --ink-4: #c4bbaf;
+
+  /* Primary action */
+  --primary: #181511;
+  --hover: #2a2520;
+  --subtle: #eee9df;
+
+  /* State */
+  --state-green: #247a3d;
+  --state-yellow: #a46a00;
+  --danger: #b52626;
+  --danger-hover: #961e1e;
+  --danger-subtle: #fef2f0;
+  --danger-border: #f5cac6;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(33, 25, 17, 0.06), 0 1px 2px rgba(33, 25, 17, 0.03);
+  --shadow-card-hover: 0 20px 60px -15px rgba(33, 25, 17, 0.1), 0 8px 24px -8px rgba(33, 25, 17, 0.05);
+  --shadow-modal: 0 25px 50px -12px rgba(33, 25, 17, 0.2);
+
+  /* Overlay & Modal */
+  --overlay-bg: rgba(255, 255, 255, 0.76);
+  --modal-bg: rgba(255, 255, 255, 0.92);
+  --modal-border: rgba(0, 0, 0, 0.08);
+
+  /* Button on primary bg */
+  --on-primary: #ffffff;
+
+  /* Accent */
+  --accent: #9b5f2b;
+  --accent-blue: #2a6cd9;
+
+  /* Meta theme-color */
+  --theme-color: #ffffff;
+}
+
+/* ---------- Dark ---------- */
+html[data-theme='dark'] {
+  color-scheme: dark;
+
+  --surface-0: #11100d;
+  --surface-1: #1c1a16;
+  --surface-2: #262320;
+  --surface-3: #33302b;
+
+  --ink-0: #f2ede4;
+  --ink-1: #d2cabd;
+  --ink-2: #9e9488;
+  --ink-3: #706760;
+  --ink-4: #44403a;
+
+  --primary: #f2ede4;
+  --hover: #d2cabd;
+  --subtle: #262320;
+
+  --state-green: #52b56f;
+  --state-yellow: #ffbc4f;
+  --danger: #ff7a7a;
+  --danger-hover: #ff5c5c;
+  --danger-subtle: #2a1616;
+  --danger-border: #5c2828;
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 20px 60px -15px rgba(0, 0, 0, 0.4), 0 8px 24px -8px rgba(0, 0, 0, 0.2);
+  --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+  --overlay-bg: rgba(17, 16, 13, 0.78);
+  --modal-bg: rgba(28, 26, 22, 0.94);
+  --modal-border: rgba(244, 237, 227, 0.1);
+
+  --on-primary: #11100d;
+
+  --accent: #d4a06c;
+  --accent-blue: #6aa6ff;
+
+  --theme-color: #11100d;
+}

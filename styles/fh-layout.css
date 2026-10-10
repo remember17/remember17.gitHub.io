@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--fh-font);
+  color: var(--fh-text-0);
+  background: var(--fh-bg-gradient);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.fh-page {
+  min-height: 100dvh;
+  padding: 16px;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 12px;
+}
+
+.fh-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.fh-top-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fh-cleanup-banner {
+  border: 1px solid var(--fh-border);
+  border-radius: var(--fh-r-sm);
+  background: var(--fh-card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--fh-card-shadow);
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--fh-text-1);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.fh-cleanup-banner[data-level="warning"] {
+  border-color: rgba(189, 113, 0, 0.4);
+  background: color-mix(in srgb, var(--fh-card-bg) 86%, rgba(255, 180, 90, 0.2));
+}
+
+.fh-cleanup-banner strong {
+  color: var(--fh-text-0);
+}
+
+.fh-content {
+  min-height: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.fh-panel {
+  border: 1px solid var(--fh-border);
+  border-radius: var(--fh-r-lg);
+  background: var(--fh-card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--fh-card-shadow);
+  padding: 18px;
+}
+
+.fh-panel h1,
+.fh-panel h2,
+.fh-panel h3,
+.fh-panel p {
+  margin: 0;
+}
+
+.fh-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.fh-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.fh-scroll-y {
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.fh-hidden {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 920px) {
+  .fh-page {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .fh-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .fh-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
