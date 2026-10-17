@@ -1,0 +1,363 @@
+{
+  "product": "now",
+  "technique": "Complete real App screenshots in a flat desktop simulator and paired phone frames. The desktop stays front-facing with its original screenshot aspect ratio; both phone appearances remain visible.",
+  "entries": [
+    {
+      "device": "mac",
+      "theme": "light",
+      "language": "zh",
+      "source": "frontend/fivehow_apple/Apps/now-mac/fastlane/screenshots/zh-Hans/5.jpg",
+      "sourceDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "crop": {
+        "left": 330,
+        "top": 434,
+        "width": 2219,
+        "height": 1216
+      },
+      "output": "frontend/fivehow_web_home/public/assets/products/now/home-sources/mac-light-zh.webp",
+      "outputDimensions": {
+        "width": 2219,
+        "height": 1216
+      },
+      "bytes": 216216,
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "resize": false
+      },
+      "alphaMask": {
+        "method": "row-wise outer silhouette traced from the existing rounded perimeter; only exterior pixels become transparent",
+        "referenceSource": "frontend/fivehow_apple/Apps/now-mac/fastlane/screenshots/zh-Hans/5.jpg",
+        "perimeterMeanRgbThreshold": 110,
+        "preserves": "original complete app window"
+      },
+      "verification": {
+        "opaquePixels": 2693023,
+        "changedOpaquePixels": 0
+      },
+      "content": "Real app window with titlebar and all three panes preserved."
+    },
+    {
+      "device": "mac",
+      "theme": "light",
+      "language": "en",
+      "source": "frontend/fivehow_apple/Apps/now-mac/fastlane/screenshots/en-US/en5.jpg",
+      "sourceDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "crop": {
+        "left": 330,
+        "top": 434,
+        "width": 2219,
+        "height": 1216
+      },
+      "output": "frontend/fivehow_web_home/public/assets/products/now/home-sources/mac-light-en.webp",
+      "outputDimensions": {
+        "width": 2219,
+        "height": 1216
+      },
+      "bytes": 225208,
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "resize": false
+      },
+      "alphaMask": {
+        "method": "row-wise outer silhouette traced from the existing rounded perimeter; only exterior pixels become transparent",
+        "referenceSource": "frontend/fivehow_apple/Apps/now-mac/fastlane/screenshots/zh-Hans/5.jpg",
+        "perimeterMeanRgbThreshold": 110,
+        "preserves": "original complete app window"
+      },
+      "verification": {
+        "opaquePixels": 2693023,
+        "changedOpaquePixels": 0
+      },
+      "content": "Real app window with titlebar and all three panes preserved."
+    },
+    {
+      "device": "mac",
+      "theme": "dark",
+      "language": "zh",
+      "source": "frontend/fivehow_apple/Apps/now-mac/fastlane/screenshots/zh-Hans/1.jpg",
+      "sourceDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "crop": {
+        "left": 330,
+        "top": 434,
+        "width": 2219,
+        "height": 1216
+      },
+      "output": "frontend/fivehow_web_home/public/assets/products/now/home-sources/mac-dark-zh.webp",
+      "outputDimensions": {
+        "width": 2219,
+        "height": 1216
+      },
+      "bytes": 296876,
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "resize": false
+      },
+      "alphaMask": {
+        "method": "row-wise outer silhouette traced from the existing rounded perimeter; only exterior pixels become transparent",
+        "referenceSource": "frontend/fivehow_apple/Apps/now-mac/fastlane/screenshots/zh-Hans/5.jpg",
+        "perimeterMeanRgbThreshold": 110,
+        "preserves": "original complete app window"
+      },
+      "verification": {
+        "opaquePixels": 2693023,
+        "changedOpaquePixels": 0
+      },
+      "content": "Real app window with titlebar and all three panes preserved."
+    },
+    {
+      "device": "mac",
+      "theme": "dark",
+      "language": "en",
+      "source": "frontend/fivehow_apple/Apps/now-mac/fastlane/screenshots/en-US/en1.jpg",
+      "sourceDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "crop": {
+        "left": 330,
+        "top": 434,
+        "width": 2219,
+        "height": 1216
+      },
+      "output": "frontend/fivehow_web_home/public/assets/products/now/home-sources/mac-dark-en.webp",
+      "outputDimensions": {
+        "width": 2219,
+        "height": 1216
+      },
+      "bytes": 317296,
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "resize": false
+      },
+      "alphaMask": {
+        "method": "row-wise outer silhouette traced from the existing rounded perimeter; only exterior pixels become transparent",
+        "referenceSource": "frontend/fivehow_apple/Apps/now-mac/fastlane/screenshots/zh-Hans/5.jpg",
+        "perimeterMeanRgbThreshold": 110,
+        "preserves": "original complete app window"
+      },
+      "verification": {
+        "opaquePixels": 2693023,
+        "changedOpaquePixels": 0
+      },
+      "content": "Real app window with titlebar and all three panes preserved."
+    }
+  ],
+  "macbookComposites": {
+    "technique": "An original flat laptop illustration with a symmetric rounded display, thin graphite bezel, and simple horizontal base. The complete real App screenshot defines the display aspect ratio. Hardware geometry is antialiased separately; no photographed hardware, AI redraw, perspective warp, or enlarged UI.",
+    "reproducibleScript": "frontend/fivehow_web_home/scripts/compose-home-macbooks.mjs",
+    "command": "node scripts/compose-home-macbooks.mjs",
+    "prerequisites": [
+      "Node.js with the project sharp dependency"
+    ],
+    "template": {
+      "name": "FiveHow flat desktop simulator",
+      "sourceRole": "Deterministic project-owned vector geometry",
+      "outputWidth": 1360,
+      "screen": {
+        "left": 52,
+        "top": 36,
+        "width": 1256,
+        "radius": 10
+      },
+      "shellSupersampling": 2,
+      "palettes": {
+        "light": {
+          "rim": "#d5d8dc",
+          "edge": "#a8adb4",
+          "bezel": "#26282c",
+          "base": "#c8ccd1",
+          "lip": "#afb5bd",
+          "inset": "#a4aab2"
+        },
+        "dark": {
+          "rim": "#656b74",
+          "edge": "#8c929a",
+          "bezel": "#1b1d21",
+          "base": "#626872",
+          "lip": "#484e57",
+          "inset": "#3c424b"
+        }
+      }
+    },
+    "entries": [
+      {
+        "theme": "light",
+        "language": "zh",
+        "source": "frontend/fivehow_web_home/public/assets/products/now/home-sources/mac-light-zh.webp",
+        "sourceSha256": "5bbaa104066f7c11260aac600e4c8c61d3ef519345d33db20bd46edeac08c00f",
+        "sourceDimensions": {
+          "width": 2219,
+          "height": 1216
+        },
+        "screenTreatment": "Complete real screenshot, proportionally resized once into a front-facing flat laptop shell. No perspective projection or poster pixels.",
+        "screenshotPlacement": {
+          "left": 52,
+          "top": 36,
+          "width": 1256,
+          "radius": 10,
+          "height": 688
+        },
+        "output": "frontend/fivehow_web_home/public/assets/products/now/home-sources/macbook-light-zh.webp",
+        "outputDimensions": {
+          "width": 1360,
+          "height": 780
+        },
+        "outputSha256": "711bcdd9bd929bb249f5fc26761d7bf71d3083617cf47d4f8eb846f0441baaf3",
+        "bytes": 106294,
+        "encoding": {
+          "format": "webp",
+          "lossless": true
+        },
+        "verification": {
+          "fit": "contain",
+          "cropped": false,
+          "uiRedrawn": false,
+          "uiMirrored": false,
+          "uiUpscaled": false,
+          "uiScale": 0.566020730058585,
+          "perspectiveApplied": false,
+          "losslessCheckedPixels": 985488,
+          "losslessChangedPixels": 0
+        }
+      },
+      {
+        "theme": "light",
+        "language": "en",
+        "source": "frontend/fivehow_web_home/public/assets/products/now/home-sources/mac-light-en.webp",
+        "sourceSha256": "b025231546c1eb76fffe03f14f5ca12e71f208b482af1c63663882e2cd52274e",
+        "sourceDimensions": {
+          "width": 2219,
+          "height": 1216
+        },
+        "screenTreatment": "Complete real screenshot, proportionally resized once into a front-facing flat laptop shell. No perspective projection or poster pixels.",
+        "screenshotPlacement": {
+          "left": 52,
+          "top": 36,
+          "width": 1256,
+          "radius": 10,
+          "height": 688
+        },
+        "output": "frontend/fivehow_web_home/public/assets/products/now/home-sources/macbook-light-en.webp",
+        "outputDimensions": {
+          "width": 1360,
+          "height": 780
+        },
+        "outputSha256": "40e1a4ee76fc38405a8b80574a3a5f71cdd9cb7dbc4bdaee3dca2f0d068c1dd3",
+        "bytes": 114432,
+        "encoding": {
+          "format": "webp",
+          "lossless": true
+        },
+        "verification": {
+          "fit": "contain",
+          "cropped": false,
+          "uiRedrawn": false,
+          "uiMirrored": false,
+          "uiUpscaled": false,
+          "uiScale": 0.566020730058585,
+          "perspectiveApplied": false,
+          "losslessCheckedPixels": 985488,
+          "losslessChangedPixels": 0
+        }
+      },
+      {
+        "theme": "dark",
+        "language": "zh",
+        "source": "frontend/fivehow_web_home/public/assets/products/now/home-sources/mac-dark-zh.webp",
+        "sourceSha256": "006054d966cc2ead7a5932652d73986138ce2063fa1981b125b1d22e830f57d1",
+        "sourceDimensions": {
+          "width": 2219,
+          "height": 1216
+        },
+        "screenTreatment": "Complete real screenshot, proportionally resized once into a front-facing flat laptop shell. No perspective projection or poster pixels.",
+        "screenshotPlacement": {
+          "left": 52,
+          "top": 36,
+          "width": 1256,
+          "radius": 10,
+          "height": 688
+        },
+        "output": "frontend/fivehow_web_home/public/assets/products/now/home-sources/macbook-dark-zh.webp",
+        "outputDimensions": {
+          "width": 1360,
+          "height": 780
+        },
+        "outputSha256": "3857aa1e682f521fb6a332c113c8e1eefc2a253ee87bdadab33d802b267761c6",
+        "bytes": 124496,
+        "encoding": {
+          "format": "webp",
+          "lossless": true
+        },
+        "verification": {
+          "fit": "contain",
+          "cropped": false,
+          "uiRedrawn": false,
+          "uiMirrored": false,
+          "uiUpscaled": false,
+          "uiScale": 0.566020730058585,
+          "perspectiveApplied": false,
+          "losslessCheckedPixels": 985488,
+          "losslessChangedPixels": 0
+        }
+      },
+      {
+        "theme": "dark",
+        "language": "en",
+        "source": "frontend/fivehow_web_home/public/assets/products/now/home-sources/mac-dark-en.webp",
+        "sourceSha256": "5b8740132212d289632292955d5ae2ce8ca9c55d3db4249f36acb2cc8eefafad",
+        "sourceDimensions": {
+          "width": 2219,
+          "height": 1216
+        },
+        "screenTreatment": "Complete real screenshot, proportionally resized once into a front-facing flat laptop shell. No perspective projection or poster pixels.",
+        "screenshotPlacement": {
+          "left": 52,
+          "top": 36,
+          "width": 1256,
+          "radius": 10,
+          "height": 688
+        },
+        "output": "frontend/fivehow_web_home/public/assets/products/now/home-sources/macbook-dark-en.webp",
+        "outputDimensions": {
+          "width": 1360,
+          "height": 780
+        },
+        "outputSha256": "68e496b989411f0ce6f1bb74a8126104cd0c946b8e343c4d9eb4a375a33cd944",
+        "bytes": 133886,
+        "encoding": {
+          "format": "webp",
+          "lossless": true
+        },
+        "verification": {
+          "fit": "contain",
+          "cropped": false,
+          "uiRedrawn": false,
+          "uiMirrored": false,
+          "uiUpscaled": false,
+          "uiScale": 0.566020730058585,
+          "perspectiveApplied": false,
+          "losslessCheckedPixels": 985488,
+          "losslessChangedPixels": 0
+        }
+      }
+    ]
+  },
+  "iphoneComposites": {
+    "manifest": "frontend/fivehow_web_home/public/assets/products/now/home-sources/iphone-composites.json",
+    "reproducibleScript": "frontend/fivehow_web_home/scripts/compose-home-iphones.mjs",
+    "command": "node scripts/compose-home-iphones.mjs"
+  }
+}

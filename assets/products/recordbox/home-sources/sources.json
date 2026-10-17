@@ -1,0 +1,481 @@
+{
+  "product": "recordbox",
+  "method": "统一采用 Now 官方视频首帧的真实深灰金属 iPhone 外壳，保留机身侧边、物理按键、刘海与原角度；真实屏幕按原比例完整适配后一次透视采样到玻璃平面。无 AI 重绘、改色、镜像或独立横纵拉伸。",
+  "encoding": "Lossless WebP; original screen files remain unchanged. Perspective composites are resampled once; encoded opaque pixels exactly match the generated RGBA buffer.",
+  "coordinates": "相对于源图左上角，单位为像素；width/height 为区域尺寸。所有路径相对于 frontend/fivehow_web_home。",
+  "appearance": "记账浅色/深色设备来自原宣传图真实对应主题；浅色笔记保留原宣传图，深色笔记来自本次独立 iOS 模拟器中真实 App 深色主题。仅中文素材。",
+  "hardwareSources": [
+    {
+      "source": "public/assets/products/now/now-product-intro-poster.jpg",
+      "sourceFileSha256": "0afd2c2a307ebed36fcff2aafc821f7e80859b0f5497c3b7bd4671acdf856127",
+      "crop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "outlinePath": "M226 350 C202 349 184 361 177 381 C173 391 173 403 173 417 L172.5 945 C172.5 983 181 1008 211 1014 C222 1017 247 1016 268 1016 L412 1014 C446 1013 463 993 464 954 L463 411 C463 378 449 363 420 360 Z",
+      "glassPath": "M233 359 L283 361 L285 382 Q287 397 303 398 L361 401 Q374 401 376 387 L377 367 L412 369 Q452 370 456 410 L456 950 Q455 993 421 1003 L230 1007 Q194 1006 192 969 L192 401 Q193 361 233 359 Z",
+      "geometryCoordinates": "Original 1920×1080 poster pixels. Scale the complete poster device group uniformly; no extra device rotation."
+    }
+  ],
+  "simulatorSources": [
+    {
+      "name": "iphone-dark-notes",
+      "theme": "dark",
+      "locale": "zh",
+      "source": "public/assets/products/recordbox/home-sources/screen-dark-notes.webp",
+      "sourceFileSha256": "80b1a7cd252d14cfdc79f1885f6b0e926e8a953718afa39ba5b80ef4ca0ac01c",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "originalPosterUI": false,
+      "screenFit": {
+        "method": "Proportional contain in physical screen plane, then one inverse projective bilinear sample; no crop, mirroring, UI recoloring or redraw.",
+        "plane": {
+          "width": 1284,
+          "height": 2778
+        },
+        "containScale": 0.9935622317596566,
+        "offsetX": 1.152360515021428,
+        "offsetY": 0
+      },
+      "projectedHeight": 1300,
+      "projectedWidth": 530,
+      "hardwareSource": "public/assets/products/now/now-product-intro-poster.jpg",
+      "posterCrop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "hardwareScale": 2,
+      "output": "public/assets/products/recordbox/home-sources/iphone-dark-notes.webp",
+      "outputDimensions": {
+        "width": 592,
+        "height": 1342
+      },
+      "bytes": 357932,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "originalPosterRGBPreserved": false,
+        "pixelSha256": "cee7da0f1cece03e827abad0ac6d755421388b2f4515fda014b2f82ba3be76ef"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      },
+      "capture": {
+        "tool": "xcrun simctl io screenshot",
+        "device": "iPhone 16 Plus",
+        "runtime": "iOS 26.2",
+        "isolatedDevice": "CBA8EA87-D8FC-418F-920B-0E470B1D3A4A",
+        "date": "2026-10-14",
+        "account": "Fresh Simulator without Apple ID; local demo data only",
+        "screen": "Notes list; no editor, dialog or settings overlay",
+        "rawDimensions": {
+          "width": 1290,
+          "height": 2796
+        },
+        "sourceFileSha256": "80b1a7cd252d14cfdc79f1885f6b0e926e8a953718afa39ba5b80ef4ca0ac01c",
+        "themeSelection": "Real BoxTheme.dark rendered by the App. A temporary Debug-build fallback selected .dark when no stored theme exists because Simulator coordinate input was unavailable. ThemeCenter.swift was restored after capture; no membership state was forged.",
+        "localTrial": "Official in-app new-user three-day free trial activated through the real UI on the empty Simulator. No StoreKit purchase or Apple ID."
+      }
+    }
+  ],
+  "screenSources": [
+    {
+      "source": "public/assets/products/recordbox/1.jpg",
+      "crop": {
+        "left": 182,
+        "top": 637,
+        "width": 924,
+        "height": 1997
+      },
+      "sourceFileSha256": "3d10d8571ddef574da831471f57b43e5beb571d9e3b4d408903906921dc4715c",
+      "output": "public/assets/products/recordbox/home-sources/screen-accounting.webp",
+      "dimensions": {
+        "width": 924,
+        "height": 1997
+      },
+      "verification": {
+        "changedPixels": 0,
+        "pixelSha256": "cf0352082c1b75a6427530c3b88a3a60edda2cf48ee8776c78dc7b23e51d64d7"
+      }
+    },
+    {
+      "source": "public/assets/products/recordbox/9.jpg",
+      "crop": {
+        "left": 182,
+        "top": 637,
+        "width": 924,
+        "height": 1997
+      },
+      "sourceFileSha256": "f18229f84f0e22530cddde887419198a6dae2d262d461582dab32d8daf82d0c1",
+      "output": "public/assets/products/recordbox/home-sources/screen-notes.webp",
+      "dimensions": {
+        "width": 924,
+        "height": 1997
+      },
+      "verification": {
+        "changedPixels": 0,
+        "pixelSha256": "028795da1d4cc50644a6a4b1c59b4bbf0d3f8606803b0ce5b46525dda828fd96"
+      }
+    },
+    {
+      "source": "public/assets/products/recordbox/2.jpg",
+      "crop": {
+        "left": 723,
+        "top": 568,
+        "width": 449,
+        "height": 976
+      },
+      "sourceFileSha256": "7e2d74173e5146428af529679ef851054d2756abd014cf6dedff4bc7b772892e",
+      "output": "public/assets/products/recordbox/home-sources/screen-dark-accounting.webp",
+      "dimensions": {
+        "width": 449,
+        "height": 976
+      },
+      "verification": {
+        "changedPixels": 0,
+        "pixelSha256": "30317709c248e9ff6ce6b52a40915e57e62394116f4eba99c5dbb46b657a3cd6"
+      }
+    }
+  ],
+  "composites": [
+    {
+      "name": "iphone-accounting",
+      "theme": "light",
+      "locale": "zh",
+      "source": "public/assets/products/recordbox/home-sources/screen-accounting.webp",
+      "sourceFileSha256": "b5046cfa1aa17c6f3291bd161c5aa6ae7b0d98e2877f8459a87dc3521790e652",
+      "rawDimensions": {
+        "width": 924,
+        "height": 1997
+      },
+      "originalPosterUI": false,
+      "screenFit": {
+        "method": "Proportional contain in physical screen plane, then one inverse projective bilinear sample; no crop, mirroring, UI recoloring or redraw.",
+        "plane": {
+          "width": 1284,
+          "height": 2778
+        },
+        "containScale": 1.3896103896103895,
+        "offsetX": 0,
+        "offsetY": 1.4740259740260626
+      },
+      "projectedHeight": 1300,
+      "projectedWidth": 530,
+      "hardwareSource": "public/assets/products/now/now-product-intro-poster.jpg",
+      "posterCrop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "hardwareScale": 2,
+      "output": "public/assets/products/recordbox/home-sources/iphone-accounting.webp",
+      "outputDimensions": {
+        "width": 592,
+        "height": 1342
+      },
+      "bytes": 140952,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "originalPosterRGBPreserved": false,
+        "pixelSha256": "43df0fddab49a1227933a1e12ec34b2178eee6d6327e47eeddeb994127f446b1"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    },
+    {
+      "name": "iphone-notes",
+      "theme": "light",
+      "locale": "zh",
+      "source": "public/assets/products/recordbox/home-sources/screen-notes.webp",
+      "sourceFileSha256": "cb15047aafb65b0e03c1f004f510fea78a99197e1506eb4c9973ec72cbc9d512",
+      "rawDimensions": {
+        "width": 924,
+        "height": 1997
+      },
+      "originalPosterUI": false,
+      "screenFit": {
+        "method": "Proportional contain in physical screen plane, then one inverse projective bilinear sample; no crop, mirroring, UI recoloring or redraw.",
+        "plane": {
+          "width": 1284,
+          "height": 2778
+        },
+        "containScale": 1.3896103896103895,
+        "offsetX": 0,
+        "offsetY": 1.4740259740260626
+      },
+      "projectedHeight": 1300,
+      "projectedWidth": 530,
+      "hardwareSource": "public/assets/products/now/now-product-intro-poster.jpg",
+      "posterCrop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "hardwareScale": 2,
+      "output": "public/assets/products/recordbox/home-sources/iphone-notes.webp",
+      "outputDimensions": {
+        "width": 592,
+        "height": 1342
+      },
+      "bytes": 106078,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "originalPosterRGBPreserved": false,
+        "pixelSha256": "8b278fd3bbf7925ef46d81e525141fb2c9866c4d98a63a4742bd1728d0939004"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    },
+    {
+      "name": "iphone-dark-accounting",
+      "theme": "dark",
+      "locale": "zh",
+      "source": "public/assets/products/recordbox/home-sources/screen-dark-accounting.webp",
+      "sourceFileSha256": "366596e0dacc90ca13f12d661be8e2eea0987b51a6c06a55952b53b53e0535cb",
+      "rawDimensions": {
+        "width": 449,
+        "height": 976
+      },
+      "originalPosterUI": false,
+      "screenFit": {
+        "method": "Proportional contain in physical screen plane, then one inverse projective bilinear sample; no crop, mirroring, UI recoloring or redraw.",
+        "plane": {
+          "width": 1284,
+          "height": 2778
+        },
+        "containScale": 2.846311475409836,
+        "offsetX": 3.003073770491824,
+        "offsetY": 0
+      },
+      "projectedHeight": 650,
+      "projectedWidth": 265,
+      "hardwareSource": "public/assets/products/now/now-product-intro-poster.jpg",
+      "posterCrop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "hardwareScale": 1,
+      "output": "public/assets/products/recordbox/home-sources/iphone-dark-accounting.webp",
+      "outputDimensions": {
+        "width": 296,
+        "height": 671
+      },
+      "bytes": 55624,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "originalPosterRGBPreserved": false,
+        "pixelSha256": "56482faac8227f4b123fd6b930eb7718de6cf588316822b1b09ee49c43b73d89"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    }
+  ],
+  "frontComposites": [
+    {
+      "name": "front-iphone-accounting",
+      "theme": "light",
+      "locale": "zh",
+      "source": "public/assets/products/recordbox/home-sources/screen-accounting.webp",
+      "sourceFileSha256": "b5046cfa1aa17c6f3291bd161c5aa6ae7b0d98e2877f8459a87dc3521790e652",
+      "rawDimensions": {
+        "width": 924,
+        "height": 1997
+      },
+      "hardwareSource": "scripts/compose-home-iphones.mjs",
+      "geometry": {
+        "width": 324,
+        "height": 676,
+        "screenLeft": 12,
+        "screenTop": 13,
+        "screenWidth": 300,
+        "screenHeight": 650,
+        "screenRadius": 50
+      },
+      "method": "Symmetric flat graphite display frame with concentric rounded corners; no photographed metal, perspective, notch or camera cutout. Real App screenshots fit proportionally without UI recoloring, mirroring or redraw.",
+      "hardwareCleanup": {
+        "left": 315,
+        "top": 15,
+        "width": 294,
+        "height": 100,
+        "sampleX": 620,
+        "sampleY": 120,
+        "fill": [
+          254,
+          254,
+          254,
+          255
+        ],
+        "changedPixelsOutsideHardware": 0
+      },
+      "screenSampling": {
+        "proportionalScale": 0.6493506493506493,
+        "offsetX": 0,
+        "offsetY": 0.8116883116883287,
+        "samplePasses": 1
+      },
+      "output": "public/assets/products/recordbox/home-sources/front-iphone-accounting.webp",
+      "outputDimensions": {
+        "width": 648,
+        "height": 1352
+      },
+      "bytes": 106522,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "pixelSha256": "cc77f55f52a26c527dc911f61e9d0b241b9efff62f2f04c381a64a13a6272b32"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    },
+    {
+      "name": "front-iphone-dark-notes",
+      "theme": "dark",
+      "locale": "zh",
+      "source": "public/assets/products/recordbox/home-sources/screen-dark-notes.webp",
+      "sourceFileSha256": "80b1a7cd252d14cfdc79f1885f6b0e926e8a953718afa39ba5b80ef4ca0ac01c",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "hardwareSource": "scripts/compose-home-iphones.mjs",
+      "geometry": {
+        "width": 324,
+        "height": 676,
+        "screenLeft": 12,
+        "screenTop": 13,
+        "screenWidth": 300,
+        "screenHeight": 650,
+        "screenRadius": 50
+      },
+      "method": "Symmetric flat graphite display frame with concentric rounded corners; no photographed metal, perspective, notch or camera cutout. Real App screenshots fit proportionally without UI recoloring, mirroring or redraw.",
+      "hardwareCleanup": null,
+      "screenSampling": {
+        "proportionalScale": 0.46494992846924177,
+        "offsetX": 0.05364806866953131,
+        "offsetY": 0,
+        "samplePasses": 1
+      },
+      "output": "public/assets/products/recordbox/home-sources/front-iphone-dark-notes.webp",
+      "outputDimensions": {
+        "width": 648,
+        "height": 1352
+      },
+      "bytes": 146822,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "pixelSha256": "1d7365f46746caba90359f74ceac1f9a14e115b99bf60b3490e8dbdcc4567db1"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    }
+  ]
+}

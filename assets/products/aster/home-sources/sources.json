@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 1,
+  "product": "Aster",
+  "captureDate": "2026-10-13",
+  "sourceType": "real_application_screenshot",
+  "capture": {
+    "source": "Existing lossless product-page screenshots, reused directly without copying or altering their pixels.",
+    "provenance": "frontend/fivehow_web_home/docs/aster-invite-preview.md",
+    "reuseDate": "2026-10-14",
+    "viewport": {
+      "width": 1152,
+      "height": 768
+    },
+    "deviceScaleFactor": 3,
+    "pixelDimensions": {
+      "width": 3456,
+      "height": 2304
+    },
+    "sidebarWidth": 256,
+    "sidebarFractionOfOutput": 0.2222222222222222,
+    "originalMimeType": "image/webp",
+    "outputMimeType": "image/webp",
+    "notes": [
+      "直接复用 Aster 产品页四张高清无损 AI 对话截图；不使用旧的 JPEG 转码首页截图。",
+      "完整保留原始界面、消息气泡、凭单和背景，不单独绘制、涂色或拼接任何界面区域。",
+      "无新增截图、业务数据修改或 AI 调用。"
+    ]
+  },
+  "newAiCalls": 0,
+  "businessDataModified": false,
+  "files": [
+    {
+      "file": "frontend/fivehow_web_home/public/assets/products/aster/screenshots/ai-light.webp",
+      "language": "zh",
+      "theme": "light",
+      "originalMimeType": "image/webp",
+      "sha256": "ce12bad5f9c35764a2bae74e8a4168282163d8f857db87d00ba81f7c484ef6d8",
+      "bytes": 55312
+    },
+    {
+      "file": "frontend/fivehow_web_home/public/assets/products/aster/screenshots/en/ai-light.webp",
+      "language": "en",
+      "theme": "light",
+      "originalMimeType": "image/webp",
+      "sha256": "7758d6032efa769f3ec480347e5d6d1509f7018b8f328f60462bafd4eb607869",
+      "bytes": 60598
+    },
+    {
+      "file": "frontend/fivehow_web_home/public/assets/products/aster/screenshots/ai-dark.webp",
+      "language": "zh",
+      "theme": "dark",
+      "originalMimeType": "image/webp",
+      "sha256": "9b497a8241afc151e8b6b5f8ba0c5887c0d013aca55b0cbcde2b260a2ae2b006",
+      "bytes": 56542
+    },
+    {
+      "file": "frontend/fivehow_web_home/public/assets/products/aster/screenshots/en/ai-dark.webp",
+      "language": "en",
+      "theme": "dark",
+      "originalMimeType": "image/webp",
+      "sha256": "b3cd120123f6d368324116ad946d5bb3ddeb44aa55299a8546d5d8b1eaecb6fc",
+      "bytes": 62138
+    }
+  ],
+  "macbookComposites": {
+    "technique": "An original flat laptop illustration with a symmetric rounded display, thin graphite bezel, and simple horizontal base. The complete real App screenshot defines the display aspect ratio. Hardware geometry is antialiased separately; no photographed hardware, AI redraw, perspective warp, or enlarged UI.",
+    "reproducibleScript": "frontend/fivehow_web_home/scripts/compose-home-macbooks.mjs",
+    "command": "node scripts/compose-home-macbooks.mjs",
+    "prerequisites": [
+      "Node.js with the project sharp dependency"
+    ],
+    "template": {
+      "name": "FiveHow flat desktop simulator",
+      "sourceRole": "Deterministic project-owned vector geometry",
+      "outputWidth": 1360,
+      "screen": {
+        "left": 52,
+        "top": 36,
+        "width": 1256,
+        "radius": 10
+      },
+      "shellSupersampling": 2,
+      "palettes": {
+        "light": {
+          "rim": "#d5d8dc",
+          "edge": "#a8adb4",
+          "bezel": "#26282c",
+          "base": "#c8ccd1",
+          "lip": "#afb5bd",
+          "inset": "#a4aab2"
+        },
+        "dark": {
+          "rim": "#656b74",
+          "edge": "#8c929a",
+          "bezel": "#1b1d21",
+          "base": "#626872",
+          "lip": "#484e57",
+          "inset": "#3c424b"
+        }
+      }
+    },
+    "entries": [
+      {
+        "theme": "light",
+        "language": "zh",
+        "source": "frontend/fivehow_web_home/public/assets/products/aster/screenshots/ai-light.webp",
+        "sourceSha256": "ce12bad5f9c35764a2bae74e8a4168282163d8f857db87d00ba81f7c484ef6d8",
+        "sourceDimensions": {
+          "width": 3456,
+          "height": 2304
+        },
+        "screenTreatment": "Complete real screenshot, proportionally resized once into a front-facing flat laptop shell. No perspective projection or poster pixels.",
+        "screenshotPlacement": {
+          "left": 52,
+          "top": 36,
+          "width": 1256,
+          "radius": 10,
+          "height": 837
+        },
+        "output": "frontend/fivehow_web_home/public/assets/products/aster/home-sources/macbook-light-zh.webp",
+        "outputDimensions": {
+          "width": 1360,
+          "height": 929
+        },
+        "outputSha256": "54b6d16fd8cecbf5be7c38f16af1fb8cd292050eb3732a9c32c581d5a92a2256",
+        "bytes": 35230,
+        "encoding": {
+          "format": "webp",
+          "lossless": true
+        },
+        "verification": {
+          "fit": "contain",
+          "cropped": false,
+          "uiRedrawn": false,
+          "uiMirrored": false,
+          "uiUpscaled": false,
+          "uiScale": 0.36342592592592593,
+          "perspectiveApplied": false,
+          "losslessCheckedPixels": 1178890,
+          "losslessChangedPixels": 0
+        }
+      },
+      {
+        "theme": "light",
+        "language": "en",
+        "source": "frontend/fivehow_web_home/public/assets/products/aster/screenshots/en/ai-light.webp",
+        "sourceSha256": "7758d6032efa769f3ec480347e5d6d1509f7018b8f328f60462bafd4eb607869",
+        "sourceDimensions": {
+          "width": 3456,
+          "height": 2304
+        },
+        "screenTreatment": "Complete real screenshot, proportionally resized once into a front-facing flat laptop shell. No perspective projection or poster pixels.",
+        "screenshotPlacement": {
+          "left": 52,
+          "top": 36,
+          "width": 1256,
+          "radius": 10,
+          "height": 837
+        },
+        "output": "frontend/fivehow_web_home/public/assets/products/aster/home-sources/macbook-light-en.webp",
+        "outputDimensions": {
+          "width": 1360,
+          "height": 929
+        },
+        "outputSha256": "478597699e1e0d745fa8065777c41cfbac22caae8c1c1ba7a007bb8f073b4ac2",
+        "bytes": 37882,
+        "encoding": {
+          "format": "webp",
+          "lossless": true
+        },
+        "verification": {
+          "fit": "contain",
+          "cropped": false,
+          "uiRedrawn": false,
+          "uiMirrored": false,
+          "uiUpscaled": false,
+          "uiScale": 0.36342592592592593,
+          "perspectiveApplied": false,
+          "losslessCheckedPixels": 1178890,
+          "losslessChangedPixels": 0
+        }
+      },
+      {
+        "theme": "dark",
+        "language": "zh",
+        "source": "frontend/fivehow_web_home/public/assets/products/aster/screenshots/ai-dark.webp",
+        "sourceSha256": "9b497a8241afc151e8b6b5f8ba0c5887c0d013aca55b0cbcde2b260a2ae2b006",
+        "sourceDimensions": {
+          "width": 3456,
+          "height": 2304
+        },
+        "screenTreatment": "Complete real screenshot, proportionally resized once into a front-facing flat laptop shell. No perspective projection or poster pixels.",
+        "screenshotPlacement": {
+          "left": 52,
+          "top": 36,
+          "width": 1256,
+          "radius": 10,
+          "height": 837
+        },
+        "output": "frontend/fivehow_web_home/public/assets/products/aster/home-sources/macbook-dark-zh.webp",
+        "outputDimensions": {
+          "width": 1360,
+          "height": 929
+        },
+        "outputSha256": "6652b9e868c9106d876b8b94c49f1b09879d8fadd4d774b46194d72a5300aecc",
+        "bytes": 36998,
+        "encoding": {
+          "format": "webp",
+          "lossless": true
+        },
+        "verification": {
+          "fit": "contain",
+          "cropped": false,
+          "uiRedrawn": false,
+          "uiMirrored": false,
+          "uiUpscaled": false,
+          "uiScale": 0.36342592592592593,
+          "perspectiveApplied": false,
+          "losslessCheckedPixels": 1178890,
+          "losslessChangedPixels": 0
+        }
+      },
+      {
+        "theme": "dark",
+        "language": "en",
+        "source": "frontend/fivehow_web_home/public/assets/products/aster/screenshots/en/ai-dark.webp",
+        "sourceSha256": "b3cd120123f6d368324116ad946d5bb3ddeb44aa55299a8546d5d8b1eaecb6fc",
+        "sourceDimensions": {
+          "width": 3456,
+          "height": 2304
+        },
+        "screenTreatment": "Complete real screenshot, proportionally resized once into a front-facing flat laptop shell. No perspective projection or poster pixels.",
+        "screenshotPlacement": {
+          "left": 52,
+          "top": 36,
+          "width": 1256,
+          "radius": 10,
+          "height": 837
+        },
+        "output": "frontend/fivehow_web_home/public/assets/products/aster/home-sources/macbook-dark-en.webp",
+        "outputDimensions": {
+          "width": 1360,
+          "height": 929
+        },
+        "outputSha256": "401001ac84c8c659299acaa519a7c85a903e8000eb7126bacc2bae00e815fff7",
+        "bytes": 40486,
+        "encoding": {
+          "format": "webp",
+          "lossless": true
+        },
+        "verification": {
+          "fit": "contain",
+          "cropped": false,
+          "uiRedrawn": false,
+          "uiMirrored": false,
+          "uiUpscaled": false,
+          "uiScale": 0.36342592592592593,
+          "perspectiveApplied": false,
+          "losslessCheckedPixels": 1178890,
+          "losslessChangedPixels": 0
+        }
+      }
+    ]
+  },
+  "archivedHomeCapture": {
+    "captureDate": "2026-10-13",
+    "environment": {
+      "name": "develop-default",
+      "id": "env-542f72b4",
+      "webOrigin": "http://localhost:5184"
+    },
+    "capture": {
+      "tool": "CUA Chrome native tab screenshot",
+      "viewport": {
+        "width": 1472,
+        "height": 900
+      },
+      "clip": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 900
+      },
+      "sidebarWidth": 256,
+      "sidebarFractionOfOutput": 0.17777777777777778,
+      "originalMimeType": "image/jpeg",
+      "outputMimeType": "image/webp",
+      "conversion": "cwebp -lossless",
+      "notes": [
+        "从真实应用直接截图，保留既有午餐记账对话；中英演示账号各复用同一条真实对话。",
+        "通过应用菜单切换深浅主题与中英文，未注入 DOM、修改业务数据或新增 AI 调用。",
+        "真实窗口为 1472×900；截图仅排除最右侧 32 px 空白，保留全部界面与原比例，同时避开截图工具的指针提示。",
+        "CUA 原生输出为有损 JPEG；交付 WebP 使用 lossless 转码，避免再次有损压缩，不代表原始截图本身为无损格式。",
+        "未缩放、重绘或处理截图像素。四张截图已目视检查，无菜单、tooltip 或光标框。"
+      ]
+    },
+    "files": [
+      {
+        "file": "ai-light-zh.webp",
+        "language": "zh",
+        "theme": "light",
+        "conversationTitle": "记一笔午餐",
+        "existingCommand": "午餐28",
+        "receiptAmount": "CNY 28.00",
+        "receiptEntryDate": "2026-10-12",
+        "originalMimeType": "image/jpeg",
+        "originalSha256": "7e14f6b6d9d2a25e7f238293fe4bce6aea85f685e66e06c7bac6b78cb372d13b",
+        "sha256": "eb34e794ede501d6b5aa7f9bf151e158aa675d87595f6e75db5286ce0cb605e3",
+        "bytes": 45324
+      },
+      {
+        "file": "ai-dark-zh.webp",
+        "language": "zh",
+        "theme": "dark",
+        "conversationTitle": "记一笔午餐",
+        "existingCommand": "午餐28",
+        "receiptAmount": "CNY 28.00",
+        "receiptEntryDate": "2026-10-12",
+        "originalMimeType": "image/jpeg",
+        "originalSha256": "91b84ad5a31505708306ee8dac63ddf5359e3eedb646bc63d0b88c7361cddded",
+        "sha256": "9efc97c1b7276043907017c2f08b4576be9bf5f124b0708b3d87e1a73c52874e",
+        "bytes": 48188
+      },
+      {
+        "file": "ai-light-en.webp",
+        "language": "en",
+        "theme": "light",
+        "conversationTitle": "Log lunch",
+        "existingCommand": "Lunch 28",
+        "receiptAmount": "CNY 28.00",
+        "receiptEntryDate": "2026-10-13",
+        "originalMimeType": "image/jpeg",
+        "originalSha256": "bd50f167021d91e1e995232ee196591b389a7d01986dbaca8183b515fd63b147",
+        "sha256": "c0ff2406c1c52fa243a7adb46c4259a61971a9b2e61a323d218fbdfd0f644e48",
+        "bytes": 49744
+      },
+      {
+        "file": "ai-dark-en.webp",
+        "language": "en",
+        "theme": "dark",
+        "conversationTitle": "Log lunch",
+        "existingCommand": "Lunch 28",
+        "receiptAmount": "CNY 28.00",
+        "receiptEntryDate": "2026-10-13",
+        "originalMimeType": "image/jpeg",
+        "originalSha256": "7473ea787aa34babf195545318ab141b45f8d68d7845cd96b517690cd880755a",
+        "sha256": "adc24aa08b1f6367b968f4ef1bbc1e0ce9b75c74b2f49d5ee4bfefd275287ae2",
+        "bytes": 53576
+      }
+    ],
+    "usage": "Historical JPEG-derived screenshots; no longer used for the homepage computer display."
+  }
+}

@@ -1,0 +1,1 @@
+function i(){return typeof window>"u"?!1:typeof window.FiveHowNativeBridge?.request=="function"}async function t(e){return i()?window.FiveHowNativeBridge.request(e.method,e.payload??null):null}export{i,t as r};

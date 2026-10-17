@@ -1,0 +1,532 @@
+{
+  "product": "today",
+  "method": "统一采用 Now 官方视频首帧的真实深灰金属 iPhone 外壳，保留机身侧边、物理按键、刘海与原角度；真实屏幕按原比例完整适配后一次透视采样到玻璃平面。无 AI 重绘、改色、镜像或独立横纵拉伸。",
+  "encoding": "Lossless WebP; original screen files remain unchanged. Perspective composites are resampled once; encoded opaque pixels exactly match the generated RGBA buffer.",
+  "coordinates": "相对于源图左上角，单位为像素；width/height 为区域尺寸。所有路径相对于 frontend/fivehow_web_home。",
+  "appearance": "四张 Today 正常首页来自本次独立 iOS 模拟器真实运行，App 实际切换浅色/深色和中英文；数据来自 App 内 Debug 预览导入，截图前关闭全部浮窗。",
+  "hardwareSources": [
+    {
+      "source": "public/assets/products/now/now-product-intro-poster.jpg",
+      "sourceFileSha256": "0afd2c2a307ebed36fcff2aafc821f7e80859b0f5497c3b7bd4671acdf856127",
+      "crop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "outlinePath": "M226 350 C202 349 184 361 177 381 C173 391 173 403 173 417 L172.5 945 C172.5 983 181 1008 211 1014 C222 1017 247 1016 268 1016 L412 1014 C446 1013 463 993 464 954 L463 411 C463 378 449 363 420 360 Z",
+      "glassPath": "M233 359 L283 361 L285 382 Q287 397 303 398 L361 401 Q374 401 376 387 L377 367 L412 369 Q452 370 456 410 L456 950 Q455 993 421 1003 L230 1007 Q194 1006 192 969 L192 401 Q193 361 233 359 Z",
+      "geometryCoordinates": "Original 1920×1080 poster pixels. Scale the complete poster device group uniformly; no extra device rotation."
+    }
+  ],
+  "simulatorSources": [
+    {
+      "name": "iphone-home-light-zh",
+      "theme": "light",
+      "locale": "zh",
+      "source": "public/assets/products/today/home-sources/screen-home-light-zh.webp",
+      "sourceFileSha256": "06fe55778ac40a5d2896aa8263d058af34d9bb12d6f1c08123718a3f2c2a582c",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "originalPosterUI": false,
+      "screenFit": {
+        "method": "Proportional contain in physical screen plane, then one inverse projective bilinear sample; no crop, mirroring, UI recoloring or redraw.",
+        "plane": {
+          "width": 1284,
+          "height": 2778
+        },
+        "containScale": 0.9935622317596566,
+        "offsetX": 1.152360515021428,
+        "offsetY": 0
+      },
+      "projectedHeight": 1300,
+      "projectedWidth": 530,
+      "hardwareSource": "public/assets/products/now/now-product-intro-poster.jpg",
+      "posterCrop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "hardwareScale": 2,
+      "output": "public/assets/products/today/home-sources/iphone-home-light-zh.webp",
+      "outputDimensions": {
+        "width": 592,
+        "height": 1342
+      },
+      "bytes": 84218,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "originalPosterRGBPreserved": false,
+        "pixelSha256": "fa7b101ee4e8bf01c35ec2f9c7a5733f92f3ddfd609e06c1afc43596926b80ca"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      },
+      "capture": {
+        "tool": "xcrun simctl io screenshot",
+        "device": "iPhone 16 Plus",
+        "runtime": "iOS 26.2",
+        "isolatedDevice": "CBA8EA87-D8FC-418F-920B-0E470B1D3A4A",
+        "date": "2026-10-14",
+        "account": "Fresh Simulator without Apple ID; local demo data only",
+        "screen": "Normal home; no editor, dialog or settings overlay",
+        "rawDimensions": {
+          "width": 1290,
+          "height": 2796
+        },
+        "sourceFileSha256": "06fe55778ac40a5d2896aa8263d058af34d9bb12d6f1c08123718a3f2c2a582c"
+      }
+    },
+    {
+      "name": "iphone-home-light-en",
+      "theme": "light",
+      "locale": "en",
+      "source": "public/assets/products/today/home-sources/screen-home-light-en.webp",
+      "sourceFileSha256": "bca2ddf9f02036cbeeb21793ab33f1cd153f93bd118bdbfa3aa58c73e6f9d2ab",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "originalPosterUI": false,
+      "screenFit": {
+        "method": "Proportional contain in physical screen plane, then one inverse projective bilinear sample; no crop, mirroring, UI recoloring or redraw.",
+        "plane": {
+          "width": 1284,
+          "height": 2778
+        },
+        "containScale": 0.9935622317596566,
+        "offsetX": 1.152360515021428,
+        "offsetY": 0
+      },
+      "projectedHeight": 1300,
+      "projectedWidth": 530,
+      "hardwareSource": "public/assets/products/now/now-product-intro-poster.jpg",
+      "posterCrop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "hardwareScale": 2,
+      "output": "public/assets/products/today/home-sources/iphone-home-light-en.webp",
+      "outputDimensions": {
+        "width": 592,
+        "height": 1342
+      },
+      "bytes": 86026,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "originalPosterRGBPreserved": false,
+        "pixelSha256": "a06bf0151e4b24e8b90d0cec725a0d3bd56db801cccb802661517eda8d31c7fc"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      },
+      "capture": {
+        "tool": "xcrun simctl io screenshot",
+        "device": "iPhone 16 Plus",
+        "runtime": "iOS 26.2",
+        "isolatedDevice": "CBA8EA87-D8FC-418F-920B-0E470B1D3A4A",
+        "date": "2026-10-14",
+        "account": "Fresh Simulator without Apple ID; local demo data only",
+        "screen": "Normal home; no editor, dialog or settings overlay",
+        "rawDimensions": {
+          "width": 1290,
+          "height": 2796
+        },
+        "sourceFileSha256": "bca2ddf9f02036cbeeb21793ab33f1cd153f93bd118bdbfa3aa58c73e6f9d2ab"
+      }
+    },
+    {
+      "name": "iphone-home-dark-zh",
+      "theme": "dark",
+      "locale": "zh",
+      "source": "public/assets/products/today/home-sources/screen-home-dark-zh.webp",
+      "sourceFileSha256": "694c6d62f36aa8757eb7dcf9887c7ed51a226b4e639db2ca5e06b6530bf32e1b",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "originalPosterUI": false,
+      "screenFit": {
+        "method": "Proportional contain in physical screen plane, then one inverse projective bilinear sample; no crop, mirroring, UI recoloring or redraw.",
+        "plane": {
+          "width": 1284,
+          "height": 2778
+        },
+        "containScale": 0.9935622317596566,
+        "offsetX": 1.152360515021428,
+        "offsetY": 0
+      },
+      "projectedHeight": 1300,
+      "projectedWidth": 530,
+      "hardwareSource": "public/assets/products/now/now-product-intro-poster.jpg",
+      "posterCrop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "hardwareScale": 2,
+      "output": "public/assets/products/today/home-sources/iphone-home-dark-zh.webp",
+      "outputDimensions": {
+        "width": 592,
+        "height": 1342
+      },
+      "bytes": 78860,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "originalPosterRGBPreserved": false,
+        "pixelSha256": "ec7c88f32ada6e6e35d72648ded04019688bfcfbb3fa38fdfe1cf091d924b354"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      },
+      "capture": {
+        "tool": "xcrun simctl io screenshot",
+        "device": "iPhone 16 Plus",
+        "runtime": "iOS 26.2",
+        "isolatedDevice": "CBA8EA87-D8FC-418F-920B-0E470B1D3A4A",
+        "date": "2026-10-14",
+        "account": "Fresh Simulator without Apple ID; local demo data only",
+        "screen": "Normal home; no editor, dialog or settings overlay",
+        "rawDimensions": {
+          "width": 1290,
+          "height": 2796
+        },
+        "sourceFileSha256": "694c6d62f36aa8757eb7dcf9887c7ed51a226b4e639db2ca5e06b6530bf32e1b"
+      }
+    },
+    {
+      "name": "iphone-home-dark-en",
+      "theme": "dark",
+      "locale": "en",
+      "source": "public/assets/products/today/home-sources/screen-home-dark-en.webp",
+      "sourceFileSha256": "e75af4b1b277a91d1364af0c1dd4d2cfe8f6c1029c3b0e720a425607ee5b9d47",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "originalPosterUI": false,
+      "screenFit": {
+        "method": "Proportional contain in physical screen plane, then one inverse projective bilinear sample; no crop, mirroring, UI recoloring or redraw.",
+        "plane": {
+          "width": 1284,
+          "height": 2778
+        },
+        "containScale": 0.9935622317596566,
+        "offsetX": 1.152360515021428,
+        "offsetY": 0
+      },
+      "projectedHeight": 1300,
+      "projectedWidth": 530,
+      "hardwareSource": "public/assets/products/now/now-product-intro-poster.jpg",
+      "posterCrop": {
+        "left": 170,
+        "top": 348,
+        "width": 296,
+        "height": 671
+      },
+      "screenQuad": [
+        [
+          194,
+          358
+        ],
+        [
+          456,
+          370
+        ],
+        [
+          456,
+          1004
+        ],
+        [
+          191,
+          1008
+        ]
+      ],
+      "hardwareScale": 2,
+      "output": "public/assets/products/today/home-sources/iphone-home-dark-en.webp",
+      "outputDimensions": {
+        "width": 592,
+        "height": 1342
+      },
+      "bytes": 80974,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "originalPosterRGBPreserved": false,
+        "pixelSha256": "2689a84468788e258879db00640a98a101d2ea457577e88f2b8ce2872a8f0fba"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      },
+      "capture": {
+        "tool": "xcrun simctl io screenshot",
+        "device": "iPhone 16 Plus",
+        "runtime": "iOS 26.2",
+        "isolatedDevice": "CBA8EA87-D8FC-418F-920B-0E470B1D3A4A",
+        "date": "2026-10-14",
+        "account": "Fresh Simulator without Apple ID; local demo data only",
+        "screen": "Normal home; no editor, dialog or settings overlay",
+        "rawDimensions": {
+          "width": 1290,
+          "height": 2796
+        },
+        "sourceFileSha256": "e75af4b1b277a91d1364af0c1dd4d2cfe8f6c1029c3b0e720a425607ee5b9d47"
+      }
+    }
+  ],
+  "frontComposites": [
+    {
+      "name": "front-iphone-home-light-zh",
+      "theme": "light",
+      "locale": "zh",
+      "source": "public/assets/products/today/home-sources/screen-home-light-zh.webp",
+      "sourceFileSha256": "06fe55778ac40a5d2896aa8263d058af34d9bb12d6f1c08123718a3f2c2a582c",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "hardwareSource": "scripts/compose-home-iphones.mjs",
+      "geometry": {
+        "width": 324,
+        "height": 676,
+        "screenLeft": 12,
+        "screenTop": 13,
+        "screenWidth": 300,
+        "screenHeight": 650,
+        "screenRadius": 50
+      },
+      "method": "Symmetric flat graphite display frame with concentric rounded corners; no photographed metal, perspective, notch or camera cutout. Real App screenshots fit proportionally without UI recoloring, mirroring or redraw.",
+      "hardwareCleanup": null,
+      "screenSampling": {
+        "proportionalScale": 0.46494992846924177,
+        "offsetX": 0.05364806866953131,
+        "offsetY": 0,
+        "samplePasses": 1
+      },
+      "output": "public/assets/products/today/home-sources/front-iphone-home-light-zh.webp",
+      "outputDimensions": {
+        "width": 648,
+        "height": 1352
+      },
+      "bytes": 46102,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "pixelSha256": "c2962ecb2a74ab1757cfece17d9e45d9db0eec2ecbc2bb7aea54cde1bdb264ec"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    },
+    {
+      "name": "front-iphone-home-light-en",
+      "theme": "light",
+      "locale": "en",
+      "source": "public/assets/products/today/home-sources/screen-home-light-en.webp",
+      "sourceFileSha256": "bca2ddf9f02036cbeeb21793ab33f1cd153f93bd118bdbfa3aa58c73e6f9d2ab",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "hardwareSource": "scripts/compose-home-iphones.mjs",
+      "geometry": {
+        "width": 324,
+        "height": 676,
+        "screenLeft": 12,
+        "screenTop": 13,
+        "screenWidth": 300,
+        "screenHeight": 650,
+        "screenRadius": 50
+      },
+      "method": "Symmetric flat graphite display frame with concentric rounded corners; no photographed metal, perspective, notch or camera cutout. Real App screenshots fit proportionally without UI recoloring, mirroring or redraw.",
+      "hardwareCleanup": null,
+      "screenSampling": {
+        "proportionalScale": 0.46494992846924177,
+        "offsetX": 0.05364806866953131,
+        "offsetY": 0,
+        "samplePasses": 1
+      },
+      "output": "public/assets/products/today/home-sources/front-iphone-home-light-en.webp",
+      "outputDimensions": {
+        "width": 648,
+        "height": 1352
+      },
+      "bytes": 49094,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "pixelSha256": "d832d4eb36d66fe13ca5cc3e18658088beb43397ec5f64d02d1b10b80aa8277d"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    },
+    {
+      "name": "front-iphone-home-dark-zh",
+      "theme": "dark",
+      "locale": "zh",
+      "source": "public/assets/products/today/home-sources/screen-home-dark-zh.webp",
+      "sourceFileSha256": "694c6d62f36aa8757eb7dcf9887c7ed51a226b4e639db2ca5e06b6530bf32e1b",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "hardwareSource": "scripts/compose-home-iphones.mjs",
+      "geometry": {
+        "width": 324,
+        "height": 676,
+        "screenLeft": 12,
+        "screenTop": 13,
+        "screenWidth": 300,
+        "screenHeight": 650,
+        "screenRadius": 50
+      },
+      "method": "Symmetric flat graphite display frame with concentric rounded corners; no photographed metal, perspective, notch or camera cutout. Real App screenshots fit proportionally without UI recoloring, mirroring or redraw.",
+      "hardwareCleanup": null,
+      "screenSampling": {
+        "proportionalScale": 0.46494992846924177,
+        "offsetX": 0.05364806866953131,
+        "offsetY": 0,
+        "samplePasses": 1
+      },
+      "output": "public/assets/products/today/home-sources/front-iphone-home-dark-zh.webp",
+      "outputDimensions": {
+        "width": 648,
+        "height": 1352
+      },
+      "bytes": 45672,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "pixelSha256": "a80002c2cc5875b10f91e793925590cbf8c2bacedc703422741a7c4ade61e073"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    },
+    {
+      "name": "front-iphone-home-dark-en",
+      "theme": "dark",
+      "locale": "en",
+      "source": "public/assets/products/today/home-sources/screen-home-dark-en.webp",
+      "sourceFileSha256": "e75af4b1b277a91d1364af0c1dd4d2cfe8f6c1029c3b0e720a425607ee5b9d47",
+      "rawDimensions": {
+        "width": 1290,
+        "height": 2796
+      },
+      "hardwareSource": "scripts/compose-home-iphones.mjs",
+      "geometry": {
+        "width": 324,
+        "height": 676,
+        "screenLeft": 12,
+        "screenTop": 13,
+        "screenWidth": 300,
+        "screenHeight": 650,
+        "screenRadius": 50
+      },
+      "method": "Symmetric flat graphite display frame with concentric rounded corners; no photographed metal, perspective, notch or camera cutout. Real App screenshots fit proportionally without UI recoloring, mirroring or redraw.",
+      "hardwareCleanup": null,
+      "screenSampling": {
+        "proportionalScale": 0.46494992846924177,
+        "offsetX": 0.05364806866953131,
+        "offsetY": 0,
+        "samplePasses": 1
+      },
+      "output": "public/assets/products/today/home-sources/front-iphone-home-dark-en.webp",
+      "outputDimensions": {
+        "width": 648,
+        "height": 1352
+      },
+      "bytes": 48972,
+      "verification": {
+        "changedOpaquePixelsAfterEncoding": 0,
+        "pixelSha256": "23974ae16014ff1ba386532610af06aeddfee5f52171575b5c675cfbe0e2a14f"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true
+      }
+    }
+  ]
+}

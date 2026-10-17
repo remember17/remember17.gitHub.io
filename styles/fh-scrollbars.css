@@ -1,0 +1,51 @@
+/* Match Aster's native scrollbar rules in fivehow_aster/src/index.css.
+   Standard-capable browsers use thin; older WebKit uses the 4px fallback. */
+:root {
+  --thin-scrollbar-size: 4px;
+  --thin-scrollbar-thumb: color-mix(in oklch, var(--ink-0) 16%, transparent);
+  --thin-scrollbar-thumb-hover: color-mix(in oklch, var(--ink-0) 32%, transparent);
+  --thin-scrollbar-fade-duration: 240ms;
+}
+
+/* Keep page-specific transitions ahead of the shared scrollbar transition. */
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition-property: scrollbar-color;
+    transition-duration: var(--thin-scrollbar-fade-duration);
+  }
+}
+
+*::-webkit-scrollbar {
+  height: var(--thin-scrollbar-size);
+  width: var(--thin-scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 999px;
+  transition: background-color var(--thin-scrollbar-fade-duration) ease;
+}
+
+[data-scroll-active] {
+  scrollbar-color: var(--thin-scrollbar-thumb) transparent;
+}
+
+[data-scroll-active]::-webkit-scrollbar-thumb {
+  background: var(--thin-scrollbar-thumb);
+}
+
+[data-scroll-active]::-webkit-scrollbar-thumb:hover {
+  background: var(--thin-scrollbar-thumb-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --thin-scrollbar-fade-duration: 0.01ms;
+  }
+}

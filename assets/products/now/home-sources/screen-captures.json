@@ -1,0 +1,122 @@
+{
+  "product": "Now iOS",
+  "captureDate": "2026-10-14",
+  "application": "/private/tmp/fivehow-now-subscription-tests/Build/Products/Debug-iphonesimulator/now.app",
+  "bundleIdentifier": "com.fivehow.commencer",
+  "builtBinarySha256": "907980e3adc73b6bdacc08214c7ed79db693115b173b7e0c57d1a8cc98e027b8",
+  "appBuiltAt": "2026-10-13T07:25:56.527Z",
+  "build": "Reused existing Debug iphonesimulator arm64 artifact; no build or source changes.",
+  "simulator": {
+    "udid": "CBA8EA87-D8FC-418F-920B-0E470B1D3A4A",
+    "name": "FiveHow Home Screenshots 20261014",
+    "runtime": "iOS 26.2",
+    "dedicatedTaskDevice": true
+  },
+  "isolation": {
+    "entitlements": "codesign -d --entitlements :- produced no entitlements dictionary.",
+    "launchEnvironment": {
+      "SIMCTL_CHILD_NOW_ISOLATED_SIMULATOR_TEST": "1"
+    },
+    "runtimeBehavior": "DEBUG + Simulator isolation uses Dependencies .test context, temporary SQLite database and mock CloudKit; remote config, Bugly, StoreKit refresh and foreground CloudKit sync are skipped.",
+    "userDevicesOrDataUsed": false,
+    "nowMacLaunched": false
+  },
+  "launches": [
+    {
+      "language": "zh-Hans",
+      "arguments": [
+        "-AppleLanguages",
+        "(zh-Hans)",
+        "-AppleLocale",
+        "zh_CN",
+        "-themeMode",
+        "light"
+      ],
+      "seed": "Settings > Debug > 添加展示数据",
+      "result": "Inserted 29 showcase messages, 35 images in 5 conversations.",
+      "darkCapture": "Selected 深色 in the real Appearance settings, then dismissed the entire popover to Home."
+    },
+    {
+      "language": "en",
+      "arguments": [
+        "-AppleLanguages",
+        "(en)",
+        "-AppleLocale",
+        "en_US",
+        "-themeMode",
+        "light"
+      ],
+      "seed": "Settings > Debug > Add English showcase data",
+      "result": "Inserted 29 showcase messages, 46 images in 5 conversations."
+    }
+  ],
+  "uiAutomation": "Simulator accessibility buttons through CUA. Settings/Debug/Appearance popovers explicitly dismissed before each screenshot. User interface confirmed in Chinese/English and light/dark.",
+  "files": [
+    {
+      "file": "/private/tmp/fivehow-now-clean-captures/now-light-zh.png",
+      "theme": "light",
+      "language": "zh-Hans",
+      "width": 1290,
+      "height": 2796,
+      "bytes": 1887466,
+      "sha256": "b1b0d1377318799d49897c480b698ff517691d1df56271862d3c019743012a2a",
+      "capturedAt": "2026-10-14T02:42:44.152Z",
+      "source": "Native simctl io screenshot, unmodified PNG",
+      "screen": "Home conversation timeline: 随记 / Notes",
+      "overlays": false,
+      "keyboardVisible": false,
+      "themeSelectionVisible": false,
+      "scrollPosition": "Initial scroll-to-latest after seeding; no image crop or UI repaint.",
+      "variant": "light-zh",
+      "importedFile": "public/assets/products/now/home-sources/screen-home-light-zh.webp",
+      "importedFileSha256": "88eda031ed962cff2a0d9e18137ad96572d1530c9c32d3e48212c9b88cb801ce",
+      "pixelSha256": "a7fa7906966af3c8ead77572dc77af7886d677da854ce3164f93dfaad46a8da3",
+      "changedPixelsOnImport": 0,
+      "importEncoding": "Lossless WebP; original screenshot pixels and dimensions preserved."
+    },
+    {
+      "file": "/private/tmp/fivehow-now-clean-captures/now-dark-zh.png",
+      "theme": "dark",
+      "language": "zh-Hans",
+      "width": 1290,
+      "height": 2796,
+      "bytes": 1451244,
+      "sha256": "6eb4839688a0906c69bc9852682987a3350ce4cd5e76c870559571f20976df70",
+      "capturedAt": "2026-10-14T02:44:44.018Z",
+      "source": "Native simctl io screenshot, unmodified PNG",
+      "screen": "Home conversation timeline: 随记 / Notes",
+      "overlays": false,
+      "keyboardVisible": false,
+      "themeSelectionVisible": false,
+      "scrollPosition": "Initial scroll-to-latest after seeding; no image crop or UI repaint.",
+      "variant": "dark-zh",
+      "importedFile": "public/assets/products/now/home-sources/screen-home-dark-zh.webp",
+      "importedFileSha256": "236794e7e57ba6b74d1869f1de716ae53e245d1d105f5c517cb37ef5aa6d5b35",
+      "pixelSha256": "6622245bcd83e4d513e83b78176243f52ffa1c89b8c29a3bbd5325d5fab067c1",
+      "changedPixelsOnImport": 0,
+      "importEncoding": "Lossless WebP; original screenshot pixels and dimensions preserved."
+    },
+    {
+      "file": "/private/tmp/fivehow-now-clean-captures/now-light-en.png",
+      "theme": "light",
+      "language": "en",
+      "width": 1290,
+      "height": 2796,
+      "bytes": 1831596,
+      "sha256": "de8f7aca716f6c59aae7d620d632d35980fe04200633a8c4d54518d83c5a6c6a",
+      "capturedAt": "2026-10-14T02:46:32.332Z",
+      "source": "Native simctl io screenshot, unmodified PNG",
+      "screen": "Home conversation timeline: 随记 / Notes",
+      "overlays": false,
+      "keyboardVisible": false,
+      "themeSelectionVisible": false,
+      "scrollPosition": "Initial scroll-to-latest after seeding; no image crop or UI repaint.",
+      "variant": "light-en",
+      "importedFile": "public/assets/products/now/home-sources/screen-home-light-en.webp",
+      "importedFileSha256": "8ba8dfec5789c84cfac44d2744beea8b670f5d218a76d245e8daca3533e5340e",
+      "pixelSha256": "9f23e85c1391bff7aff1563e9579f924d3736a70d72ba018692c836339532012",
+      "changedPixelsOnImport": 0,
+      "importEncoding": "Lossless WebP; original screenshot pixels and dimensions preserved."
+    }
+  ]
+}
