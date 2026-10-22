@@ -46,11 +46,11 @@ html[data-theme='dark'] .reading-index-page {
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  padding: 64px 0 45px;
+  padding: 32px 0 20px;
 }
 
 .reading-index-eyebrow {
-  margin: 0 0 20px;
+  margin: 0 0 12px;
   color: var(--ink-2);
   font-size: 10px;
   font-weight: 650;
@@ -87,33 +87,6 @@ html[data-theme='dark'] .reading-index-page {
 .reading-index-hero h1 span::after { right: 7px; bottom: 3px; width: 30px; transform: rotate(-14deg); }
 
 
-.reading-categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 0 0 22px;
-  border-bottom: 1px solid var(--reading-rule);
-}
-.reading-categories a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 8px 13px;
-  border: 1px solid transparent;
-  border-radius: 7px;
-  color: var(--ink-2);
-  font-size: 13px;
-  line-height: 1.4;
-}
-.reading-categories a[aria-current] {
-  color: var(--reading-accent);
-  border-color: color-mix(in srgb, var(--reading-accent) 22%, transparent);
-  background: color-mix(in srgb, var(--reading-accent) 8%, transparent);
-}
-.reading-categories a:hover { background: color-mix(in srgb, var(--ink-4) 12%, transparent); }
-.reading-category-count { font-size: 11px; font-variant-numeric: tabular-nums; opacity: .8; }
-
 .reading-list { scroll-margin-top: 130px; }
 .reading-topic-heading {
   margin: 28px 0 0;
@@ -125,32 +98,11 @@ html[data-theme='dark'] .reading-index-page {
 .reading-list-heading {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 20px;
-  padding: 27px 0 4px;
-}
-.reading-list-heading h2 {
-  margin: 0;
-  color: var(--ink-2);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .04em;
+  padding: 0 0 4px;
 }
 .reading-list-heading > span { color: var(--ink-2); font-size: 12px; }
-
-.reading-brief-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 36px 26px;
-  padding: 22px 48px 40px;
-}
-.reading-brief-tile { min-width: 0; }
-.reading-brief-tile:focus-within { position: relative; z-index: 1; }
-.reading-brief-section + .reading-article-section { padding-top: 14px; }
-
-@media (hover: hover) and (pointer: fine) {
-  .reading-brief-tile:hover { position: relative; z-index: 1; }
-}
 
 .reading-row {
   display: grid;
@@ -160,6 +112,7 @@ html[data-theme='dark'] .reading-index-page {
   border-bottom: 1px solid var(--reading-rule);
 }
 .reading-row--with-cover { grid-template-columns: minmax(0, 1fr) 220px; }
+.reading-row:first-child { padding-top: 20px; }
 .reading-row-main { min-width: 0; }
 .reading-row-kicker {
   display: flex;
@@ -182,7 +135,7 @@ html[data-theme='dark'] .reading-index-page {
   font-size: 9px;
   letter-spacing: .02em;
 }
-.reading-row h3 {
+.reading-row h2 {
   max-width: 39em;
   margin: 0;
   font-size: clamp(21px, 2.3vw, 25px);
@@ -191,8 +144,8 @@ html[data-theme='dark'] .reading-index-page {
   letter-spacing: -.025em;
   overflow-wrap: anywhere;
 }
-.reading-row h3 a { color: var(--ink-0); }
-.reading-row h3 a:hover { color: var(--reading-accent); }
+.reading-row h2 a { color: var(--ink-0); }
+.reading-row h2 a:hover { color: var(--reading-accent); }
 .reading-row-description {
   max-width: 66ch;
   margin: 10px 0 16px;
@@ -218,15 +171,13 @@ html[data-theme='dark'] .reading-index-page {
 
 @media (max-width: 640px) {
   .reading-index-shell { width: calc(100% - 40px); }
-  .reading-index-hero { align-items: flex-start; flex-direction: column; gap: 16px; padding: 36px 0 30px; }
+  .reading-index-hero { align-items: flex-start; flex-direction: column; gap: 16px; padding: 24px 0 16px; }
   .reading-index-hero h1 { font-size: 54px; }
-  .reading-index-eyebrow { margin-bottom: 16px; }
-  .reading-categories { gap: 6px; padding-bottom: 18px; }
-  .reading-categories a { gap: 7px; padding: 8px 10px; font-size: 12px; }
-  .reading-brief-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; padding: 18px 0 26px; }
+  .reading-index-eyebrow { margin-bottom: 10px; }
   .reading-row { gap: 18px; padding: 27px 0; }
+  .reading-row:first-child { padding-top: 18px; }
   .reading-row--with-cover { grid-template-columns: minmax(0, 1fr); }
   .reading-row-cover { grid-row: 1; aspect-ratio: 16 / 9; }
-  .reading-row h3 { font-size: 21px; }
+  .reading-row h2 { font-size: 21px; }
   .reading-row-description { font-size: 13px; }
 }

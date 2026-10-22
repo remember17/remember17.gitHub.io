@@ -126,17 +126,6 @@ html[data-theme='dark'] .reading-article-page {
   font-size: 12px;
 }
 
-.reading-article-event-time {
-  margin: -6px 0 22px;
-  padding: 9px 13px;
-  border-left: 2px solid var(--reading-accent);
-  color: var(--ink-2);
-  background: color-mix(in srgb, var(--reading-accent) 5%, var(--surface-0));
-  font-size: 12px;
-  line-height: 1.85;
-  overflow-wrap: anywhere;
-}
-.reading-article-event-time > span { color: var(--ink-1); font-weight: 600; }
 .reading-article-published { white-space: nowrap; }
 
 .reading-author { color: var(--ink-1); font-weight: 600; }
