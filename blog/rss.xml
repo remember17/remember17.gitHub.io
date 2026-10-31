@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>阅读 · FiveHow</title>
+    <link>https://fivehow.com/blog</link>
+    <description>关于世界、科技、开发与日常使用的文章。</description>
+    <language>zh-CN</language>
+    <atom:link href="https://fivehow.com/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT 的记忆在给你画像吗？一项对 80 位用户、2050 条记忆的研究</title>
+      <link>https://fivehow.com/blog/zh/chatgpt-memory-profiling</link>
+      <guid isPermaLink="true">https://fivehow.com/blog/zh/chatgpt-memory-profiling</guid>
+      <description>一项研究从 80 位参与者中找到 65 人的 2050 条 ChatGPT 记忆，分析其中的个人数据、心理状态和内容来源。文章解释关键数字，并梳理当前记忆开关、删除范围与产品设计原则。</description>
+      <pubDate>Wed, 21 Oct 2026 13:03:08 GMT</pubDate>
+      <dc:creator>FIVEHOW</dc:creator>
+      <dc:language>zh-CN</dc:language>
+      <category>AI 与科技</category>
+    </item>
+    <item>
+      <title>AI 写的代码越来越多，软件岗位招聘却在回升：2026 年开发者该往哪儿走</title>
+      <link>https://fivehow.com/blog/zh/developer-jobs-ai-era</link>
+      <guid isPermaLink="true">https://fivehow.com/blog/zh/developer-jobs-ai-era</guid>
+      <description>AI 写的代码越来越多，美国软件开发招聘广告却在从谷底回升，初级岗在新招聘中的占比则在下降。把招聘广告、在岗人数和就业预测分开看，才能理解这些变化，以及开发者可以如何应对。</description>
+      <pubDate>Tue, 20 Oct 2026 10:32:43 GMT</pubDate>
+      <dc:creator>FIVEHOW</dc:creator>
+      <dc:language>zh-CN</dc:language>
+      <category>AI 与科技</category>
+    </item>
+    <item>
+      <title>2026 本地跑大模型硬件指南：先算内存，再看带宽，最后才谈价格</title>
+      <link>https://fivehow.com/blog/zh/local-llm-hardware</link>
+      <guid isPermaLink="true">https://fivehow.com/blog/zh/local-llm-hardware</guid>
+      <description>本地跑大模型，硬件该怎么选？从参数量和量化方式估算内存需求，再看带宽对生成速度的影响，结合 2026 年 10 月国内参考报价，按预算和用途比较各类设备。</description>
+      <pubDate>Tue, 20 Oct 2026 10:32:43 GMT</pubDate>
+      <dc:creator>FIVEHOW</dc:creator>
+      <dc:language>zh-CN</dc:language>
+      <category>AI 与科技</category>
+    </item>
+    <item>
+      <title>Meta 如何改造“全能 Agent”：1300 行薄编排器与 14 个专家的分工</title>
+      <link>https://fivehow.com/blog/zh/meta-thin-orchestrator</link>
+      <guid isPermaLink="true">https://fivehow.com/blog/zh/meta-thin-orchestrator</guid>
+      <description>Meta 的全能 Agent 在生产中出现幻觉，不同领域的知识相互干扰。团队改用约 1300 行的确定性编排器与 14 个上下文隔离的专家 Agent。本文介绍它们如何分工、怎样验证结果，以及小团队采用这套思路时需要考虑的取舍。</description>
+      <pubDate>Tue, 20 Oct 2026 10:32:43 GMT</pubDate>
+      <dc:creator>FIVEHOW</dc:creator>
+      <dc:language>zh-CN</dc:language>
+      <category>AI 与科技</category>
+    </item>
+  </channel>
+</rss>

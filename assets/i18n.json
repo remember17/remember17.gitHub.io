@@ -1,0 +1,24 @@
+{
+  "en": {
+    "title": "My Products",
+    "now_ios_name": "Now · iOS",
+    "now_ios_desc": "Capture ideas by sending messages. Build conversations, collaborate with others, and stay in sync with Now · macOS through iCloud.",
+    "now_mac_name": "Now · macOS",
+    "now_mac_desc": "A native macOS workspace for deeper writing and organization. Works with Now · iOS and keeps your conversations synced via iCloud.",
+    "today_name": "Today",
+    "today_desc": "Today is an app focused on building good habits with a clean interface.",
+    "recordbox_name": "RecordBox",
+    "recordbox_desc": "A multifunctional recording app for managing life's details: bookkeeping, moments, password manager, notes (Markdown), all in one box. Designed for simplicity, privacy, and efficiency."
+  },
+  "zh": {
+    "title": "我的产品",
+    "now_ios_name": "Now · iOS",
+    "now_ios_desc": "用发送消息的方式记录想法，创建会话整理内容，与他人协作，并通过 iCloud 与 Now · macOS 双向同步。",
+    "now_mac_name": "Now · macOS",
+    "now_mac_desc": "面向桌面场景的原生 macOS 版本，适合深度整理与持续写作，并与 Now · iOS 保持 iCloud 实时联动。",
+    "today_name": "Today",
+    "today_desc": "Today 是一款帮助用户建立良好习惯的应用，界面简洁直观，规划今日习惯。",
+    "recordbox_name": "记录Box",
+    "recordbox_desc": "多功能记录App，笔记(支持Markdown)、记账、记时光、密码备忘四大场景，极简设计蕴含强大功能。"
+  }
+}
