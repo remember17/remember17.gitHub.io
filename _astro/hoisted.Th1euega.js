@@ -1,0 +1,1 @@
+document.querySelectorAll("[data-product-video]").forEach(n=>{const e=n.querySelector("video"),d=n.querySelector("[data-product-video-play]");if(!e||!d)return;const t=()=>{d.hidden=!e.paused&&!e.ended};e.addEventListener("play",t),e.addEventListener("pause",t),e.addEventListener("ended",t),d.addEventListener("click",()=>{e.play().catch(t)}),t()});

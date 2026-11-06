@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="zh-CN" data-lang="zh" data-astro-cid-2u3pj5z5> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>2026 本地跑大模型硬件指南：先算内存，再看带宽，最后才谈价格 · FiveHow</title><meta name="description" content="本地跑大模型，硬件该怎么选？从参数量和量化方式估算内存需求，再看带宽对生成速度的影响，结合 2026 年 10 月国内参考报价，按预算和用途比较各类设备。"><link rel="canonical" href="https://fivehow.com/blog/zh/local-llm-hardware"><meta name="theme-color" content="#202023"><link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20width%3D%221024%22%20height%3D%221024%22%20viewBox%3D%220%200%201024%201024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22fivehow-favicon-clip%22%3E%3Crect%20width%3D%221024%22%20height%3D%221024%22%20rx%3D%22224%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg%20clip-path%3D%22url(%23fivehow-favicon-clip)%22%3E%0A%3Cg%20id%3D%2221%20%26%23194%3B%26%23183%3B%20FIVEHOW%20%26%23194%3B%26%23183%3B%20%26%23230%3B%26%23150%3B%26%23135%3B%26%23229%3B%26%23173%3B%26%23151%3B%26%23229%3B%26%23147%3B%26%23129%3B%26%23231%3B%26%23137%3B%26%23140%3B%20favicon%20%26%23194%3B%26%23183%3B%201024%22%3E%0A%3Crect%20width%3D%221024%22%20height%3D%221024%22%20fill%3D%22%23202020%22%2F%3E%0A%3Cpath%20id%3D%22F%20%26%23194%3B%26%23183%3B%20Georgia%20Bold%20%26%23194%3B%26%23183%3B%20editable%22%20d%3D%22M768%20292.75H737.922C730.37%20271.135%20716.958%20248.219%20697.688%20224C678.677%20199.521%20660.578%20186.109%20643.391%20183.766C635.578%20182.724%20625.161%20181.812%20612.141%20181.031C599.12%20180.25%20587.141%20179.859%20576.203%20179.859H489.875V397.438H544.953C560.578%20397.438%20574.12%20395.745%20585.578%20392.359C597.036%20388.714%20607.193%20382.333%20616.047%20373.219C622.557%20366.708%20628.807%20355.901%20634.797%20340.797C641.047%20325.432%20644.823%20312.281%20646.125%20301.344H675.812V534.547H646.125C645.083%20522.828%20641.047%20508.635%20634.016%20491.969C626.984%20475.042%20620.995%20463.844%20616.047%20458.375C608.495%20450.042%20598.859%20443.922%20587.141%20440.016C575.422%20435.849%20561.359%20433.766%20544.953%20433.766H489.875V617.359C489.875%20626.734%20491.568%20634.807%20494.953%20641.578C498.599%20648.089%20505.37%20653.427%20515.266%20657.594C520.995%20659.938%20528.807%20662.151%20538.703%20664.234C548.859%20666.057%20558.885%20667.49%20568.781%20668.531V699H269.953V668.531C277.505%20667.75%20287.531%20666.708%20300.031%20665.406C312.531%20663.844%20321.255%20662.021%20326.203%20659.938C335.578%20656.292%20342.089%20651.214%20345.734%20644.703C349.38%20638.193%20351.203%20629.859%20351.203%20619.703V228.688C351.203%20219.833%20349.51%20212.151%20346.125%20205.641C343%20198.87%20336.359%20193.271%20326.203%20188.844C318.911%20185.719%20309.276%20182.854%20297.297%20180.25C285.318%20177.646%20276.203%20175.953%20269.953%20175.172V144.703H768V292.75Z%22%20fill%3D%22%23F0B77D%22%2F%3E%0A%3Cpath%20id%3D%22Coral%20double%20flourish%20%26%23194%3B%26%23183%3B%20favicon%22%20d%3D%22M546.603%20807.061C576.303%20784.786%20741.138%20756.571%20782.718%20758.056C794.598%20758.056%20797.568%20763.996%20784.203%20769.936C735.198%20789.241%20583.728%20814.486%20549.573%20813.001C543.633%20813.001%20543.633%20810.031%20546.603%20807.061ZM589.668%20854.581C610.458%20835.276%20699.558%20807.061%20732.228%20808.546C744.108%20808.546%20742.623%20817.456%20733.713%20823.396C702.528%20841.216%20620.853%20867.946%20594.123%20864.976C586.698%20864.976%20583.728%20860.521%20589.668%20854.581Z%22%20fill%3D%22%23EE8577%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fg%3E%3C%2Fsvg%3E"><script>(function(){
+document.documentElement.setAttribute('data-fh-content-lang', "zh");
+  try {
+    var p = new URLSearchParams(location.search);
+    var at = p.get('appTheme');
+    var nt = window.__fhNativeTheme;
+    var ns = window.__fhWebsiteShell === true;
+    var hy = p.get('hybrid');
+    var ht = p.get('theme');
+    var lt = p.get('lang');
+    if (ns || hy === '1') document.documentElement.setAttribute('data-fh-hybrid', '1');
+    var t = (nt === 'light' || nt === 'dark')
+      ? nt
+      : (at === 'light' || at === 'dark')
+        ? at
+        : (ht === 'light' || ht === 'dark')
+          ? ht
+          : localStorage.getItem('fivehow-home-theme');
+    if (t === 'light' || t === 'dark') {
+      if (at === 'light' || at === 'dark' || ht === 'light' || ht === 'dark') {
+        localStorage.setItem('fivehow-home-theme', t);
+      }
+    } else {
+      t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+    var cl = document.documentElement.getAttribute('data-fh-content-lang');
+    var l = (cl === 'zh' || cl === 'en') ? cl : (lt === 'zh' || lt === 'en') ? lt : localStorage.getItem('fivehow-home-lang');
+    if (l === 'zh' || l === 'en') {
+      if (!cl && (lt === 'zh' || lt === 'en')) {
+        localStorage.setItem('fivehow-home-lang', l);
+      }
+    } else {
+      var bl = String((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+      l = bl.indexOf('zh') === 0 ? 'zh' : 'en';
+    }
+    document.documentElement.setAttribute('data-lang', l);
+    document.documentElement.setAttribute('lang', l === 'en' ? 'en' : 'zh-CN');
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-lang', 'zh');
+    document.documentElement.setAttribute('lang', 'zh-CN');
+  }
+})();</script><link rel="stylesheet" href="/styles/fh-home-theme.css"><link rel="stylesheet" href="/styles/fh-scrollbars.css"><link rel="stylesheet" href="/styles/fh-site-nav.css"><link rel="stylesheet" href="/styles/fh-prose.css"><link rel="stylesheet" href="/styles/fh-reading-article.css"><script src="/scripts/fh-theme.js"></script><script src="/scripts/fh-i18n.js"></script><script src="/scripts/fh-app-store-links.js"></script><script defer src="/scripts/fh-site-nav.js"></script><script defer src="/scripts/fh-scrollbars.js"></script><script defer src="/scripts/fh-page-views.js" data-api-base="https://api.fivehow.com" data-page-view-path="/blog/zh/local-llm-hardware"></script><link rel="alternate" type="application/rss+xml" title="FiveHow Reading" href="/blog/rss.xml"><meta property="og:type" content="article"><meta property="og:title" content="2026 本地跑大模型硬件指南：先算内存，再看带宽，最后才谈价格 · FiveHow"><meta property="og:description" content="本地跑大模型，硬件该怎么选？从参数量和量化方式估算内存需求，再看带宽对生成速度的影响，结合 2026 年 10 月国内参考报价，按预算和用途比较各类设备。"><meta property="og:url" content="https://fivehow.com/blog/zh/local-llm-hardware"><meta property="og:site_name" content="FiveHow"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://fivehow.com/_astro/cover.CDTitvHu_Z11Lel2.jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:alt" content="一台银色笔记本电脑和一台银色迷你主机放在深色桌面上，发光的粒子和神经网络光线从迷你主机流向笔记本，象征在本地运行大模型"><meta property="article:published_time" content="2026-10-20T10:32:43.000Z"><meta property="article:section" content="AI 与科技"><meta property="article:tag" content="ai"><meta property="article:tag" content="local-llm"><meta property="article:tag" content="hardware"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="2026 本地跑大模型硬件指南：先算内存，再看带宽，最后才谈价格 · FiveHow"><meta name="twitter:description" content="本地跑大模型，硬件该怎么选？从参数量和量化方式估算内存需求，再看带宽对生成速度的影响，结合 2026 年 10 月国内参考报价，按预算和用途比较各类设备。"><meta name="twitter:image" content="https://fivehow.com/_astro/cover.CDTitvHu_Z11Lel2.jpeg"><meta name="twitter:image:alt" content="一台银色笔记本电脑和一台银色迷你主机放在深色桌面上，发光的粒子和神经网络光线从迷你主机流向笔记本，象征在本地运行大模型"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://fivehow.com/blog/zh/local-llm-hardware#article","mainEntityOfPage":"https://fivehow.com/blog/zh/local-llm-hardware","headline":"2026 本地跑大模型硬件指南：先算内存，再看带宽，最后才谈价格","description":"本地跑大模型，硬件该怎么选？从参数量和量化方式估算内存需求，再看带宽对生成速度的影响，结合 2026 年 10 月国内参考报价，按预算和用途比较各类设备。","image":["https://fivehow.com/_astro/cover.CDTitvHu_Z11Lel2.jpeg"],"datePublished":"2026-10-20T10:32:43.000Z","inLanguage":"zh-CN","articleSection":"AI 与科技","keywords":"ai, local-llm, hardware","author":{"@type":"Organization","name":"FIVEHOW","url":"https://fivehow.com"},"publisher":{"@type":"Organization","name":"FiveHow","url":"https://fivehow.com/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FiveHow","item":"https://fivehow.com/"},{"@type":"ListItem","position":2,"name":"阅读","item":"https://fivehow.com/blog"},{"@type":"ListItem","position":3,"name":"2026 本地跑大模型硬件指南：先算内存，再看带宽，最后才谈价格","item":"https://fivehow.com/blog/zh/local-llm-hardware"}]}</script><style>.social-links[data-astro-cid-cgsifyrl]{display:flex;align-items:center;flex-wrap:wrap;margin:0;padding:0;color:var(--ink-2, var(--ink-soft))}.social-links--nav[data-astro-cid-cgsifyrl]{gap:4px}.social-links--footer[data-astro-cid-cgsifyrl]{gap:4px;margin-top:0;margin-left:-.8rem}.social-links__item[data-astro-cid-cgsifyrl]{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:2.25rem;height:2.25rem;padding:0;border:1px solid transparent;border-radius:999px;background:transparent;color:inherit;text-decoration:none;transition:transform .16s cubic-bezier(.23,1,.32,1),border-color .16s cubic-bezier(.23,1,.32,1),background-color .16s cubic-bezier(.23,1,.32,1),color .16s cubic-bezier(.23,1,.32,1),box-shadow .16s cubic-bezier(.23,1,.32,1)}.social-links__item[data-astro-cid-cgsifyrl] .fh-local-icon{display:block;width:.95rem;height:.95rem;font-size:.95rem}.social-links--nav[data-astro-cid-cgsifyrl] .social-links__item--x[data-astro-cid-cgsifyrl] .fh-local-icon{width:.9rem;height:.9rem;font-size:.9rem}.social-links--footer[data-astro-cid-cgsifyrl] .social-links__item[data-astro-cid-cgsifyrl]{width:2.5rem;height:2.5rem}.social-links--footer[data-astro-cid-cgsifyrl] .social-links__item[data-astro-cid-cgsifyrl] .fh-local-icon{width:1.1rem;height:1.1rem;font-size:1.1rem}.social-links--footer[data-astro-cid-cgsifyrl] .social-links__item--x[data-astro-cid-cgsifyrl] .fh-local-icon{width:1.02rem;height:1.02rem;font-size:1.02rem}.social-links__item--disabled[data-astro-cid-cgsifyrl]{cursor:default;opacity:.58}@media (hover: hover) and (pointer: fine){a[data-astro-cid-cgsifyrl].social-links__item:hover{transform:translateY(-1px);background:color-mix(in srgb,var(--ink-0, var(--ink)) 6%,transparent);color:var(--ink-0, var(--ink));box-shadow:0 10px 18px -16px #1c191752}}a[data-astro-cid-cgsifyrl].social-links__item:focus-visible{outline:none;background:color-mix(in srgb,var(--ink-0, var(--ink)) 8%,transparent);color:var(--ink-0, var(--ink));box-shadow:0 0 0 2px color-mix(in srgb,var(--ink-0, var(--ink)) 16%,transparent)}a[data-astro-cid-cgsifyrl].social-links__item:active{transform:scale(.97)}
+.fh-local-icon[data-astro-cid-z6z4okrq]{display:inline-block;width:1em;height:1em;flex:0 0 auto;vertical-align:-.125em}
+.reading-footer[data-astro-cid-qcchpf5w]{display:flex;align-items:center;justify-content:space-between;width:min(1120px,calc(100% - 64px));gap:32px;margin:0 auto;padding:32px 0 40px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Microsoft YaHei,sans-serif;box-sizing:border-box}.reading-footer[data-astro-cid-qcchpf5w] a[data-astro-cid-qcchpf5w]{color:var(--ink-0);text-decoration:none}.reading-footer[data-astro-cid-qcchpf5w] a[data-astro-cid-qcchpf5w]:focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:3px}.reading-footer[data-astro-cid-qcchpf5w] .reading-footer-brand[data-astro-cid-qcchpf5w]{display:inline-flex;align-items:center;min-height:44px;color:var(--ink-2);font-size:10px;font-weight:650;letter-spacing:.19em;line-height:1.5}.reading-footer-products[data-astro-cid-qcchpf5w]{display:flex;flex-wrap:wrap;gap:20px 42px}.reading-footer-product[data-astro-cid-qcchpf5w]{display:grid;gap:7px;min-height:44px;padding:5px 0;box-sizing:border-box}.reading-footer-product[data-astro-cid-qcchpf5w] strong[data-astro-cid-qcchpf5w]{font-size:16px;font-weight:650;line-height:1.25}.reading-footer-product[data-astro-cid-qcchpf5w] span[data-astro-cid-qcchpf5w]{color:var(--ink-2);font-size:11px;line-height:1.5}.reading-footer-product[data-astro-cid-qcchpf5w]:hover strong[data-astro-cid-qcchpf5w],.reading-footer[data-astro-cid-qcchpf5w] .reading-footer-brand[data-astro-cid-qcchpf5w]:hover{color:var(--accent)}@media (max-width: 640px){.reading-footer[data-astro-cid-qcchpf5w]{width:calc(100% - 40px);flex-direction:column;align-items:flex-start;gap:20px;padding-top:24px}}@media print{.reading-footer[data-astro-cid-qcchpf5w]{display:none}}
+.reading-preview-note[data-astro-cid-2u3pj5z5]{margin:0 0 2rem;padding:1rem 1.25rem;border:1px solid var(--accent);border-radius:12px;background:var(--surface-1);color:var(--ink-1);font-size:.875rem;line-height:1.7}.reading-preview-note[data-astro-cid-2u3pj5z5] strong[data-astro-cid-2u3pj5z5]{color:var(--accent)}.reading-preview-note[data-astro-cid-2u3pj5z5] p[data-astro-cid-2u3pj5z5]{margin:.3rem 0 0}
+</style></head> <body id="top" class="reading-article-page fh-prose-body" data-astro-cid-2u3pj5z5> <a class="reading-skip" href="#article-content" data-astro-cid-2u3pj5z5>跳转到正文</a> <header class="fh-site-nav" data-fh-site-nav data-fh-lang-visibility="off" data-fh-social-links="on"> <div class="fh-site-nav__inner"> <div class="fh-site-nav__left"> <button type="button" class="fh-site-nav__back" data-fh-back data-home-href="/?product=web-blog&#38;sourceScene=site_nav" aria-label="返回" data-fh-aria-label="{&#34;zh&#34;:&#34;返回&#34;,&#34;en&#34;:&#34;Back&#34;}"> <svg class="fh-site-nav__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path> </svg> </button> <button type="button" class="fh-site-nav__close" data-fh-close aria-label="关闭" data-fh-aria-label="{&#34;zh&#34;:&#34;关闭&#34;,&#34;en&#34;:&#34;Close&#34;}"> <svg class="fh-site-nav__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path><path d="M6 6l12 12"></path> </svg> </button> <a class="fh-site-mark" href="/?product=web-blog&#38;sourceScene=site_nav" aria-label="FiveHow"> <span class="fh-site-mark__wordmark" aria-hidden="true"> <img class="fh-site-mark__image fh-site-mark__image--light" src="/_astro/fivehow-wordmark-light.CLPCKS-O.svg" width="744" height="209" alt=""> <img class="fh-site-mark__image fh-site-mark__image--dark" src="/_astro/fivehow-wordmark-dark.BFQueO8D.svg" width="744" height="209" alt=""> </span> </a> </div> <div class="fh-site-nav__links"> <div class="fh-site-nav__social"> <nav class="social-links social-links--nav" aria-label="社交媒体" data-fh-aria-label="{&#34;zh&#34;:&#34;社交媒体&#34;,&#34;en&#34;:&#34;Social media&#34;}" data-astro-cid-cgsifyrl> <a class="social-links__item social-links__item--x" href="https://x.com/areahao" target="_blank" rel="noreferrer" aria-label="X" data-fh-aria-label="{&#34;zh&#34;:&#34;X&#34;,&#34;en&#34;:&#34;X&#34;}" title="X" data-fh-title="{&#34;zh&#34;:&#34;X&#34;,&#34;en&#34;:&#34;X&#34;}" data-astro-cid-cgsifyrl> <svg class="fh-local-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false" data-astro-cid-z6z4okrq> <path d="m17.687 3.063-4.996 5.711-4.32-5.711H2.112l7.477 9.776-7.086 8.099h3.034l5.469-6.25 4.78 6.25h6.102l-7.794-10.304 6.625-7.571zm-1.064 16.06L5.654 4.782h1.803l10.846 14.34z" class="astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq" data-astro-cid-z6z4okrq></path> </svg>  </a><a class="social-links__item social-links__item--email" href="mailto:support@fivehow.com" aria-label="邮箱" data-fh-aria-label="{&#34;zh&#34;:&#34;邮箱&#34;,&#34;en&#34;:&#34;Email&#34;}" title="邮箱" data-fh-title="{&#34;zh&#34;:&#34;邮箱&#34;,&#34;en&#34;:&#34;Email&#34;}" data-astro-cid-cgsifyrl> <svg class="fh-local-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" data-astro-cid-z6z4okrq> <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" class="astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq" data-astro-cid-z6z4okrq></path><rect x="2" y="4" width="20" height="16" rx="2" class="astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq astro-z6z4okrq" data-astro-cid-z6z4okrq></rect> </svg>  </a> </nav>  </div> </div> <div class="fh-site-nav__right"> <div class="fh-site-nav__actions"> <a class="fh-site-nav__btn" href="/?product=web-blog&#38;sourceScene=site_nav" data-fh-home aria-label="回到 FiveHow 首页" data-fh-aria-label="{&#34;zh&#34;:&#34;回到 FiveHow 首页&#34;,&#34;en&#34;:&#34;Back to FiveHow&#34;}" data-fh-title="{&#34;zh&#34;:&#34;FiveHow 首页&#34;,&#34;en&#34;:&#34;FiveHow home&#34;}" title="FiveHow 首页"> <svg class="fh-site-nav__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path> </svg> </a> <a class="fh-site-nav__btn" href="/notifications?product=web-blog&#38;sourceScene=site_nav" aria-label="通知中心" data-fh-aria-label="{&#34;zh&#34;:&#34;通知中心&#34;,&#34;en&#34;:&#34;Notifications&#34;}" data-fh-title="{&#34;zh&#34;:&#34;通知中心&#34;,&#34;en&#34;:&#34;Notifications&#34;}" title="通知中心"> <svg class="fh-site-nav__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path> </svg> </a> <a class="fh-site-nav__btn" href="/feedback?product=web-blog&#38;sourceScene=site_nav" aria-label="反馈" data-fh-aria-label="{&#34;zh&#34;:&#34;反馈&#34;,&#34;en&#34;:&#34;Feedback&#34;}" data-fh-title="{&#34;zh&#34;:&#34;反馈&#34;,&#34;en&#34;:&#34;Feedback&#34;}" title="反馈"> <svg class="fh-site-nav__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path> </svg> </a> <span class="fh-site-nav__divider" aria-hidden="true"></span> <button type="button" class="fh-site-nav__btn" data-fh-theme-toggle aria-label="切换深浅色模式" data-fh-aria-label="{&#34;zh&#34;:&#34;切换深浅色模式&#34;,&#34;en&#34;:&#34;Toggle theme&#34;}" data-fh-title="{&#34;zh&#34;:&#34;切换深浅色模式&#34;,&#34;en&#34;:&#34;Toggle theme&#34;}" title="切换深浅色模式"> <svg class="fh-site-nav__icon fh-icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path> <circle cx="12" cy="12" r="4"></circle> </svg> <svg class="fh-site-nav__icon fh-icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path> </svg> </button>  </div> </div> </div> </header> <main class="reading-article-shell" data-astro-cid-2u3pj5z5>  <div class="reading-article-topline" data-astro-cid-2u3pj5z5> <a class="reading-back" href="/blog" data-astro-cid-2u3pj5z5><span aria-hidden="true" data-astro-cid-2u3pj5z5>←</span> 返回阅读</a>  </div> <article class="reading-article" data-astro-cid-2u3pj5z5> <header class="reading-article-header" data-astro-cid-2u3pj5z5> <div class="reading-article-kicker" data-astro-cid-2u3pj5z5> <span data-astro-cid-2u3pj5z5>AI 与科技</span> <span aria-hidden="true" data-astro-cid-2u3pj5z5>/</span> <span data-astro-cid-2u3pj5z5>教程指南</span> </div> <div class="reading-article-title" data-astro-cid-2u3pj5z5> <h1 data-astro-cid-2u3pj5z5>2026 本地跑大模型硬件指南：先算内存，再看带宽，最后才谈价格</h1> </div> <p class="reading-article-description" data-astro-cid-2u3pj5z5>本地跑大模型，硬件该怎么选？从参数量和量化方式估算内存需求，再看带宽对生成速度的影响，结合 2026 年 10 月国内参考报价，按预算和用途比较各类设备。</p> <div class="reading-article-meta"> <span class="reading-author">FIVEHOW</span> <span aria-hidden="true">·</span> <span class="reading-article-published"> 发布于  <time datetime="2026-10-20T10:32:43.000Z">2026年10月20日</time> </span>  <span aria-hidden="true">·</span> <span>约 19 分钟</span>  </div>  </header> <figure class="reading-article-cover" data-astro-cid-2u3pj5z5> <img src="/_astro/cover.CDTitvHu_ZQ8JzP.webp" srcset="/_astro/cover.CDTitvHu_ieXRX.webp 640w, /_astro/cover.CDTitvHu_Z1yvMCg.webp 960w, /_astro/cover.CDTitvHu_ZQ8JzP.webp 1440w" alt="一台银色笔记本电脑和一台银色迷你主机放在深色桌面上，发光的粒子和神经网络光线从迷你主机流向笔记本，象征在本地运行大模型" sizes="(max-width: 760px) calc(100vw - 40px), 760px" loading="eager" decoding="async" fetchpriority="high" data-astro-cid-2u3pj5z5 width="1280" height="720"> </figure> <details class="reading-toc-mobile" data-astro-cid-2u3pj5z5> <summary data-astro-cid-2u3pj5z5>本文目录 <span aria-hidden="true" data-astro-cid-2u3pj5z5>＋</span></summary> <nav aria-label="文章目录" data-astro-cid-2u3pj5z5> <ol data-astro-cid-2u3pj5z5> <li data-depth="2" data-astro-cid-2u3pj5z5><a href="#一先弄懂一件事想跑得快模型最好整个放进-gpu-能用的内存" data-astro-cid-2u3pj5z5>一、先弄懂一件事：想跑得快，模型最好整个放进 GPU 能用的内存</a></li><li data-depth="3" data-astro-cid-2u3pj5z5><a href="#moe-模型是个例外也是好消息" data-astro-cid-2u3pj5z5>MoE 模型是个例外，也是好消息</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#二第二个数字内存带宽决定速度" data-astro-cid-2u3pj5z5>二、第二个数字：内存带宽决定速度</a></li><li data-depth="3" data-astro-cid-2u3pj5z5><a href="#这个公式什么时候不准" data-astro-cid-2u3pj5z5>这个公式什么时候不准</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#三2026-年-10-月主流选择一览" data-astro-cid-2u3pj5z5>三、2026 年 10 月主流选择一览</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#四按预算怎么买" data-astro-cid-2u3pj5z5>四、按预算怎么买</a></li><li data-depth="3" data-astro-cid-2u3pj5z5><a href="#再按用途做取舍" data-astro-cid-2u3pj5z5>再按用途做取舍</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#五五个常见坑" data-astro-cid-2u3pj5z5>五、五个常见坑</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#六软件怎么选" data-astro-cid-2u3pj5z5>六、软件怎么选</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#最后" data-astro-cid-2u3pj5z5>最后</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#参考资料" data-astro-cid-2u3pj5z5>参考资料</a></li> </ol> </nav> </details> <div class="reading-article-grid" data-astro-cid-2u3pj5z5> <div class="reading-article-main" data-astro-cid-2u3pj5z5> <div id="article-content" class="fh-prose reading-article-content" tabindex="-1" data-astro-cid-2u3pj5z5>  <p>10 月 16 日晚，<a href="https://post.smzdm.com/p/a26x065p/">英伟达 RTX Spark 笔记本在国内开卖</a>。128GB 统一内存的华硕 ProArt 创16，首发价 37999 元，很快售罄，之后只能预约。一台近 4 万元的笔记本被抢购，买家看中的，是把大模型放在自己的机器上运行。</p>
+<p>不过，本地跑大模型，最贵的配置未必适合自己的用途。选错了，可能多花好几万元。买之前，先弄清楚三个问题：模型需要多大内存，装进去之后能跑多快，以及这个速度值不值得付出相应的预算。</p>
+<h2 id="一先弄懂一件事想跑得快模型最好整个放进-gpu-能用的内存">一、先弄懂一件事：想跑得快，模型最好整个放进 GPU 能用的内存</h2>
+<p>本文讨论的「能不能跑」「跑多快」，默认采用常见的个人使用方式：一个人用，一次只生成一条回复（batch size 1），模型全部放在 GPU 上。在 llama.cpp 中，这叫把全部层卸载到 GPU，对应参数是 <code>-ngl all</code>。</p>
+<p>在这个前提下，模型权重最好能完整放进显存，或统一内存中 GPU 可用的部分。</p>
+<p>放不下，也有办法运行。<a href="https://github.com/ggml-org/llama.cpp">llama.cpp 支持 CPU 与 GPU 混合推理</a>：通过 <code>--n-gpu-layers</code> 把一部分层放到 GPU，其余层留给 CPU 计算。对于 MoE 模型，如果后端支持，也可以把专家留在 CPU 内存中。</p>
+<p>这种方式能运行超过显存容量的模型，但速度还要看 CPU 算力、系统内存带宽、设备间传输和具体实现。统一内存让 CPU 和 GPU 共用物理内存，减少了独立显存与系统内存之间的数据搬运，却仍有分配限制和带宽竞争，不能据此保证同样的推理速度。</p>
+<p>先从模型权重的大小算起：</p>
+<p><strong>模型体积 ≈ 参数量 × 每个参数占的位数 ÷ 8</strong></p>
+<p>这里的「位数」指量化精度。<a href="https://llmconfigurator.com/en/methodology">按 llama.cpp 常用的 GGUF 格式实际占用</a>，可以这样估算：</p>
+<ul>
+<li>FP16（不量化）：16 bit，约等于 参数量(B) × 2 GB</li>
+<li>Q8_0：约 8.5 bit，约等于 参数量 × 1.06 GB</li>
+<li>Q4_K_M（最常用）：<a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md">llama.cpp 量化说明里 Llama 3.1 8B 的实测值是 4.8944 bit/权重</a>，约等于 参数量 × 0.6 GB（换到别的模型会略有不同）</li>
+</ul>
+<p>做初步判断时，可以先记住：<strong>4bit 量化下，每 10 亿参数大约占 0.6GB。</strong> 按这个系数计算，32B 模型约 19GB，70B 约 42GB，120B 约 72GB。这些是估算值，实际文件大小仍以下载页为准。</p>
+<p><img  src="/_astro/01-memory-vs-model.CWL14sMg_Z1xHlxG.webp" alt="不同参数量的模型在 FP16、Q8_0、Q4_K_M 三种量化下的权重体积对比柱状图" width="1600" height="900" loading="lazy" decoding="async"></p>
+<p><em>图 1：不同参数量的模型在 FP16、Q8_0、Q4_K_M 三种量化下的权重体积。数值由作者按「参数量 × 每权重位数 ÷ 8」计算，只算权重，不含 KV 缓存和系统占用。来源：每权重位数（F16 16 / Q8_0 8.50 bit）取自<a href="https://llmconfigurator.com/en/methodology">llmconfigurator 方法说明</a>；Q4_K_M 用 <a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md">llama.cpp 量化说明</a>里 Llama 3.1 8B 的实测值 4.8944 bit，换到别的模型会略有不同。作者于 2026 年 10 月 20 日查阅。</em></p>
+<p>权重只占内存需求的一部分，还要为以下两类开销留空间。</p>
+<p><strong>一类是 KV 缓存。</strong> 上下文越长，它占用的空间越多。以 Llama 3.1 8B 为例，<a href="https://raw.githubusercontent.com/meta-llama/llama-models/main/models/sku_list.py">Meta 官方仓库给出的结构</a>是 32 层、32 个注意力头、8 个 KV 头、隐藏维度 4096，每个头的维度因此是 4096 ÷ 32 = 128。计算公式为：</p>
+<p><strong>KV 缓存字节数 = 2 × 层数 × KV 头数 × 头维度 × 上下文长度 × 每个数的字节数</strong></p>
+<p>当 K 和 V 都用 FP16 或 BF16 保存时，每个数占 2 字节。按 8K（8192）上下文计算：2 × 32 × 8 × 128 × 8192 × 2 = 1,073,741,824 字节，约 1.07GB（正好 1GiB）。如果把 KV 缓存改成 Q8_0（每个数约 8.5 bit），则约为 0.57GB。这些都是按公式计算的结果，只包含一路对话的缓存本体，不含分配器和运行时开销。</p>
+<p>权重和缓存的精度也要分开看：权重量化成 Q4，不代表 KV 也用 4 bit。并发增加时，通常还要为各路上下文预留缓存；支持前缀共享的引擎可以复用相同前缀。作为对照，llama.cpp 量化说明中，这个模型的 Q4_K_M 权重是 4.58GiB（约 4.9GB）。</p>
+<p><strong>另一类是运行框架和其他软件。</strong> 推理框架需要工作区、计算缓冲区等额外空间，不同模型不能统一套用一个固定预留值。统一内存由 CPU 和 GPU 共用，浏览器、IDE 等软件也会占用其中的空间。</p>
+<p>看硬件规格时，需要分清三个数：</p>
+<ul>
+<li><strong>总内存</strong>：机器上标的那个数，比如 128GB。</li>
+<li><strong>GPU 的分配规则与当前可用内存</strong>：它们取决于平台、驱动和系统占用。<a href="https://www.amd.com/en/blogs/2025/faqs-amd-variable-graphics-memory-vram-ai-model-sizes-quantization-mcp-more.html">AMD 官方说明 128GB 的锐龙 AI Max+ 395 最多可设 96GB 图形内存</a>；<a href="https://www.amd.com/en/blogs/2026/amd-powers-next-generation-agent-computers-with-new-ryzen-ai-hal.html">锐龙 AI Max+ PRO 495 平台最多支持 160GB 专用图形内存</a>，还需核对具体整机与驱动配置。DGX Spark 则是 CPU 与 GPU 共享 128GB 系统内存，不宜把某次工具读数当成所有机器固定的 GPU 上限。这些数字都不等于能全部用于权重。</li>
+<li><strong>能放权重的空间</strong>：在具体平台的分配规则下，结合当前空闲内存，为 KV 缓存、框架和其他软件预留空间；这些占用之间可能共享预算，不能把不同口径的数字机械相减。</li>
+</ul>
+<p>Mac 的情况也要按机型和运行环境看。Metal 提供「建议最大工作集」（recommendedMaxWorkingSetSize）作为内存管理参考；<a href="https://developer.apple.com/videos/play/tech-talks/10580/">苹果关于 M1 Pro/Max 的技术讲座</a>给过对应机型的例子。这是建议值，不能把旧机型的比例直接当成所有新 Mac 的硬性上限。选购时查看目标机型和推理工具报告的可用空间，并为系统留出余量。</p>
+<p>RTX Spark 也是这样。<a href="https://docs.nvidia.com/rtx-spark/rtx-spark-porting-guide/latest/uma/index.html">英伟达的移植指南说</a>，它把物理内存分成三块：GPU 专用的一块（carveout，Windows 显示为专用显存）、CPU 和 GPU 共享的系统内存、只给 CPU 用的内存。只给 CPU 的那块不能分给 GPU。</p>
+<p><a href="https://nvidia.github.io/local-ai-inference-recipes/hardware/rtx-spark/index.html">英伟达的本地推理配方页</a>给的是一条条具体配方，每条标了「峰值 GPU 内存」（Peak GPU Memory）。几个例子（都在 2026 年 10 月 14 日测过，单路并发）：</p>
+<ul>
+<li>Qwen3.8 Flash Next，IQ4_XS 量化，带视觉和 MTP 投机解码，上下文 262144：峰值 78GB。这是页面在 128GB 配置下默认展示的推荐配方。</li>
+<li>Qwen3.8-27B，Q4_K_M 量化，上下文 262144：36GB。</li>
+<li>Qwen3.6-35B-A3B，IQ4_XS 量化，上下文 101376：24GB。</li>
+</ul>
+<p>这些数字是单条配方的实测峰值。上下文长度或并发数变了，内存需求也会变化。因此，它们<strong>不能代表某档内存机器能运行的模型上限</strong>，也不能用它们占总内存的比例去推算其他配置。不同平台的分配规则差别很大，购买前需要逐项确认。</p>
+<h3 id="moe-模型是个例外也是好消息">MoE 模型是个例外，也是好消息</h3>
+<p>现在很多开源模型是 MoE（混合专家）结构，比如 Qwen3.6-35B-A3B：总共 35B 参数，每次只激活约 3B。</p>
+<p><strong>常规部署按总权重估算容量，激活参数只帮助理解每一步的计算量，不能直接换算速度。</strong> <a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B">Qwen 官方模型卡</a>给出的 35B 总参数、约 3B 激活参数不代表它必然跑得和 3B 稠密模型一样快。实际速度还受注意力结构、共享层、专家路由、量化内核和内存访问影响。把部分专家留在 CPU 上可以降低 GPU 容量要求，但要实测相应的性能代价。大内存统一内存设备的价值首先是能容纳更多权重，生成速度仍需按具体模型判断。</p>
+<h2 id="二第二个数字内存带宽决定速度">二、第二个数字：内存带宽决定速度</h2>
+<p>确认装得下之后，再看生成速度。</p>
+<p>这里仍限定为单用户、batch size 1、权重全在 GPU 上，并采用常规逐 token 解码。当速度主要受内存读取限制时，可以根据每一步需要读取的权重和缓存数据，做一个简化估算：</p>
+<p><strong>每秒 token 数 ≈ 内存带宽 ÷ 每个 token 要读的数据量（激活的权重 + KV 缓存）</strong></p>
+<p>常规稠密 Transformer 会访问大量权重和已有 KV；MoE、滑动窗口和混合注意力模型的访问量各不相同，不能一律按「完整模型和全部缓存各读一遍」计算。</p>
+<p>以 32B 稠密模型为例，Q4_K_M 按 4.8944 bit 计算，权重约为 32 × 4.8944 ÷ 8 ≈ 19.6GB。为了便于比较，下面只计算权重读取，暂不计入 KV 缓存，得到的是理想条件下的估算值：</p>
+<ul>
+<li>273GB/s（DGX Spark）：约 14 token/s</li>
+<li>614GB/s（M5 Max 40 核）：约 31 token/s</li>
+<li>1344GB/s（RTX 5090 D v2）：约 69 token/s</li>
+</ul>
+<p>实际软件跑不满理论带宽。按 llmconfigurator 拿公开测试数据拟合的结果，<a href="https://llmconfigurator.com/en/methodology">真实利用率大约在 45% 到 85% 之间</a>。这个比例来自该工具的拟合，不能保证适用于所有硬件和软件；上面的数是简化估算，不是实测或通用速度上限。</p>
+<h3 id="这个公式什么时候不准">这个公式什么时候不准</h3>
+<ul>
+<li><strong>上下文很长</strong>：常规全注意力模型通常需要读取更多历史 KV，生成速度可能下降；具体幅度取决于模型的注意力结构、缓存精度和实现。</li>
+<li><strong>部分权重在 CPU 上</strong>：留在 CPU 的那部分要按系统内存带宽算，它往往会成为最慢的一环。</li>
+<li><strong>多个请求一起跑（batching）</strong>：多个请求可以分摊权重读取成本，提高总吞吐，但单路延迟是否改善取决于批量和调度。不同上下文通常分别占用 KV 缓存；支持前缀共享的引擎可以复用相同前缀。团队共用机器时，应分别测总吞吐和单路响应速度。</li>
+<li><strong>提示词缓存与推测解码</strong>：提示词缓存主要节省相同前缀的输入处理时间，不能直接当成解码提速倍数。推测解码、MTP 等可能一次验证并接受多个 token，也会改变这里的逐 token 估算。输入处理和生成阶段应分开测试。<a href="https://developer.nvidia.com/blog/?p=73739">NVIDIA 的推理优化说明</a>介绍了这些区别。</li>
+</ul>
+<p><img  src="/_astro/02-capacity-vs-bandwidth.BMvX-iOX_1iHyiB.webp" alt="主流本地推理设备的总内存容量与内存带宽散点图" width="1600" height="900" loading="lazy" decoding="async"></p>
+<p><em>图 2：主流本地推理设备的总内存与内存带宽。横轴是总内存（统一内存设备按最高配置），不是模型可用内存；带宽是厂商公布的理论峰值，不是实测。来源：<a href="https://www.nvidia.com/en-us/products/rtx-spark/specifications/">NVIDIA RTX Spark 规格</a>、<a href="https://www.notebookcheck.net/NVIDIA-RTX-Spark-N1X-6144-Core-Blackwell-GPU-Benchmarks-and-Specs.1428028.0.html">Notebookcheck</a>、<a href="https://readygpu.com/us/machine/nvidia-dgx-spark">ReadyGPU（DGX Spark）</a>、<a href="https://support.apple.com/en-us/128107">Apple Mac Studio 规格</a>、<a href="https://support.apple.com/zh-cn/128108">Apple Mac mini 规格</a>、<a href="https://aiindigo.com/hardware/gmktec-evo-x2-ryzen-ai-max-395-128gb">AI Indigo（锐龙 AI Max+ 395）</a>、<a href="https://post.smzdm.com/p/arzrd4zz/">什么值得买（495）</a>、<a href="https://www.heise.de/en/news/Nvidia-introduces-GeForce-RTX-5090-5080-5070-and-5070-Ti-10229801.html?view=print">heise</a>、<a href="https://www.ithome.com/0/876/017.htm">IT之家（5090 D v2）</a>、<a href="https://pcbench.net/compare/gpus/nvidia-geforce-rtx-5090-vs-nvidia-geforce-rtx-5060-ti-16-gb">pcbench（5060 Ti）</a>，作者于 2026 年 10 月 20 日核验。</em></p>
+<p>读这张图时，先看横轴的总内存，判断容量档位；再看纵轴的理论内存带宽。带宽是影响速度的因素之一，不能直接当成实测生成速度：</p>
+<ul>
+<li><strong>左上角是独立显卡</strong>：带宽极高，但显存只有 16 到 32GB。</li>
+<li><strong>右下角是 128GB 级统一内存机器</strong>（RTX Spark、DGX Spark、AMD Strix Halo）：装得下大模型，但带宽只有 256 到 300GB/s。</li>
+<li><strong>Apple 的 Max 和 Ultra 在中间偏右上</strong>：容量和带宽都不错，代价是价格。</li>
+</ul>
+<p>实测也能看到这种取舍。<a href="https://www.storagereview.com/review/microsoft-surface-laptop-ultra-for-business-review-rtx-spark-n1x">StorageReview 测 Surface Laptop Ultra（RTX Spark）</a>时，Llama 3.1 8B 的速度为 56.4 token/s；同组 RTX 5090 笔记本显卡（24GB）为 128.8 token/s，快 2.3 倍。</p>
+<p>换成长上下文智能体测试，情况就不同了。测试使用 gpt-oss:20b 和 Qwen3.6-35B-A3B（后者约 21.1GB），这台 Surface 能跑到 58 到 89 token/s。该组测试要求约 40GB 以上的 GPU 可用内存，那台 5090 笔记本只有 24GB 显存，未达到门槛，因此没有参加。</p>
+<p><strong>选择时先确认权重、缓存和运行开销能否放下，再比较同一模型和设置下的实测速度。高带宽独显通常适合容量以内的任务，大容量统一内存设备则提供另一种容量与性能取舍。</strong></p>
+<h2 id="三2026-年-10-月主流选择一览">三、2026 年 10 月主流选择一览</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>设备</th><th>总内存</th><th>GPU 可分配上限或配方示例（有来源的数字）</th><th>带宽（理论）</th><th>国内参考报价</th></tr></thead><tbody><tr><td>RTX 5060 Ti 16GB</td><td>16GB 显存</td><td>16GB 显存独享，不与系统共用</td><td>448GB/s</td><td>显卡 6799 元（京东自营促销价，10 月 17 日）</td></tr><tr><td>RTX 5090 D v2（国行）</td><td>24GB 显存</td><td>24GB 显存独享，不与系统共用</td><td>1344GB/s</td><td>官方 16499 元起；10 月 16 日行情约 29999 元</td></tr><tr><td>Mac mini M5 Pro</td><td>最高 64GB 统一内存</td><td>未查到官方数字（见上文 macOS 说明）</td><td>307GB/s</td><td>12999 元起；64GB/1TB 约 22749 元（ZOL）</td></tr><tr><td>锐龙 AI Max+ 395 迷你主机</td><td>128GB 统一内存</td><td>核显最多分 96GB</td><td>256GB/s</td><td>128GB 款约 13649 至 15799 元（ZOL）</td></tr><tr><td>RTX Spark 笔记本</td><td>32 至 128GB 统一内存</td><td>未查到官方总上限；配方示例：128GB 档推荐配方峰值 78GB（Qwen3.8 Flash Next IQ4_XS，262K 上下文）</td><td>300GB/s</td><td>18999 元起；128GB 35999 元起</td></tr><tr><td>DGX Spark</td><td>128GB 统一内存</td><td>CPU/GPU 共享，实际可分配空间依系统与运行环境</td><td>273GB/s</td><td>美国官网 6950 美元（按 10 月 20 日中间价折合约 46704 元，作者换算）；ZOL 国内参考价 37929 元</td></tr><tr><td>Mac Studio M5 Max</td><td>最高 128GB 统一内存</td><td>未查到官方数字（见上文 macOS 说明）</td><td>460 / 614GB/s</td><td>19999 元起；128GB 39499 元（ZOL）</td></tr><tr><td>锐龙 AI Max+ PRO 495 迷你主机</td><td>192GB 统一内存</td><td>专用显存最多 160GB（AMD 官方）</td><td>约 273GB/s（256-bit LPDDR5x-8533，作者换算）</td><td>45999 至 51999 元</td></tr><tr><td>Mac Studio M5 Ultra</td><td>96 至 512GB 统一内存</td><td>未查到官方数字（见上文 macOS 说明）</td><td>1.2TB/s</td><td>46999 元起</td></tr></tbody></table>
+<p><em>表：2026 年 10 月主流的本地推理设备。第三列只填有来源的数字：独立显卡列的是物理显存，仍需为缓存和运行开销留余量；AMD 的图形内存上限依平台及具体配置，不等于能放权重的空间；DGX Spark 的 CPU 与 GPU 共享系统内存；RTX Spark 只列英伟达单条配方的实测峰值 GPU 内存（2026 年 10 月 14 日测），不是机器上限；查不到的写「未查到官方数字」。带宽是厂商公布的理论值，495 的带宽由作者按 256-bit × 8533MT/s 换算。国内参考报价（标价、首发价或 ZOL 参考价，不是成交价）由作者在 2026 年 10 月 16 日至 19 日采集，规格和官网价于 10 月 20 日核验；DGX Spark 的人民币金额是作者按 2026 年 10 月 20 日中间价 6.7200 换算的。各项出处见文末参考资料。</em></p>
+<p>表里的价格都是参考报价，也就是商品页的标价、首发价或 ZOL 参考价，不是实际成交价。国内价格采集于 2026 年 10 月 16 日至 19 日，规格和官网价核验于 10 月 20 日。DGX Spark 的人民币金额是作者按 2026 年 10 月 20 日美元兑人民币中间价 6.7200 换算的（6950 × 6.72），不含关税、增值税和运费，不等于国内实际售价。</p>
+<p>几类设备各有取舍：</p>
+<p><strong>RTX Spark</strong> 把英伟达 Blackwell GPU 和 Grace CPU 集成在一颗芯片上，最高配备 128GB 统一内存，运行 Windows，支持 CUDA，主要优势是 CUDA 生态和便携性。选购时要区分 <a href="https://www.nvidia.com/en-us/products/rtx-spark/specifications/">N1X 的两个版本</a>：20 核 CPU 加 6144 核 GPU 的版本最高支持 128GB；18 核加 5120 核的版本，官方规格最高只到 32GB，需要仔细核对商品页。</p>
+<p><strong>DGX Spark</strong> 是同一代芯片（GB10）的桌面小主机，跑 Linux。受内存涨价影响，<a href="https://www.theregister.com/systems/2026/10/02/nvidia-debuts-4999-dgx-spark-with-half-the-ram-and-storage-amid-memory-crunch/5300622">128GB 版在美国从首发约 4000 美元涨到了 6950 美元</a>，英伟达另外推出 64GB 版，起价约 4999 美元，由合作厂商销售。</p>
+<p><strong>AMD Strix Halo</strong> 是本文列出的 128GB 统一内存机器里最便宜的一档。新的 495 把内存上限提到 192GB（<a href="https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-400-series/amd-ryzen-ai-max-plus-pro-495.html">AMD 官方规格：256-bit LPDDR5x-8533</a>，按此换算带宽约 273GB/s），专用显存最多可分 160GB，CPU 和 GPU 基本没变。<a href="https://post.smzdm.com/p/arzrd4zz/">有实测显示</a>，DeepSeek V4 Flash 在 128GB 的 395 上装不下，换到 192GB 的 495 能跑到约 14 到 15 token/s；Qwen3.6-35B 在 495 上约 90 token/s，395 上约 62。</p>
+<p><strong>Mac Studio</strong> 是带宽最均衡的选择：M5 Max 40 核 614GB/s，在本文列出的 128GB 级机器里带宽最高；M5 Ultra 到 1.2TB/s、最高 512GB，<a href="https://www.apple.com.cn/newsroom/2026/08/apple-introduces-mac-studio-with-m5-max-and-m5-ultra/">512GB 版官方说 10 月下旬发售</a>，价格还没公布。</p>
+<p><img  src="/_astro/03-price-vs-memory.Ce3F7lXX_Z20qXow.webp" alt="2026 年 10 月国内参考报价与显存或统一内存总量的对比图" width="1600" height="900" loading="lazy" decoding="async"></p>
+<p><em>图 3：同样的预算能买到多少显存或统一内存。纵轴是总内存，不是模型可用内存。价格是参考报价（标价、首发价或 ZOL 参考价），不是成交价，由作者在 2026 年 10 月 16 日至 19 日采集，来自京东自营、官网、首发价或 ZOL 参考价；显卡只算显卡本身。DGX Spark 用的是 ZOL 国内参考价（10 月 20 日复核）；美国官网价 6950 美元按 2026 年 10 月 20 日中间价 6.7200 折合约 46704 元，是作者换算的，不含税费。来源：<a href="https://post.smzdm.com/p/a26x065p/">什么值得买 RTX Spark 价格汇总</a>、<a href="https://post.smzdm.com/p/a5rxo0ll/">什么值得买显卡行情（10 月 16 日）</a>、<a href="https://www.smzdm.com/p/184135140/">什么值得买 RTX 5060 Ti</a>、<a href="https://post.smzdm.com/p/arzrd4zz/">什么值得买（495）</a>、<a href="https://www.apple.com.cn/newsroom/2026/08/apple-introduces-mac-studio-with-m5-max-and-m5-ultra/">Apple 新闻稿</a>、<a href="https://detail.zol.com.cn/mini-desktop_pc/index2176005.shtml">ZOL Mac Studio 报价</a>、<a href="https://detail.zol.com.cn/2177/2176134/price.shtml">ZOL Mac mini 报价</a>、<a href="https://marketplace.nvidia.com/en-us/enterprise/personal-ai-supercomputers/dgx-spark/">NVIDIA Marketplace</a>、<a href="https://www.chinanews.com.cn/cj/2026/10-20/10717595.shtml">中新网汇率中间价</a>。</em></p>
+<h2 id="四按预算怎么买">四、按预算怎么买</h2>
+<p><strong>1 万元以内：先别急着买。</strong> 有电脑的话，先用现有的电脑跑 7B 到 14B 的模型试试（适合显存或内存在 16GB 左右的机器）。想加一张卡，16GB 显存（比如 RTX 5060 Ti 16GB）能比较舒服地跑 14B 级 Q4 模型。显卡今年在涨价，买前多比价。</p>
+<p><strong>1.3 万到 2.3 万：性价比最集中的一档。</strong></p>
+<ul>
+<li>只想要大内存、预算最紧：锐龙 AI Max+ 395 128GB 迷你主机，能装下 70B 级 Q4 和 gpt-oss-120b 这类模型，但带宽只有 256GB/s，大稠密模型会慢。</li>
+<li>用 Mac、要安静省心：Mac mini M5 Pro 64GB，跑 30B 级 MoE 模型很合适。</li>
+</ul>
+<p><strong>2.9 万到 4 万：128GB 主力机。</strong></p>
+<ul>
+<li>要移动加 CUDA：RTX Spark 128GB 笔记本（35999 元起）。</li>
+<li>要速度：Mac Studio M5 Max 128GB（39499 元），614GB/s 的带宽在本文列出的同价位设备里最高。</li>
+<li>要 Linux 加英伟达全套开发栈、做微调：DGX Spark。注意它的价格看渠道：<a href="https://detail.zol.com.cn/mini-desktop_pc/index2176005.shtml">ZOL 国内参考价 37929 元，落在这一档</a>；美国官网 6950 美元，<a href="https://www.chinanews.com.cn/cj/2026/10-20/10717595.shtml">按 10 月 20 日中间价折合约 4.67 万元</a>（作者换算，不含税费），那就属于下一档。</li>
+</ul>
+<p><strong>4.5 万以上：团队或合规场景。</strong> 数据必须留在本地、要跑 200B 以上的模型，再看 495 的 192GB 机器或 Mac Studio M5 Ultra。</p>
+<h3 id="再按用途做取舍">再按用途做取舍</h3>
+<ul>
+<li><strong>写代码、做 RAG 的独立开发者</strong>：64GB 统一内存加 30B 级 MoE 模型，够用很久。</li>
+<li><strong>做图像和视频生成（ComfyUI 等）</strong>：优先英伟达，CUDA 生态最成熟。</li>
+<li><strong>想把 100B 级模型常驻本地</strong>：先核对具体量化权重、上下文和并发占用；128GB 是可优先考察的容量档位，不是所有 100B 模型的统一最低要求。</li>
+<li><strong>只是好奇想试试</strong>：先用现有设备，或者租云 GPU，跑清楚自己要用哪个模型再掏钱。</li>
+</ul>
+<h2 id="五五个常见坑">五、五个常见坑</h2>
+<ol>
+<li><strong>只看容量不看带宽。</strong> 内存决定装不装得下，不决定跑多快。128GB、256GB/s 的机器跑 70B 稠密模型，单用户、batch 1 时按公式算的理论上限也就 6 token/s 左右。</li>
+<li><strong>以为内存以后能加。</strong> 统一内存基本都是焊死的。硬盘还能后补，内存买多少就是多少，宁可一步到位。</li>
+<li><strong>忽略系统占用。</strong> 统一内存是全机共享的。StorageReview 测试中，RTX Spark 本地跑编程智能体时，浏览器跑分几乎腰斩。边跑模型边干活，要多留余量。</li>
+<li><strong>忽略软件生态。</strong> RTX Spark 跑的是 Windows on Arm，x64 软件靠转译运行，部分 Arm64 移植版本还不成熟；DGX Spark 是 Linux；Mac 走 Metal 和 MLX。买之前确认你要用的工具都支持。</li>
+<li><strong>追”千亿参数”宣传。</strong> 宣传页上的”本地跑千亿模型”通常只对应顶配。先回答一个问题：你要跑的到底是哪个模型？</li>
+</ol>
+<h2 id="六软件怎么选">六、软件怎么选</h2>
+<ul>
+<li><strong>Ollama</strong>：一行命令拉模型、开 API，最省事。StorageReview 在 RTX Spark 上就是用 Arm64 原生版的 Ollama 和 llama.cpp 测的。</li>
+<li><strong>LM Studio</strong>：图形界面，适合不想敲命令的人，Mac 上可以直接用 MLX 格式的模型。</li>
+<li><strong>llama.cpp</strong>：很多工具底层的推理引擎，GGUF 量化格式就出自这里，支持 CUDA、Metal、Vulkan 等后端，想精细调参就用它。</li>
+<li><strong>MLX</strong>：Apple 官方开源的机器学习框架，专为 Apple 芯片优化，在 Mac 上跑、训练、微调都可以。</li>
+</ul>
+<p>第一次尝试，可以从 Ollama 或 LM Studio 起步。显存或内存在 16GB 左右的机器，先跑 7B 到 14B 的模型；统一内存 32GB 以上（或显存 24GB）的机器，再试 Q4_K_M 的 30B 级 MoE 模型。</p>
+<p>这类模型的权重按公式估算约为 18 到 21GB，StorageReview 使用的 Qwen3.6-35B-A3B 是 21.1GB。作为参照，英伟达给出的 Qwen3.6-35B-A3B 配方，在 IQ4_XS、约 10 万上下文、单路条件下，峰值 GPU 内存为 24GB。</p>
+<p>对于 32GB 的机器，留给其他用途的空间已经不多，适合先使用较短的上下文；要开长上下文，就需要更大内存。先试出自己能接受的速度，再决定是否升级硬件。</p>
+<h2 id="最后">最后</h2>
+<p>选硬件就三步：<strong>先定模型，再算内存，最后看带宽和预算。</strong></p>
+<p>今年内存和显卡都在涨价：<a href="https://www.theregister.com/systems/2026/10/02/nvidia-debuts-4999-dgx-spark-with-half-the-ram-and-storage-amid-memory-crunch/5300622">据 The Register</a>，DGX Spark 比一年前贵了近 75%；RTX 5090 D v2 官方起售价 16499 元，10 月 16 日的行情价约 29999 元。更有必要在下单前确定目标模型，用前面的公式估算需求，再对照图表选择设备。</p>
+<p>本文价格均为参考报价，不是成交价。国内价格采集于 2026 年 10 月 16 日至 19 日，来自京东自营、官网首发价和 ZOL 参考价；官方规格、英伟达推荐搭配、DGX Spark 美国官网价和 ZOL 参考价于 10 月 20 日再次核验。汇率采用 2026 年 10 月 20 日的美元兑人民币中间价 6.7200。价格可能随促销或涨价变化，以下单页面为准；文中标明按公式计算或「作者换算」的数字，均为作者自行计算。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-RTX-Spark-PCs-Available-Today--A-New-Beginning-for-Windows-PCs/default.aspx">NVIDIA 新闻稿：RTX Spark PCs Available Today（2026-10-16）</a></li>
+<li><a href="https://www.nvidia.com/en-us/products/rtx-spark/specifications/">NVIDIA RTX Spark 规格页</a></li>
+<li><a href="https://www.notebookcheck.net/NVIDIA-RTX-Spark-N1X-6144-Core-Blackwell-GPU-Benchmarks-and-Specs.1428028.0.html">Notebookcheck：RTX Spark N1X 规格与跑分</a></li>
+<li><a href="https://post.smzdm.com/p/a26x065p/">什么值得买：RTX Spark 国内价格与 NVIDIA 推荐搭配汇总</a></li>
+<li><a href="https://www.smzdm.com/p/184107946/">什么值得买：华硕创16 128GB 京东自营 37999 元</a></li>
+<li><a href="https://www.storagereview.com/review/microsoft-surface-laptop-ultra-for-business-review-rtx-spark-n1x">StorageReview：Surface Laptop Ultra（RTX Spark）评测</a></li>
+<li><a href="https://marketplace.nvidia.com/en-us/enterprise/personal-ai-supercomputers/dgx-spark/">NVIDIA Marketplace：DGX Spark</a></li>
+<li><a href="https://www.theregister.com/systems/2026/10/02/nvidia-debuts-4999-dgx-spark-with-half-the-ram-and-storage-amid-memory-crunch/5300622">The Register：DGX Spark 涨价与 64GB 版（2026-10-02）</a></li>
+<li><a href="https://readygpu.com/us/machine/nvidia-dgx-spark">ReadyGPU：DGX Spark 规格</a></li>
+<li><a href="https://www.apple.com.cn/newsroom/2026/08/apple-introduces-mac-studio-with-m5-max-and-m5-ultra/">Apple 新闻稿：Mac Studio M5 Max / M5 Ultra</a></li>
+<li><a href="https://support.apple.com/en-us/128107">Apple：Mac Studio 技术规格</a></li>
+<li><a href="https://support.apple.com/zh-cn/128108">Apple：Mac mini 技术规格</a></li>
+<li><a href="https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/">Apple 新闻稿：Mac mini M6 / M5 Pro</a></li>
+<li><a href="https://detail.zol.com.cn/mini-desktop_pc/index2176005.shtml">ZOL：Mac Studio M5 Max 报价及对比（含 DGX Spark 国内参考价）</a></li>
+<li><a href="https://www.safe.gov.cn/AppStructured/hlw/RMBQuery.do">国家外汇管理局：人民币汇率中间价查询</a></li>
+<li><a href="https://www.chinanews.com.cn/cj/2026/10-20/10717595.shtml">中新网：2026 年 10 月 20 日人民币汇率中间价</a></li>
+<li><a href="https://detail.zol.com.cn/2177/2176134/price.shtml">ZOL：Mac mini M5 Pro 报价</a></li>
+<li><a href="https://aiindigo.com/hardware/gmktec-evo-x2-ryzen-ai-max-395-128gb">AI Indigo：GMKtec EVO-X2（锐龙 AI Max+ 395）</a></li>
+<li><a href="https://post.smzdm.com/p/arzrd4zz/">什么值得买：锐龙 AI Max+ PRO 495 迷你主机</a></li>
+<li><a href="https://www.nvidia.cn/geforce/graphics-cards/50-series/rtx-5090-d-v2/">NVIDIA 中国：RTX 5090 D v2</a></li>
+<li><a href="https://www.ithome.com/0/876/017.htm">IT之家：RTX 5090 D v2 评测</a></li>
+<li><a href="https://post.smzdm.com/p/a5rxo0ll/">什么值得买：10 月 16 日显卡行情</a></li>
+<li><a href="https://www.smzdm.com/p/184135140/">什么值得买：RTX 5060 Ti 16GB 京东自营价</a></li>
+<li><a href="https://llmconfigurator.com/en/methodology">llmconfigurator：显存与速度估算方法</a></li>
+<li><a href="https://vram-calc.com/tools/vram-estimator">vram-calc：显存估算工具</a></li>
+<li><a href="https://nvidia.github.io/local-ai-inference-recipes/hardware/rtx-spark/index.html">NVIDIA Local AI Inference Recipes：RTX Spark（配方页，2026-10-14 实测）</a></li>
+<li><a href="https://docs.nvidia.com/rtx-spark/rtx-spark-porting-guide/latest/uma/index.html">NVIDIA RTX Spark 移植指南：Unified Memory Architecture</a></li>
+<li><a href="https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-400-series/amd-ryzen-ai-max-plus-pro-495.html">AMD 锐龙 AI Max+ PRO 495 产品规格</a></li>
+<li><a href="https://www.amd.com/en/blogs/2026/amd-powers-next-generation-agent-computers-with-new-ryzen-ai-hal.html">AMD 博客：Ryzen AI Max PRO 400 系列（含 160GB 显存脚注）</a></li>
+<li><a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md">llama.cpp quantize README（Llama 3.1 8B 各量化 bpw）</a></li>
+<li><a href="https://raw.githubusercontent.com/meta-llama/llama-models/main/models/sku_list.py">Meta llama-models：sku_list.py（Llama 3.1 8B 结构参数）</a></li>
+<li><a href="https://developer.apple.com/videos/play/tech-talks/10580/">Apple Tech Talk：Metal 与 M1 Pro/Max 内存</a></li>
+<li><a href="https://llmconfigurator.com/en/guides/troubleshooting/increase-metal-vram-limit-apple-silicon">llmconfigurator：调高 Apple Silicon 的 Metal 显存上限</a></li>
+<li><a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md">llama.cpp server README（—n-gpu-layers、—cpu-moe、cache_prompt）</a></li>
+<li><a href="https://www.anyscale.com/blog/continuous-batching-llm-inference">Anyscale：连续批处理与 LLM 推理</a></li>
+<li><a href="https://prakashkagitha.github.io/llm-stack-book/07-inference-serving/02-continuous-batching.html">The LLM Stack：Continuous batching</a></li>
+</ul>  </div> <ul class="reading-article-tags" aria-label="标签" data-astro-cid-2u3pj5z5> <li data-astro-cid-2u3pj5z5>#ai</li><li data-astro-cid-2u3pj5z5>#local-llm</li><li data-astro-cid-2u3pj5z5>#hardware</li> </ul> <section class="reading-products" aria-labelledby="reading-products-title"> <p class="reading-products__eyebrow">MADE BY FIVEHOW</p> <h2 id="reading-products-title">让想法继续生长</h2> <div class="reading-products__grid"> <a class="reading-product" href="/products/aster?lang=zh" data-analytics-event="reading.product.aster.click"> <img src="/assets/products/aster/icon.png" alt="" width="44" height="44" loading="lazy" decoding="async"> <div> <h3>Aster</h3> <p>AI 与日常记录，一个工作空间。</p> <span class="reading-product__link">了解 Aster <span aria-hidden="true">↗</span></span> </div> </a> </div> </section> </div> <aside class="reading-toc-desktop" data-astro-cid-2u3pj5z5> <nav aria-labelledby="reading-toc-title" data-astro-cid-2u3pj5z5> <p id="reading-toc-title" data-astro-cid-2u3pj5z5>本文目录</p> <ol data-astro-cid-2u3pj5z5> <li data-depth="2" data-astro-cid-2u3pj5z5><a href="#一先弄懂一件事想跑得快模型最好整个放进-gpu-能用的内存" data-astro-cid-2u3pj5z5>一、先弄懂一件事：想跑得快，模型最好整个放进 GPU 能用的内存</a></li><li data-depth="3" data-astro-cid-2u3pj5z5><a href="#moe-模型是个例外也是好消息" data-astro-cid-2u3pj5z5>MoE 模型是个例外，也是好消息</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#二第二个数字内存带宽决定速度" data-astro-cid-2u3pj5z5>二、第二个数字：内存带宽决定速度</a></li><li data-depth="3" data-astro-cid-2u3pj5z5><a href="#这个公式什么时候不准" data-astro-cid-2u3pj5z5>这个公式什么时候不准</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#三2026-年-10-月主流选择一览" data-astro-cid-2u3pj5z5>三、2026 年 10 月主流选择一览</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#四按预算怎么买" data-astro-cid-2u3pj5z5>四、按预算怎么买</a></li><li data-depth="3" data-astro-cid-2u3pj5z5><a href="#再按用途做取舍" data-astro-cid-2u3pj5z5>再按用途做取舍</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#五五个常见坑" data-astro-cid-2u3pj5z5>五、五个常见坑</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#六软件怎么选" data-astro-cid-2u3pj5z5>六、软件怎么选</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#最后" data-astro-cid-2u3pj5z5>最后</a></li><li data-depth="2" data-astro-cid-2u3pj5z5><a href="#参考资料" data-astro-cid-2u3pj5z5>参考资料</a></li> </ol> <a class="reading-toc-top" href="#top" data-astro-cid-2u3pj5z5>回到顶部 ↑</a> </nav> </aside> </div> </article> </main> <footer class="reading-footer" aria-label="FiveHow 产品" data-astro-cid-qcchpf5w> <a class="reading-footer-brand" href="/" data-astro-cid-qcchpf5w>FIVEHOW</a> <div class="reading-footer-products" data-astro-cid-qcchpf5w> <a class="reading-footer-product" href="/products/aster?lang=zh" data-astro-cid-qcchpf5w> <strong data-astro-cid-qcchpf5w>Aster</strong> <span data-astro-cid-qcchpf5w> AI 整理工作与生活 ↗ </span> </a><a class="reading-footer-product" href="/now?lang=zh" data-astro-cid-qcchpf5w> <strong data-astro-cid-qcchpf5w>Now</strong> <span data-astro-cid-qcchpf5w> 随手记录 ↗ </span> </a> </div> </footer>  </body></html>
